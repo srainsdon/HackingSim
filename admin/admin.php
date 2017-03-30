@@ -12,5 +12,4 @@ $computer = new computer($sql, "1");
 $data = $computer->getData();
 
 $smarty->assign('data', $data);
-
 $smarty->display('computer.tpl');
