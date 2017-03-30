@@ -28,7 +28,11 @@ class sqlManager
         if ($result->rowCount() > 0) {
             // output data of each row
             while ($row = $result->fetch()) {
-                echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) ."<br>";
+                echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
+                $fs_result = $this->pdo->query("call r_return_tree(" . $row["ComputerID"] . ");");
+                while ($row = $fs_result->fetch()) {
+                    echo $row[1] . "<br />" . PHP_EOL;
+                }
             }
         } else {
             echo "0 results";
