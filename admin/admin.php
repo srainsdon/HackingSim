@@ -48,7 +48,7 @@ echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
 // If the form is valid, do something
 $data = $computer->getComputerInfo();
 $form->addData(array(
-        "IP_Address" => $data['IP Address'],
+        "IP_Address" => $data['IP Address']
     )
 );
 echo $form->render();
