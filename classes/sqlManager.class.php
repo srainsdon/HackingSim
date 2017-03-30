@@ -27,7 +27,7 @@ class sqlManager
 
         if ($result->rowCount() > 0) {
             // output data of each row
-            while ($row = $result->fetch()) {
+            foreach ($result->fetchAll() as $row) {
                 echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
                 $fs_result = $this->pdo->query("call r_return_tree(" . $row["ComputerID"] . ");");
                 foreach ($fs_result->fetchAll() as $res) {
