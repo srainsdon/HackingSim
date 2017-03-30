@@ -29,8 +29,8 @@
 
 class computer
 {
-    private $settings;
     public $fileSystem;
+    private $settings;
     private $hostName;
     private $domainName;
     private $ip;
@@ -50,11 +50,6 @@ class computer
 
     );
 
-    function save()
-    {
-        return json_encode(array($this->id, $this->fileSystem->cmd_pwd()));
-    }
-
     function __construct(sqlManager $sql, $compID, $pwd = '/')
     {
         $info = $sql->getComputerByID($compID);
@@ -66,6 +61,11 @@ class computer
         $this->fileSystem = new fileSystem(json_decode($info['ComputerFiles'], true), $pwd);
     }
 
+    function save()
+    {
+        return json_encode(array($this->id, $this->fileSystem->cmd_pwd()));
+    }
+
     /*function __construct($sql, $compID)
     {
             $this->ip = $this->computers[$compID]['ip'];
@@ -74,6 +74,15 @@ class computer
             $this->settings = json_decode($this->computers[$compID]['settings'], true);
             $this->fileSystem = new fileSystem(json_decode($this->computers[$compID]['fileSystem'], true));
     }*/
+
+    function getData()
+    {
+        return array(
+            'host_name' => $this->hostName,
+            'domain_name' => $this->domainName,
+            'ip_address' => $this->ip,
+        );
+    }
 
     function getComputerInfo()
     {

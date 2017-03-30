@@ -9,7 +9,7 @@
 include_once '../config.php';
 session_start();
 $computer = new computer($sql, "1");
-$data = $computer->getComputerInfo();
+$data = $computer->getData();
 /* Get Nibble Forms 2 instance called mega_form */
 $form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1');
 
