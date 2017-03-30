@@ -45,8 +45,10 @@ echo "<!DOCTYPE html><head><title>Nibble Forms Demo</title>"
 
 
 /* If the form is valid, do something */
+
+echo $form->render();
+echo "</body><script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script></html>";
+
 if ($form->validate()) {
     echo "Form has validated";
 }
-echo $form->render();
-echo "</body><script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script></html>";
