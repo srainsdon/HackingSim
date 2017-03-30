@@ -23,7 +23,7 @@ class adminCommands
 
     function createComputer($hostName, $domain, $ipaddress) {
         $sql = "INSERT INTO Computers (`ComputerHostName`,  `ComputerDomain`,  `ComputerIP`,)"
-                  ." VALUES ($hostName, $domain, $ipaddress)";
+                  ." VALUES ($hostName, $domain, ".ip2long($ipaddress).")";
 
         if ($this->pdo->query($sql) === TRUE) {
             $last_id = $this->pdo->insert_id;

@@ -8,4 +8,4 @@
 
 include_once 'admin.config.php';
 
-$commands->createComputer("www","nunetnetworks.net",'');
+$commands->createComputer("www","nunetnetworks.net",'156.76.235.118');
