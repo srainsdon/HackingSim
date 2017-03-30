@@ -38,7 +38,10 @@ $form->addField('choice', 'radio', array(
 
 echo "<!DOCTYPE html><head><title>Nibble Forms Demo</title>"
     ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>"
-    ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" /></head><body>";
+    ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" />"
+    ."<!-- Bootstrap core CSS -->"
+    ."<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\">"
+    ."</head><body>";
 
 
 /* If the form is valid, do something */
@@ -46,4 +49,4 @@ if ($form->validate()) {
     echo "Form has validated";
 }
 echo $form->render();
-echo "</body></html>";
+echo "</body><script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script></html>";
