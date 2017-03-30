@@ -59,34 +59,31 @@ class fileSystem
 
     function __toString()
     {
-        return $this->fullList($this->FS);
+        ob_start();
+        $this->fullList($this->FS);
+        return ob_get_clean();
     }
 
-    function fullList($a, $num = 0,$path = array(), $message = '')
+    function fullList($a, $num = 0,$path = array())
     {
         $num++;
         if (count($path) < 1)
             $path = $this->path;
         foreach ($a as $k => $v) {
-
             if ($k == "_type")
                 continue;
-            // echo "K: $k<pre>" . print_r($v,true) . "</pre>\n";
-
             if ($v['_type'] == "D") {
                 $path[] = $k;
-                $dir = '/' . implode('/', $path);
+                $dir = "/" . implode('/', $path);
                 $this->tree[$dir] = $v;
-                $message .= "$dir\n";
-                $message .= $this->fullList($v, $num, $path,$message);
+                echo "$dir\n";
+                $this->fullList($v, $num, $path);
             } elseif ($v['_type'] == "F") {
                 $path[] = $k;
-                $message .= '/' . implode('/', $path);
-                $message .= "\n";
+                echo "/" . implode('/', $path), "\n";
             }
             array_pop($path);
         }
-        return $message;
     }
 
     function cmd_cd($dir)
