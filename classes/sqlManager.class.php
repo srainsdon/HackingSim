@@ -23,8 +23,7 @@ class sqlManager
 
     function getAllComputers()
     {
-        $stmt = $this->pdo->query("SELECT * FROM Computers");
-        $result = $this->pdo->query($stmt);
+        $result = $this->pdo->query("SELECT * FROM Computers");
 
         if ($result->num_rows > 0) {
             // output data of each row
