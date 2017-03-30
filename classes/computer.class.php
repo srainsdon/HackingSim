@@ -6,7 +6,6 @@
  * Date: 3/29/2017
  * Time: 5:29 AM
  */
-
 /*
  * $settings = array(
     "services" => array(
@@ -35,16 +34,19 @@ class computer
     private $hostName;
     private $domainName;
     private $ip;
+
     function __construct(sqlManager $sql, $compID)
     {
         $info = $sql->getComputerByID($compID);
         $this->ip = long2ip($info['ComputerIP']);
         $this->hostName = $info['ComputerHostName'];
         $this->domainName = $info['ComputerDomain'];
-        $this->settings = json_decode($info['ComputerSetup'],true);
-        $this->fileSystem = new fileSystem(json_decode($info['ComputerFiles'],true));
+        $this->settings = json_decode($info['ComputerSetup'], true);
+        $this->fileSystem = new fileSystem(json_decode($info['ComputerFiles'], true));
     }
-    function getComputerInfo() {
+
+    function getComputerInfo()
+    {
         return array(
             'FullName' => $this->hostName . "." . $this->domainName,
             'IP Address' => $this->ip,
