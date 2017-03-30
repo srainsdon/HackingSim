@@ -62,9 +62,11 @@ class fileSystem
         return $this->fullList($this->FS);
     }
 
-    function fullList($a, $num = 0, $message = '')
+    function fullList($a, $num = 0,$path = array(), $message = '')
     {
         $num++;
+        if (count($path) < 1)
+            $path = $this->path;
         foreach ($a as $k => $v) {
 
             if ($k == "_type")
@@ -76,7 +78,7 @@ class fileSystem
                 $dir = '/' . implode('/', $path);
                 $this->tree[$dir] = $v;
                 $message .= "$dir\n";
-                $message .= $this->fullList($v, $num, $path);
+                $message .= $this->fullList($v, $num, $path,$message);
             } elseif ($v['_type'] == "F") {
                 $path[] = $k;
                 $message .= '/' . implode('/', $path);
