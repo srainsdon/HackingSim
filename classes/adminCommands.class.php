@@ -14,7 +14,7 @@ class adminCommands
     {
         $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         $opt = [
-            PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
         ];
@@ -29,7 +29,7 @@ class adminCommands
             $last_id = $this->pdo->insert_id;
             echo "New record created successfully. Last inserted ID is: " . $last_id;
         } else {
-            echo "Error: " . $sql . "<br>" . $this->pdo->error;
+            echo "Error: " . $sql . "<br>" . $this->pdo->errorInfo();
         }
     }
 }
