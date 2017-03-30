@@ -1,3 +1,4 @@
+{$debug}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
                 <div class="panel-body">
                     {foreach $data as $key=>$var}
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="{$key}">{$key}:</label>
+                            <label class="control-label col-sm-2" for="{$key}">{$key|capitalize}:</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
                             </div>
