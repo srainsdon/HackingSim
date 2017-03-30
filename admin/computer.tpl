@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="panel panel-default">
+    <div class="panel-heading">{$title|default:'Computer Info'}</div>
     <div class="panel-body">
         <form class="form-horizontal">
             <div class="panel panel-default">
