@@ -44,7 +44,7 @@ echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
     ."</head><body>\n";
 
 
-/* If the form is valid, do something */
+// If the form is valid, do something
 
 echo $form->render();
 echo "\n<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script>\n</body>\n</html>";
