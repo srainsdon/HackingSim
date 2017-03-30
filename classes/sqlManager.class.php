@@ -28,7 +28,7 @@ class sqlManager
         if ($result->rowCount() > 0) {
             // output data of each row
             while ($row = $result->fetch()) {
-                echo "id: " . $row["ComputerID"] . " - FCDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) ."<br>";
+                echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) ."<br>";
             }
         } else {
             echo "0 results";
