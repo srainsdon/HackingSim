@@ -36,7 +36,7 @@ $form->addField('choice', 'radio', array(
 ));
 
 
-echo "<html><head><title>Nibble Forms Demo</title>"
+echo "<!DOCTYPE html><head><title>Nibble Forms Demo</title>"
     ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>"
     ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" /></head><body>";
 
