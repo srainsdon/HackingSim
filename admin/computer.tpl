@@ -9,23 +9,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form class="form-horizontal">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            {foreach $data as $key=>$var}
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="{$key}">{$key}:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
-                    </div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {foreach $data as $key=>$var}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="{$key}">{$key}:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
+                            </div>
+                        </div>
+                    {/foreach}
                 </div>
-            {/foreach}
-        </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
-        </div>
-    </div>
-</form>
+</div>
 </body>
