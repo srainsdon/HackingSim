@@ -73,13 +73,13 @@ class fileSystem
 
             if ($v['_type'] == "D") {
                 $path[] = $k;
-                $dir = "/" . implode('/', $path);
+                $dir = '/' . implode('/', $path);
                 $this->tree[$dir] = $v;
-                $message .= "$dir<br />\n";
+                $message .= "$dir\n";
                 $message .= $this->fullList($v, $num, $path);
             } elseif ($v['_type'] == "F") {
                 $path[] = $k;
-                $message .= "/" . implode('/', $path);
+                $message .= '/' . implode('/', $path);
                 $message .= "\n";
             }
             array_pop($path);
