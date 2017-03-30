@@ -20,7 +20,24 @@ class sqlManager
         ];
         $this->pdo = new PDO($dsn, $user, $pass, $opt);
     }
-    function getComputerByID($id){
+
+    function getAllComputers()
+    {
+        $stmt = $this->pdo->query("SELECT * FROM Computers");
+        $result = $this->pdo->query($stmt);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                echo "id: " . $row["ComputerID"] . " - FCDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) ."<br>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
+
+    function getComputerByID($id)
+    {
         $stmt = $this->pdo->query("SELECT * FROM Computers where ComputerID = $id");
         $computer = $stmt->fetch();
         return $computer;
