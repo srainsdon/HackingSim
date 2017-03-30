@@ -7,7 +7,8 @@
  */
 
 include_once '../config.php';
-
+session_start();
+include("$base/vendor/pfbc/pfbc/PFBC/Form.php");
 $form = new PFBC\Form("GettingStarted");
 $form->addElement(new PFBC\Element\Textbox("My Textbox:", "MyTextbox"));
 $form->addElement(new PFBC\Element\Select("My Select:", "MySelect", array(
