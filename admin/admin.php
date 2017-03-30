@@ -40,9 +40,10 @@ echo "<!DOCTYPE html><head><title>Nibble Forms Demo</title>"
     ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>"
     ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" /></head><body>";
 
-echo $form->render();
-echo "</body></html>";
+
 /* If the form is valid, do something */
 if ($form->validate()) {
     echo "Form has validated";
 }
+echo $form->render();
+echo "</body></html>";
