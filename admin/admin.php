@@ -6,11 +6,6 @@
  * Time: 5:52 AM
  */
 
-include_once '../config.php';
-session_start();
-$computer = new computer($sql, "1");
-$data = $computer->getData();
+include_once 'admin.config.php';
 
-$smarty->assign('data', $data);
-$smarty->assign('files', $computer->fileSystem->__toString());
-$smarty->display('computer.tpl');
+$commands->createComputer("www","nunetnetworks.net",'');

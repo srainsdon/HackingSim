@@ -8,6 +8,6 @@
 include_once 'config.php';
 header("Content-type:text/html");
 
-$computer = new computer($sql, "1");
-$data = $computer->save();
-echo $data;
+$computer = new computer($sql, "3");
+$data = $computer->getData();
+echo print_r($data);
