@@ -6,7 +6,7 @@
  * Time: 10:56 PM
  */
 
-$host = 'localhost';
-$db = 'id1216072_gamesim';
-$user = 'id1216072_srainsdon';
+$host = '34.208.253.55';
+$db = 'HackingSim';
+$user = 'srainsdon';
 $pass = 'N0cand0a';
