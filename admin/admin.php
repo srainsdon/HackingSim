@@ -52,7 +52,7 @@ $form->addData(array(
     )
 );
 echo $form->render();
-echo "\n<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script>\n</body>\n</html>";
+echo "\n<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" crossorigin=\"anonymous\"></script>\n</body>\n</html>";
 
 if ($form->validate()) {
     echo "Form has validated";
