@@ -14,7 +14,7 @@ session_start();
 require 'vendor/autoload.php';
 $base = $_SERVER["DOCUMENT_ROOT"];
 include_once "$base/classes/sqlManager.class.php";
-//include_once "$base/../config/db.config.php";
+include_once "$base/db.config.php";
 $sql = new sqlManager($host, $db, $user, $pass);
 $smarty = new Smarty;
 
