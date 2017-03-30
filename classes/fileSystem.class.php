@@ -79,7 +79,8 @@ class fileSystem
                 $message .= $this->fullList($v, $num, $path);
             } elseif ($v['_type'] == "F") {
                 $path[] = $k;
-                $message .= "/" . implode('/', $path) . "<br />\n";
+                $message .= "/" . implode('/', $path);
+                $message .= "\n";
             }
             array_pop($path);
         }
