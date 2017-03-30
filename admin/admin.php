@@ -14,7 +14,7 @@ $data = $computer->getData();
 $form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1');
 
 /* Text field with custom class and max length attribute */
-foreach ($data as $k)
+foreach ($data as $k => $v)
 $form->addField("$k", 'text', array(
     'class' => 'testy classes',
     'max_length' => 20
