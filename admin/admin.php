@@ -14,12 +14,16 @@ $data = $computer->getData();
 $form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1');
 
 /* Text field with custom class and max length attribute */
-foreach ($data as $k => $v)
-$form->addField("$k", 'text', array(
-    'class' => 'testy classes',
-    'max_length' => 20
-));
-
+foreach ($data as $k => $v) {
+    $form->addField($k, 'text', array(
+        'class' => 'testy classes',
+        'max_length' => 20
+    ));
+    $form->addData(array(
+            $k => $data[$k]
+        )
+    );
+}
 /* Radio button field with two options, first option has an additional attribute */
 $form->addField('choice', 'radio', array(
     'choices' => array(
@@ -39,10 +43,7 @@ echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
 
 // If the form is valid, do something
 
-$form->addData(array(
-        "ip_address" => $data['IP Address']
-    )
-);
+
 echo $form->render();
 echo "\n<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script>\n<script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\" crossorigin=\"anonymous\"></script>\n</body>\n</html>";
 
