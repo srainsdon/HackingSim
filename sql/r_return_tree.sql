@@ -13,7 +13,7 @@ BEGIN
 -- Mostly for HTML select boxes
 	
     SELECT n.fsID,
-      CONCAT( REPEAT(' . . ', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name
+      CONCAT( REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name
     FROM FileSystems AS n, FileSystems AS p
     WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) and n.Computer = computerID
     GROUP BY fsID

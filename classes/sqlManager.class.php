@@ -30,9 +30,8 @@ class sqlManager
             while ($row = $result->fetch()) {
                 echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
                 $fs_result = $this->pdo->query("call r_return_tree(" . $row["ComputerID"] . ");");
-                while ($row = $fs_result->fetch()) {
-                    echo $row[1] . "<br />" . PHP_EOL;
-                }
+                $fsDump = $fs_result->fetchAll();
+                    echo "<pre>" . print_r($fsDump) ."</pre>";
             }
         } else {
             echo "0 results";
