@@ -25,9 +25,9 @@ class sqlManager
     {
         $result = $this->pdo->query("SELECT * FROM Computers");
 
-        if ($result->num_rows > 0) {
+        if ($result->rowCount() > 0) {
             // output data of each row
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch()) {
                 echo "id: " . $row["ComputerID"] . " - FCDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) ."<br>";
             }
         } else {
