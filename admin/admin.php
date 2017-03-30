@@ -11,7 +11,7 @@ session_start();
 $computer = new computer($sql, "1");
 $data = $computer->getData();
 /* Get Nibble Forms 2 instance called mega_form */
-$form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1');
+$form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1','',true,'post','Submit',"table");
 
 /* Text field with custom class and max length attribute */
 foreach ($data as $k => $v) {
@@ -24,14 +24,6 @@ foreach ($data as $k => $v) {
         )
     );
 }
-/* Radio button field with two options, first option has an additional attribute */
-$form->addField('choice', 'radio', array(
-    'choices' => array(
-        "one" => array('data-example' => 'data-attribute-value', 'Choice One'),
-        "two" => "Choice Two"),
-    'false_values' => array("two")
-));
-
 
 echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
     . "<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>\n"
