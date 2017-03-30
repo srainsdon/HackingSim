@@ -34,7 +34,14 @@ $form->addField('choice', 'radio', array(
         "two" => "Choice Two"),
     'false_values' => array("two")
 ));
+
+
+echo "<html><head><title>Nibble Forms Demo</title>"
+    ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>"
+    ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" /></head><body>";
+
 echo $form->render();
+echo "</body></html>";
 /* If the form is valid, do something */
 if ($form->validate()) {
     echo "Form has validated";
