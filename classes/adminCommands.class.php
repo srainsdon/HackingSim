@@ -26,7 +26,7 @@ class adminCommands
                   ." VALUES ('$hostName', '$domain', '".ip2long($ipaddress)."')";
         echo $sql;
         if ($this->pdo->query($sql) == TRUE) {
-            $last_id = $this->pdo->insert_id;
+            $last_id = $this->pdo->lastInsertId();
             echo "New record created successfully. Last inserted ID is: " . $last_id;
         } else {
             echo "Error: " . $sql . "<br>" . $this->pdo->errorCode();
