@@ -6,7 +6,8 @@
  * Time: 4:36 AM
  */
 include_once 'config.php';
-header("Content-type:text/plain");
-$sql = new sqlManager();
-$computer = new computer($sql, "3");
-$computer->fileSystem->showFileSystem();
+header("Content-type:text/html");
+
+$computer = new computer($sql, "1");
+$data = $computer->save();
+echo $data;

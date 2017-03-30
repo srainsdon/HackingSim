@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dd2224ff5d7012bea55d61a57f7b1a",
+    "content-hash": "b89fb8657e8531895d6e753b198d0060",
     "packages": [
+        {
+            "name": "pfbc/pfbc",
+            "version": "3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lkorth/php-form-builder-class.git",
+                "reference": "e1f9c25b71ee82c60a62a61de63a5926f9d8fc17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lkorth/php-form-builder-class/zipball/e1f9c25b71ee82c60a62a61de63a5926f9d8fc17",
+                "reference": "e1f9c25b71ee82c60a62a61de63a5926f9d8fc17",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PFBC": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL v3"
+            ],
+            "authors": [
+                {
+                    "email": "ajporterfield@gmail.com",
+                    "role": "Owner"
+                },
+                {
+                    "email": "moncojhr@gmail.com",
+                    "role": "Committer"
+                }
+            ],
+            "description": "Rapid form bulding in PHP",
+            "homepage": "http://code.google.com/p/php-form-builder-class/",
+            "keywords": [
+                "form",
+                "html",
+                "php"
+            ],
+            "time": "2014-03-14T04:14:24+00:00"
+        },
         {
             "name": "smarty/smarty",
             "version": "dev-master",
