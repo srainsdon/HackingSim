@@ -22,8 +22,9 @@ class adminCommands
     }
 
     function createComputer($hostName, $domain, $ipaddress) {
-        $sql = "INSERT INTO Computers (`ComputerHostName`,  `ComputerDomain`,  `ComputerIP`,)"
+        $sql = "INSERT INTO Computers ('ComputerHostName',  'ComputerDomain',  'ComputerIP',)"
                   ." VALUES ('$hostName', '$domain', '".ip2long($ipaddress)."')";
+        echo $sql;
         if ($this->pdo->query($sql) === TRUE) {
             $last_id = $this->pdo->insert_id;
             echo "New record created successfully. Last inserted ID is: " . $last_id;
