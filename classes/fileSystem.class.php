@@ -8,36 +8,80 @@
  */
 class fileSystem
 {
+    public $tree = array();
     private $FS = array();
     private $num = 0;
+    private $path = array();
+    private $pwd;
 
-    function __construct($data)
+    function __construct($data, $pwd = '/')
     {
         $this->FS = $data;
+        $this->tree['/'] = $data;
+        $this->pwd = $pwd;
     }
 
     function showFileSystem()
     {
-        print_r($this->FS);
-        echo $this->printAll($this->FS);
-        echo $this->array_depth($this->FS);
+        // print_r($this->FS);
+        echo $this->prosses($this->FS);
     }
 
-    function printAll($a, $num = 0) {
+    function prosses($a, $num = 0, $path = array())
+    {
+        // echo "A:<pre>" . print_r($a,true) . "</pre>\n";
         $num++;
-        if (!is_array($a)) {
-            echo str_repeat(" ", $num-1);
-            echo $a, "\n";
+
+        if (count($path) < 1)
+            $path = $this->path;
+        /*if (!is_array($a)) {
+            echo "$a<br />\n";
             return;
-        }
-        foreach($a as $k => $v) {
-            echo str_repeat(" ", $num-1);
-            echo $k, "\n";
-            $this->printAll($v, $num);
+        }*/
+        foreach ($a as $k => $v) {
+            if ($k == "_type")
+                continue;
+            // echo "K: $k<pre>" . print_r($v,true) . "</pre>\n";
+
+            if ($v['_type'] == "D") {
+                $path[] = $k;
+                $dir = "/" . implode('/', $path);
+                $this->tree[$dir] = $v;
+                // echo "$dir<br />\n";
+                $this->prosses($v, $num, $path);
+            } elseif ($v['_type'] == "F") {
+                $path[] = $k;
+                // echo "/" . implode('/', $path), "<br />\n";
+            }
+            array_pop($path);
         }
     }
-    function getFSstring($x) {
 
+    function cmd_cd($dir)
+    {
+        if ($this->tree[$dir]) {
+            $this->pwd = $dir;
+        }
+        return $this->pwd;
     }
 
+    function cmd_ls()
+    {
+        echo "<pre>Listing for {$this->pwd}\n\n";
+        foreach ($this->tree[$this->pwd] as $k => $v) {
+            if ($k == "_type")
+                continue;
+            if ($v['_type'] == "D") {
+                echo "$k/\n";
+            } elseif ($v['_type'] == "F") {
+                echo "$k\n";
+            }
+        }
+        echo "</pre>\n";
+    }
+
+    function cmd_pwd()
+    {
+        return $this->pwd;
+    }
 }
