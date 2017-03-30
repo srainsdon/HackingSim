@@ -29,7 +29,7 @@ class adminCommands
             $last_id = $this->pdo->insert_id;
             echo "New record created successfully. Last inserted ID is: " . $last_id;
         } else {
-            echo "Error: " . $sql . "<br>" . print_r($this->pdo->errorInfo(),true);
+            echo "Error: " . $sql . "<br>" . $this->pdo->errorCode();
         }
     }
 }
