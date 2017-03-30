@@ -10,14 +10,18 @@
 </head>
 <body>
 <form class="form-horizontal">
-    {foreach $data as $key=>$var}
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="{$key}">{$key}:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {foreach $data as $key=>$var}
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="{$key}">{$key}:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
+                    </div>
+                </div>
+            {/foreach}
         </div>
     </div>
-    {/foreach}
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Submit</button>
