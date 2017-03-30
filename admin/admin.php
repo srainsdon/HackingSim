@@ -36,18 +36,18 @@ $form->addField('choice', 'radio', array(
 ));
 
 
-echo "<!DOCTYPE html><head><title>Nibble Forms Demo</title>"
-    ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>"
-    ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" />"
-    ."<!-- Bootstrap core CSS -->"
-    ."<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\">"
-    ."</head><body>";
+echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
+    ."<script src=\"http://www.google.com/jsapi\" type=\"textjavascript\"></script>\n"
+    ."<link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"style.css\" />\n"
+    ."<!-- Bootstrap core CSS -->\n"
+    ."<link href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" rel=\"stylesheet\">\n"
+    ."</head><body>\n";
 
 
 /* If the form is valid, do something */
 
 echo $form->render();
-echo "<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script></body></html>";
+echo "\n<script src=\"//code.jquery.com/jquery-3.1.1.min.js\" crossorigin=\"anonymous\"></script>\n</body>\n</html>";
 
 if ($form->validate()) {
     echo "Form has validated";
