@@ -57,6 +57,35 @@ class fileSystem
         }
     }
 
+    function __toString()
+    {
+        return $this->fullList($this->FS);
+    }
+
+    function fullList($a, $num = 0, $message = '')
+    {
+        $num++;
+        foreach ($a as $k => $v) {
+
+            if ($k == "_type")
+                continue;
+            // echo "K: $k<pre>" . print_r($v,true) . "</pre>\n";
+
+            if ($v['_type'] == "D") {
+                $path[] = $k;
+                $dir = "/" . implode('/', $path);
+                $this->tree[$dir] = $v;
+                $message .= "$dir<br />\n";
+                $message .= $this->fullList($v, $num, $path);
+            } elseif ($v['_type'] == "F") {
+                $path[] = $k;
+                $message .= "/" . implode('/', $path) . "<br />\n";
+            }
+            array_pop($path);
+        }
+        return $message;
+    }
+
     function cmd_cd($dir)
     {
         if ($this->tree[$dir]) {

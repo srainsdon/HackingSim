@@ -12,4 +12,5 @@ $computer = new computer($sql, "1");
 $data = $computer->getData();
 
 $smarty->assign('data', $data);
+$smarty->assign('files', $computer->fileSystem->__toString());
 $smarty->display('computer.tpl');

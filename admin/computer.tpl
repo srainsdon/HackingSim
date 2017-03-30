@@ -1,4 +1,3 @@
-{debug}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +24,10 @@
                         </div>
                     {/foreach}
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="files">File System:</label>
+                <textarea id="files">{$files}</textarea>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
