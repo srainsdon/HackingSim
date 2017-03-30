@@ -18,9 +18,9 @@
                 <div class="panel-body">
                     {foreach $data as $key=>$var}
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="{$key}">{$key|capitalize}:</label>
+                            <label class="control-label col-sm-2" for="{$key}">{$key|capitalize|replace:'_':' '}:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="{$key}" placeholder="{$key}" value="{$var}">
+                                <input type="text" class="form-control" id="{$key}" placeholder="{$key|capitalize|replace:'_':' '}" value="{$var}">
                             </div>
                         </div>
                     {/foreach}
