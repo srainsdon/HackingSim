@@ -9,23 +9,15 @@
 include_once '../config.php';
 session_start();
 $computer = new computer($sql, "1");
+$data = $computer->getComputerInfo();
 /* Get Nibble Forms 2 instance called mega_form */
 $form = \Nibble\NibbleForms\NibbleForm::getInstance('ComputerID1');
 
 /* Text field with custom class and max length attribute */
-$form->addField('IP_Address', 'text', array(
+foreach ($data as $k)
+$form->addField('$k', 'text', array(
     'class' => 'testy classes',
     'max_length' => 20
-));
-
-/* Email field, not required and custom label text */
-$email = $form->addfield('email', 'email', array(
-    'required' => false,
-    'label' => 'Please enter your email address'
-));
-/* Email confirmation field which must match the value for email */
-$email->addConfirmation('confirm_email', array(
-    'label' => 'Please confirm your email address'
 ));
 
 /* Radio button field with two options, first option has an additional attribute */
@@ -46,7 +38,7 @@ echo "<!DOCTYPE html>\n<head>\n<title>Nibble Forms Demo</title>\n"
 
 
 // If the form is valid, do something
-$data = $computer->getComputerInfo();
+
 $form->addData(array(
         "ip_address" => $data['IP Address']
     )
