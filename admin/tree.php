@@ -26,8 +26,8 @@ if (isset($_POST['insert'])) {
         . " UPDATE FileSystems SET fsLft = fsLft + 2 WHERE fsLft > new_lft;"
         . " INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES (new_lft, (new_lft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");"
         . " SELECT LAST_INSERT_ID();";
-    $prep = $pdo->prepare($sql);
-    $prep->execute();
+    echo $sql;
+    $prep = $pdo->query($sql);
     $newNodeId = (int)$prep->fetchColumn();
 }
 
