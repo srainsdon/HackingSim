@@ -77,7 +77,7 @@ $selectOptions = $prep->fetchAll(PDO::FETCH_OBJ);
 //current tree structure
 $tree = '';
 foreach ($selectOptions as $key => $row) {
-    $tree .= sprintf('%s' . PHP_EOL, $row->fsName);
+    $tree .= sprintf('%s' . PHP_EOL, $row->name);
 }
 print_r($selectOptions);
 echo rtrim($tree, PHP_EOL);
