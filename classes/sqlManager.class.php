@@ -37,7 +37,7 @@ class sqlManager
             $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
             $stmt->execute();
             $data = $stmt->fetchAll();
-            foreach ($data as $line) { // TODO Move this over to a function of its own...
+            foreach ($data as $line) { // TODO Move this over to a function of its own....
                 echo $line['Name'] . "\n";
             }
         }
