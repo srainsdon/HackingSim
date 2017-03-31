@@ -30,16 +30,18 @@ class sqlManager
             . " GROUP BY n.fsID"
             . " ORDER BY n.fsLft;";
         $stmt = $this->pdo->prepare($sql2);
-        $result = $this->pdo->query($sql1)->fetchAll(PDO::FETCH_COLUMN);
+        $result = $this->pdo->query($sql1)->fetchAll();
         foreach ($result as $row) {
             echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
 
             $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
+
             $stmt->execute();
-            $data = $stmt->fetchAll();
-            foreach ($data as $line) { // TODO Move this over to a function of its own....
-                echo $line['Name'] . "\n";
-            }
+            $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
+//            foreach ($data as $line) { // TODO Move this over to a function of its own....
+//                echo $line['Name'] . "\n";
+//            }
+            print_r($data);
         }
     }
 
