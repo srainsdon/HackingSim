@@ -49,7 +49,7 @@ if (isset($_POST['order']) && ($_POST['node_id'] != $_POST['under_node_id'])) {
 //for HTML selects
 $sql = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
     . " FROM FileSystems AS n, FileSystems AS p"
-    . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt)"
+    . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = 3"
     . " GROUP BY n.Computer"
     . " ORDER BY n.fsLft;";
 $prep = $pdo->prepare($sql);
