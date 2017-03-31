@@ -71,7 +71,6 @@ $selectOptions = $prep->fetchAll(PDO::FETCH_OBJ);
         <h1><span class="glyphicon glyphicon-tree-deciduous"></span> Tree Traversal Examples</h1>
         <p><a href="https://github.com/werc/TreeTraversal">github.com/werc/TreeTraversal</a></p>
     </div>
-    <pre><?= $sql ?></pre>
     <pre>
 <?php
 //current tree structure
