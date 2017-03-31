@@ -21,28 +21,28 @@ if (isset($_POST['insert'])) {
     $prep->execute();
     $newNodeId = (int)$prep->fetchColumn();
 
-    $sql = "INSERT INTO tree_content (node_id, name) VALUES (?,?)";
+    $sql = "INSERT INTO tree_content (fsID, name) VALUES (?,?)";
     $prep = $pdo->prepare($sql);
     $prep->execute(array($newNodeId, $_POST['node_name']));
 }
 
 //deleting node
 if (isset($_POST['delete'])) {
-    $sql = "CALL r_tree_traversal('delete', {$_POST['node_id']}, NULL);";
+    $sql = "CALL r_tree_traversal('delete', {$_POST['fsID']}, NULL);";
     $prep = $pdo->prepare($sql);
     $prep->execute();
 }
 
 //moving node
-if (isset($_POST['move']) && ($_POST['node_id'] != $_POST['new_parent_id'])) {
-    $sql = "CALL r_tree_traversal('move', {$_POST['node_id']}, {$_POST['new_parent_id']});";
+if (isset($_POST['move']) && ($_POST['fsID'] != $_POST['new_parent_id'])) {
+    $sql = "CALL r_tree_traversal('move', {$_POST['fsID']}, {$_POST['new_parent_id']});";
     $prep = $pdo->prepare($sql);
     $prep->execute();
 }
 
 //order node in branch = same parent_id
-if (isset($_POST['order']) && ($_POST['node_id'] != $_POST['under_node_id'])) {
-    $sql = "CALL r_tree_traversal('order', {$_POST['node_id']}, {$_POST['under_node_id']});";
+if (isset($_POST['order']) && ($_POST['fsID'] != $_POST['under_fsID'])) {
+    $sql = "CALL r_tree_traversal('order', {$_POST['fsID']}, {$_POST['under_fsID']});";
     $prep = $pdo->prepare($sql);
     $prep->execute();
 }
@@ -77,8 +77,9 @@ $selectOptions = $prep->fetchAll(PDO::FETCH_OBJ);
 //current tree structure
 $tree = '';
 foreach ($selectOptions as $key => $row) {
-    $tree .= sprintf('%s' . PHP_EOL, $row->name);
+    $tree .= sprintf('%s' . PHP_EOL, $row->fsName);
 }
+print_r($tree);
 echo rtrim($tree, PHP_EOL);
 ?>  
 </pre>
@@ -92,7 +93,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="parent_id" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- parent -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="insert" class="btn btn-default">Insert</button>';
@@ -104,10 +105,10 @@ echo rtrim($tree, PHP_EOL);
     <?php
     echo '<form method="POST" class="form-inline">';
     echo '<div class="form-group">';
-    echo '<select name="node_id" class="form-control">';
+    echo '<select name="fsID" class="form-control">';
     foreach ($selectOptions as $key => $row) {
-        if ($row->node_id > 1) { //do not delete root
-            printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        if ($row->fsID > 1) { //do not delete root
+            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
         }
     }
     echo '</select></div>';
@@ -120,11 +121,11 @@ echo rtrim($tree, PHP_EOL);
     <?php
     echo '<form method="POST" class="form-inline">';
     echo '<div class="form-group">';
-    echo '<select name="node_id" class="form-control">';
+    echo '<select name="fsID" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- move -');
     foreach ($selectOptions as $key => $row) {
-        if ($row->node_id > 1) { //do not move root
-            printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        if ($row->fsID > 1) { //do not move root
+            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
         }
     }
     echo '</select></div>';
@@ -132,7 +133,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="new_parent_id" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- new parent -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="move" class="btn btn-default">Move</button>';
@@ -144,19 +145,19 @@ echo rtrim($tree, PHP_EOL);
     <?php
     echo '<form method="POST" class="form-inline">';
     echo '<div class="form-group">';
-    echo '<select name="node_id" class="form-control">';
+    echo '<select name="fsID" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- order -');
     foreach ($selectOptions as $key => $row) {
-        if ($row->node_id > 1) { //do not move root
-            printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        if ($row->fsID > 1) { //do not move root
+            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
         }
     }
     echo '</select></div>';
     echo '<div class="form-group">&nbsp;';
-    echo '<select name="under_node_id" class="form-control">';
+    echo '<select name="under_fsID" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- under node with same parent! -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->node_id, $row->name);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="order" class="btn btn-default">Order</button>';
