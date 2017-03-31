@@ -35,7 +35,7 @@ class sqlManager
         foreach ($result as $row) {
             echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
 
-            $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
+            $stmt->bindParam(':CompID', $row["ComputerID"], ':CompID', $row["ComputerID"], PDO::PARAM_INT);
 
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
