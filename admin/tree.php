@@ -3,10 +3,9 @@
  * Example of using r_tree_traversal() MySQL stored procedure.
  */
 
-$host = '34.208.253.55';
-$db = 'HackingSim';
-$user = 'srainsdon';
-$pass = 'N0cand0a';
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 $dsn = 'mysql:host=34.208.253.55;dbname=HackingSim';
 $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
