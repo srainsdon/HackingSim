@@ -25,8 +25,6 @@ if (isset($_POST['insert'])) {
     $upDateLft = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE Computer = $compID and fsRgt >= $new_fsLft;");
     $addNew = $pdo->query("INSERT INTO FileSystems (fsLft, fsRgt, Computer, fsParent, fsName) VALUES ($new_fsLft, ($new_fsLft + 1), $compID, " . $_POST['parent_id'] . ", '" . $_POST['node_name'] . "');");
     echo "<pre>" . print_r(array("NewLft" => $new_fsLft, 'UpDateRgt' => $upDateRgt, 'UpDateLft' => $upDateLft, 'addNew' => $addNew)) . "</pre>";
-    $prep = $pdo->query($sql);
-    $newNodeId = (int)$prep->fetchColumn();
 }
 
 //deleting node
