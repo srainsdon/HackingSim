@@ -23,12 +23,11 @@ class sqlManager
 
     function getAllComputers()
     {
-        $result = $this->pdo->query("SELECT * FROM Computers");
+        $result = $this->pdo->query("SELECT * FROM Computers")->fetchAll();
 
-        if ($result->rowCount() > 0) {
+        if (count($result) > 0) {
             // output data of each row
-            $data = $result->fetchAll();
-            foreach ($data as $row) {
+            foreach ($result as $row) {
                 echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
                 $fs_result = $this->pdo->query("call r_return_tree(" . $row["ComputerID"] . ");");
                 foreach ($fs_result->fetchAll() as $res) {
