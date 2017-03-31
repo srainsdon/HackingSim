@@ -24,7 +24,7 @@ class sqlManager
     function getAllComputers()
     {
         $sql1 = "SELECT `ComputerID`,  `ComputerHostName`,  `ComputerDomain`,  `ComputerIP` FROM `Computers`";
-        $sql2 = "SELECT n.fsID, CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
+        $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
             . " FROM FileSystems AS n, FileSystems AS p"
             . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID"
             . " GROUP BY fsID"
