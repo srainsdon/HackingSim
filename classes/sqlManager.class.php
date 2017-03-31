@@ -29,10 +29,8 @@ class sqlManager
             // output data of each row
             foreach ($result as $row) {
                 echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
-                $fs_result = $this->pdo->query("call r_return_tree(" . $row["ComputerID"] . ");");
-                foreach ($fs_result->fetchAll() as $res) {
-                    echo $res[1] . "<br />" . PHP_EOL;
-                }
+                $fs_result = $this->pdo->query("call r_return_tree(" . $row['ComputerID'] . ");")->fetchAll();
+                echo implode("<br />\n", $fs_result);
             }
         } else {
             echo "0 results";
