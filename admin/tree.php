@@ -7,6 +7,10 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+$compID = 3;
+if (isset($_GET['CompID']))
+    $compID = $_GET['CompID'];
+
 $dsn = 'mysql:host=34.208.253.55;dbname=HackingSim';
 $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -50,7 +54,7 @@ if (isset($_POST['order']) && ($_POST['fsID'] != $_POST['under_fsID'])) {
 //for HTML selects
 $sql = "SELECT n.fsID, CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS name"
     . " FROM FileSystems AS n, FileSystems AS p"
-    . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = 3"
+    . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = $compID"
     . " GROUP BY n.fsID"
     . " ORDER BY n.fsLft;";
 $prep = $pdo->prepare($sql);
@@ -91,7 +95,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="parent_id" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- parent -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->name);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="insert" class="btn btn-default">Insert</button>';
