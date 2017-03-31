@@ -37,7 +37,6 @@ class sqlManager
             $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
             implode("<br />\n", $stmt->execute()->fetchAll());
         }
-
     }
 
     function getComputerByID($id)
