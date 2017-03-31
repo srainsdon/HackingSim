@@ -9,9 +9,11 @@ $user = 'srainsdon';
 $pass = 'N0cand0a';
 
 $dsn = 'mysql:host=34.208.253.55;dbname=HackingSim';
-$pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"
-));
+$pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+]);
 
 //inserting node
 if (isset($_POST['insert'])) {
