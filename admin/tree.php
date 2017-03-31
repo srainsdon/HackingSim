@@ -79,7 +79,6 @@ $tree = '';
 foreach ($selectOptions as $key => $row) {
     $tree .= sprintf('%s' . PHP_EOL, $row->name);
 }
-print_r($selectOptions);
 echo rtrim($tree, PHP_EOL);
 ?>  
 </pre>
