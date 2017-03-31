@@ -20,13 +20,11 @@ $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
 
 //inserting node
 if (isset($_POST['insert'])) {
-    $sql = "DECLARE new_lft, new_rgt, width, has_leafs, superior, superior_parent, old_lft, old_rgt, parent_rgt, subtree_size SMALLINT;"
-        . " SELECT rgt INTO new_lft FROM FileSystems WHERE node_id = pparent_id;"
-        . " UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= new_lft;"
-        . " UPDATE FileSystems SET fsLft = fsLft + 2 WHERE fsLft > new_lft;"
-        . " INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES (new_lft, (new_lft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");"
-        . " SELECT LAST_INSERT_ID();";
-    echo $sql;
+    $new_fsLft = $pdo->query("SELECT fsRgt FROM FileSystems WHERE fsID = 10;")->fetchColumn();
+    $upDateRgt = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= $new_fsLft;");
+    $upDateLft = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= $new_fsLft;");
+    $addNew = $pdo->query("INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES (new_lft, (new_lft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");");
+    echo "<pre>" . print_r(array("NewLft" => $new_fsLft, 'UpDateRgt' => $upDateRgt, 'UpDateLft' => $upDateLft, 'addNew' => $addNew)) . "</pre>";
     $prep = $pdo->query($sql);
     $newNodeId = (int)$prep->fetchColumn();
 }
