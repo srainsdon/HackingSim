@@ -36,7 +36,8 @@ class sqlManager
 
             $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
             $stmt->execute();
-            implode("<br />\n", $stmt->fetchAll());
+            $data = $stmt->fetchAll();
+            echo implode("<br />\n", $data);
         }
     }
 
