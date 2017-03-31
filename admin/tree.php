@@ -107,7 +107,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="fsID" class="form-control">';
     foreach ($selectOptions as $key => $row) {
         if ($row->fsID > 1) { //do not delete root
-            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+            printf('<option value="%s">%s</option>', $row->fsID, $row->name);
         }
     }
     echo '</select></div>';
@@ -124,7 +124,7 @@ echo rtrim($tree, PHP_EOL);
     printf('<option value="%s">%s</option>', '', '- move -');
     foreach ($selectOptions as $key => $row) {
         if ($row->fsID > 1) { //do not move root
-            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+            printf('<option value="%s">%s</option>', $row->fsID, $row->name);
         }
     }
     echo '</select></div>';
@@ -132,7 +132,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="new_parent_id" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- new parent -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->name);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="move" class="btn btn-default">Move</button>';
@@ -148,7 +148,7 @@ echo rtrim($tree, PHP_EOL);
     printf('<option value="%s">%s</option>', '', '- order -');
     foreach ($selectOptions as $key => $row) {
         if ($row->fsID > 1) { //do not move root
-            printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+            printf('<option value="%s">%s</option>', $row->fsID, $row->name);
         }
     }
     echo '</select></div>';
@@ -156,7 +156,7 @@ echo rtrim($tree, PHP_EOL);
     echo '<select name="under_fsID" class="form-control">';
     printf('<option value="%s">%s</option>', '', '- under node with same parent! -');
     foreach ($selectOptions as $key => $row) {
-        printf('<option value="%s">%s</option>', $row->fsID, $row->fsName);
+        printf('<option value="%s">%s</option>', $row->fsID, $row->name);
     }
     echo '</select></div>';
     echo '&nbsp;<button type="submit" name="order" class="btn btn-default">Order</button>';
