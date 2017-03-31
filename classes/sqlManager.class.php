@@ -26,7 +26,7 @@ class sqlManager
         $sql1 = "SELECT `ComputerID`,  `ComputerHostName`,  `ComputerDomain`,  `ComputerIP` FROM `Computers`";
         $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
             . " FROM FileSystems AS n, FileSystems AS p"
-            . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID and p.Computer = :CompID"
+            . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID1 and p.Computer = :CompID2"
             . " GROUP BY n.fsID"
             . " ORDER BY n.fsLft;";
         echo "<!-- $sql2 -->\n";
@@ -35,8 +35,8 @@ class sqlManager
         foreach ($result as $row) {
             echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
 
-            $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
-            $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
+            $stmt->bindParam(':CompID1', $row["ComputerID"], PDO::PARAM_INT);
+            $stmt->bindParam(':CompID2', $row["ComputerID"], PDO::PARAM_INT);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
 //            foreach ($data as $line) { // TODO Move this over to a function of its own....
