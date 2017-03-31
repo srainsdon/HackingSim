@@ -20,14 +20,14 @@ $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
 
 //inserting node
 if (isset($_POST['insert'])) {
-    $sql = "CALL r_tree_traversal('insert', NULL, {$_POST['parent_id']});";
+    $sql = "SELECT rgt INTO new_lft FROM FileSystems WHERE node_id = pparent_id;"
+        . " UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= new_lft;"
+        . " UPDATE FileSystems SET fsLft = fsLft + 2 WHERE fsLft > new_lft;"
+        . " INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES (new_lft, (new_lft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");"
+        . " SELECT LAST_INSERT_ID();";
     $prep = $pdo->prepare($sql);
     $prep->execute();
     $newNodeId = (int)$prep->fetchColumn();
-
-    $sql = "INSERT INTO tree_content (fsID, name) VALUES (?,?)";
-    $prep = $pdo->prepare($sql);
-    $prep->execute(array($newNodeId, $_POST['node_name']));
 }
 
 //deleting node
