@@ -29,6 +29,7 @@ class sqlManager
             . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID"
             . " GROUP BY n.fsID"
             . " ORDER BY n.fsLft;";
+        echo "<!-- $sql -->\n";
         $stmt = $this->pdo->prepare($sql2);
         $result = $this->pdo->query($sql1)->fetchAll();
         foreach ($result as $row) {
