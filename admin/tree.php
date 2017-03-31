@@ -77,6 +77,7 @@ $selectOptions = $prep->fetchAll(PDO::FETCH_OBJ);
     </div>
     <pre>
 <?php
+echo "<!-- $sql -->";
 //current tree structure
 $tree = '';
 foreach ($selectOptions as $key => $row) {
