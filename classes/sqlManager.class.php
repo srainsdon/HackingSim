@@ -41,7 +41,7 @@ class sqlManager
 //            foreach ($data as $line) { // TODO Move this over to a function of its own....
 //                echo $line['Name'] . "\n";
 //            }
-            echo implode("<br />\n", $data);
+            echo implode("<br />\n", $data) . "\n";
         }
     }
 
