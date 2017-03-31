@@ -21,9 +21,9 @@ $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
 //inserting node
 if (isset($_POST['insert'])) {
     $new_fsLft = $pdo->query("SELECT fsRgt FROM FileSystems WHERE fsID = 10;")->fetchColumn();
-    $upDateRgt = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= $new_fsLft;");
-    $upDateLft = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE fsRgt >= $new_fsLft;");
-    $addNew = $pdo->query("INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES (new_lft, (new_lft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");");
+    $upDateRgt = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE Computer = $compID and fsRgt >= $new_fsLft;");
+    $upDateLft = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE Computer = $compID and fsRgt >= $new_fsLft;");
+    $addNew = $pdo->query("INSERT INTO FileSystems (fsLft, fsRgt, parent_id, fsName) VALUES ($new_fsLft, ($new_fsLft + 1), " . $_POST['parent_id'] . ", " . $_POST['node_name'] . ");");
     echo "<pre>" . print_r(array("NewLft" => $new_fsLft, 'UpDateRgt' => $upDateRgt, 'UpDateLft' => $upDateLft, 'addNew' => $addNew)) . "</pre>";
     $prep = $pdo->query($sql);
     $newNodeId = (int)$prep->fetchColumn();
