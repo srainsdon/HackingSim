@@ -27,7 +27,7 @@ class sqlManager
         $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
             . " FROM FileSystems AS n, FileSystems AS p"
             . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID"
-            . " GROUP BY fsID"
+            . " GROUP BY n.fsID"
             . " ORDER BY n.fsLft;";
         $stmt = $this->pdo->prepare($sql2);
         $result = $this->pdo->query($sql1)->fetchAll();
