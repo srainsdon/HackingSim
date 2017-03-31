@@ -23,18 +23,25 @@ class sqlManager
 
     function getAllComputers()
     {
-        $result = $this->pdo->query("SELECT * FROM Computers")->fetchAll();
-
-        if (count($result) > 0) {
-            // output data of each row
-            foreach ($result as $row) {
-                echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
-                $sql = "call r_return_tree(" . $row['ComputerID'] . ");";
-                $fs_result = $this->pdo->query($sql)->fetchAll();
-                echo implode("<br />\n", $fs_result);
-            }
-        } else {
-            echo "0 results";
+        $sql1 = "SELECT `ComputerID`,  `ComputerHostName`,  `ComputerDomain`,  `ComputerIP` FROM `Computers`";
+        $result = $this->pdo->query($sql1)->fetchAll();
+        foreach ($result as $row) {
+            echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
+            $sql2 = "SELECT n.fsID, CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
+                . "FROM FileSystems AS n, FileSystems AS p"
+                . "WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID"
+                . "GROUP BY fsID"
+                . "ORDER BY n.fsLft;";
+            $stmt = $this->pdo->prepare($sql2);
+            $stmt->bindParam(':CompID', $row["ComputerID"], PDO::PARAM_INT);
+            $stmt->execute();
+        }
+        // output data of each row
+        foreach ($result as $row) {
+            echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
+            $sql = "call r_return_tree(" . $row['ComputerID'] . ");";
+            $fs_result = $this->pdo->query($sql)->fetchAll();
+            echo implode("<br />\n", $fs_result);
         }
     }
 
