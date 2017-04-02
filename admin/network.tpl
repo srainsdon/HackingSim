@@ -12,9 +12,9 @@
             <tbody>
             {foreach $networks as $network}
                 <tr>
-                    <td>{$computer.NetworkName}</td>
-                    <td>{$computer.NetworkStat}</td>
-                    <td>{$computer.NetworkEnd}</td>
+                    <td>{$network.NetworkName}</td>
+                    <td>{$network.NetworkStat}</td>
+                    <td>{$network.NetworkEnd}</td>
                 </tr>
             {/foreach}
             </tbody>
