@@ -21,6 +21,7 @@ $pdo = new PDO($dsn, 'srainsdon', 'N0cand0a', [
 //inserting node
 if (isset($_POST['insert'])) {
     $new_fsLft = $pdo->query("SELECT fsRgt FROM FileSystems WHERE fsID = 10;")->fetchColumn();
+    echo $new_fsLft . "\n";
     $upDateRgt = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE Computer = $compID and fsRgt >= $new_fsLft;");
     $upDateLft = $pdo->query("UPDATE FileSystems SET fsRgt = fsRgt + 2 WHERE Computer = $compID and fsRgt >= $new_fsLft;");
     $addNew = $pdo->query("INSERT INTO FileSystems (fsLft, fsRgt, Computer, fsParent, fsName) VALUES ($new_fsLft, ($new_fsLft + 1), $compID, " . $_POST['parent_id'] . ", '" . $_POST['node_name'] . "');");
