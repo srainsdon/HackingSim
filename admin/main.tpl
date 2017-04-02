@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <title>{$title | default='Welcome To the Game'}</title>
+    <title>{$title|default:'Welcome To the Game'}</title>
 </head>
 <body>
 <div class="container">
