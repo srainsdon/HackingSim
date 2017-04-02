@@ -16,7 +16,7 @@ $ip2 = $randip . "254";
 $long1 = sprintf('%u', ip2long($ip1));
 $long2 = sprintf('%u', ip2long($ip2));
 
-$dump = print_r($sql->listNets());
+$dump = print_r($sql->listNets(), 1);
 
 $smarty->assign("body", "<pre>$dump</pre>\nIP1: $ip1 - $long1<br />\nIP2: $ip2 - $long2<br />\n\n"
     . "<pre>INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`) VALUES ('406579200', '406579454');</pre>");
