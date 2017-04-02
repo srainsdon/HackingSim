@@ -1,7 +1,7 @@
 {extends file="main.tpl"}
 {block name=body}
     {if isset($message)}
-        <pre>{$Message}</pre>{/if}
+        <pre>{$message}</pre>{/if}
     <table>
         <table id='networks' class="table table-striped table-hover table-bordered">
             <thead>
