@@ -23,7 +23,7 @@ class sqlManager
 
     function listNets()
     {
-        $sql = "SELECT * from Networks";
+        $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) as NetworkStart, inet_ntoa(`NetworkEnd`) as NetworkEnd, `NetworkName` from Networks";
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
