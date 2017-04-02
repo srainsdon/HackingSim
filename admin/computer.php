@@ -11,7 +11,7 @@ $data = $sql->getFixedIPs();
 $newData = array();
 foreach ($data as $row) {
     $row['NewLong'] = rand($row['NetworkStart'], $row['NetworkEnd']);
-    $row['NewIP'] = long2ip($row['NewIP']);
+    $row['NewIP'] = long2ip($row['NewLong']);
     $newData[] = $row;
 }
 
