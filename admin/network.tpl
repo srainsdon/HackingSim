@@ -13,7 +13,7 @@
             {foreach $networks as $network}
                 <tr>
                     <td>{$network.NetworkName}</td>
-                    <td>{$network.NetworkStat}</td>
+                    <td>{$network.NetworkStart}</td>
                     <td>{$network.NetworkEnd}</td>
                 </tr>
             {/foreach}
