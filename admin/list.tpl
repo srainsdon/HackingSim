@@ -1,5 +1,4 @@
 {extends file="main.tpl"}
-{debug}
 {block name=body}
     <table>
         <table id='computers' class="table table-striped table-hover table-bordered">
