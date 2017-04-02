@@ -17,7 +17,7 @@
                     <td>{$computer.ComputerHostName}</td>
                     <td>{$computer.NetworkName}</td>
                     <td>{$computer.ComputerIP}</td>
-                    <td>{newIP start=$computer.NetworkStart end=$computer.NetworkEnd}</td>
+                    <td>{newIP start={$computer.NetworkStart} end={$computer.NetworkEnd}}</td>
                 </tr>
             {/foreach}
             </tbody>
