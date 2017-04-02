@@ -11,7 +11,7 @@
             </thead>
             <tbody>
             {foreach $computers as $computer}
-                <tr class='clickable-row' data-href='url://./tree.php?CompID={$computer.ComputerID}'>
+                <tr class='clickable-row' data-href='./tree.php?CompID={$computer.ComputerID}'>
                     <td>{$computer.ComputerID}</td>
                     <td>{$computer.ComputerName}</td>
                     <td>{$computer.ComputerIP}</td>
