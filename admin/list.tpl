@@ -11,7 +11,7 @@
             </thead>
             <tbody>
             {foreach $computers as $computer}
-                <tr>
+                <tr class='clickable-row' data-href='url://./tree.php?CompID={$computer.ComputerID}'>
                     <td>{$computer.ComputerID}</td>
                     <td>{$computer.ComputerName}</td>
                     <td>{$computer.ComputerIP}</td>
@@ -20,4 +20,13 @@
             </tbody>
         </table>
     </table>
+{/block}
+{block name=bottomScripts}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
 {/block}

@@ -7,7 +7,7 @@
  */
 
 include_once 'admin.config.php';
-
+$smarty->assign("bCrumbs", "Full Computer List");
 $smarty->assign("computers", $sql->getAllComputers());
 
 $smarty->display('list.tpl');

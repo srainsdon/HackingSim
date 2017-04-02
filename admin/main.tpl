@@ -11,9 +11,10 @@
 <div class="container">
     <div class="page-header">
         <h1><span class="glyphicon glyphicon-ok-circle"></span> {$title|default:'Welcome To the Game'}</h1>
-        <p>--Bread Crumbs--</p>
+        <p>{$bCrumbs|default:'<!-- Bread Crumbs -->'}</p>
     </div>
     {block name=body}{/block}
 </div>
+{block name=bottomScripts}{/block}
 </body>
 </html>
