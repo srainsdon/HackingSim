@@ -8,4 +8,6 @@
 
 include_once 'admin.config.php';
 
-$smarty->display('styleTest.tpl');
+$smarty->assign("data", print_r($sql->getAllComputers(), true));
+
+$smarty->display('list.tpl');

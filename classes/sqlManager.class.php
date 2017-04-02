@@ -24,15 +24,16 @@ class sqlManager
     function getAllComputers()
     {
         $sql1 = "SELECT `ComputerID`,  `ComputerHostName`,  `ComputerDomain`,  `ComputerIP` FROM `Computers`";
-        $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
+        /* $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
             . " FROM FileSystems AS n, FileSystems AS p"
             . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID1 and p.Computer = :CompID2"
             . " GROUP BY n.fsID"
-            . " ORDER BY n.fsLft;";
-        echo "<!-- $sql2 -->\n";
-        $stmt = $this->pdo->prepare($sql2);
+            . " ORDER BY n.fsLft;";*/
+        // echo "<!-- $sql2 -->\n";
+        // $stmt = $this->pdo->prepare($sql2);
         $result = $this->pdo->query($sql1)->fetchAll();
-        foreach ($result as $row) {
+        return $result;
+        /*foreach ($result as $row) {
             echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
 
             $stmt->bindParam(':CompID1', $row["ComputerID"], PDO::PARAM_INT);
@@ -45,7 +46,7 @@ class sqlManager
             if (count($data) > 0) {
                 echo implode("<br />\n", $data) . "<br />\n";
             }
-        }
+        }*/
     }
 
     function getComputerByID($id)
