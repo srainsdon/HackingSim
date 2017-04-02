@@ -6,14 +6,16 @@
  * Time: 5:52 AM
  */
 include_once 'admin.config.php';
-function newIP($prams, Smarty_Internal_Template $template)
-{
-    return long2ip(rand($prams['start'], $prams['end']));
-}
 
-$smarty->registerPlugin("function", "newIP", "newIP");
+$data = $sql->getFixedIPs();
+$newData = array();
+foreach ($data as $row) {
+    $row['NewLong'] = rand($row['NetworkStart'], $row['NetworkEnd']);
+    $row['NewIP'] = long2ip($row['NewIP']);
+    $newData[] = $row;
+}
 
 $smarty->assign("bCrumbs", "Full Computer List");
 //$smarty->assign("computers", $sql->getAllComputers());
-$smarty->assign("computers", $sql->getFixedIPs());
+$smarty->assign("computers", $newData);
 $smarty->display('Fixlist.tpl');

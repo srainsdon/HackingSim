@@ -1,4 +1,5 @@
 {extends file="main.tpl"}
+
 {block name=body}
     <table>
         <table id='computers' class="table table-striped table-hover table-bordered">
@@ -17,7 +18,8 @@
                     <td>{$computer.ComputerHostName}</td>
                     <td>{$computer.NetworkName}</td>
                     <td>{$computer.ComputerIP}</td>
-                    <td>{newIP start={$computer.NetworkStart} end={$computer.NetworkEnd}}</td>
+                    <td>{$computer.NewIP}</td>
+                    <td>{$computer.NewLong}</td>
                 </tr>
             {/foreach}
             </tbody>
