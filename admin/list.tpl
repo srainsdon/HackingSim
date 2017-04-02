@@ -1,7 +1,7 @@
 {extends file="main.tpl"}
 {block name=body}
     <table>
-        <table class="table table-striped table-hover table-bordered">
+        <table id='computers' class="table table-striped table-hover table-bordered">
             <thead>
             <tr>
                 <th>Computer ID</th>
@@ -23,10 +23,13 @@
 {/block}
 {block name=bottomScripts}
     <script>
-        jQuery(document).ready(function ($) {
+        $(document).ready(function ($) {
             $(".clickable-row").click(function () {
                 window.location = $(this).data("href");
             });
+        });
+        $(document).ready(function () {
+            $('#computers').DataTable();
         });
     </script>
 {/block}
