@@ -8,5 +8,4 @@
 
 include_once 'admin.config.php';
 
-$smarty->assign("title", "Computer Listing");
-$smarty->display('main.tpl');
+$smarty->display('styleTest.tpl');
