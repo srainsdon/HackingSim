@@ -29,13 +29,11 @@
             });
         });
         $(document).ready(function () {
-            $('#computers').DataTable(
-                columnDefs
-            :
-            [{
-                targets: [0],
-                orderData: [1, 0]
-            }]
+            $('#computers').DataTable({
+                columnDefs: [{
+                    targets: [0],
+                    orderData: [1, 0]
+                }]
             )
             ;
         });
