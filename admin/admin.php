@@ -8,6 +8,6 @@
 
 include_once 'admin.config.php';
 
-$smarty->assign("data", print_r($sql->getAllComputers(), true));
+$smarty->assign("computers", print_r($sql->getAllComputers(), true));
 
 $smarty->display('list.tpl');

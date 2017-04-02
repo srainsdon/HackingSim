@@ -23,7 +23,7 @@ class sqlManager
 
     function getAllComputers()
     {
-        $sql1 = "SELECT `ComputerID`,  concat(`ComputerHostName`, '.',  `ComputerDomain`) as ComputerName,  inet_ntoa(`ComputerIP`) FROM `Computers`";
+        $sql1 = "SELECT `ComputerID`,  concat(`ComputerHostName`, '.',  `ComputerDomain`) as ComputerName,  inet_ntoa(`ComputerIP`) as ComputerIP FROM `Computers`";
         /* $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
             . " FROM FileSystems AS n, FileSystems AS p"
             . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID1 and p.Computer = :CompID2"
