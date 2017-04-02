@@ -24,7 +24,7 @@
     </table>
     <form method="POST" class="form-inline">
         <input type="hidden" name="long1" value="{$ips.long1}">
-        <input type="hidden" name="long1" value="{$ips.long2}">
+        <input type="hidden" name="long2" value="{$ips.long2}">
         <div class="form-group"><input disabled="true" type="text" name="net_start" class="form-control"
                                        value="{$ips.ip1}"></div>
         <div class="form-group"><input disabled="true" type="text" name="net_end" class="form-control"
