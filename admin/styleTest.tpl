@@ -1,3 +1,4 @@
+{extends file="main.tpl"}
 {block name=body}
     <h1>Welcome:h1</h1>
     <h2>Welcome:h2</h2>
