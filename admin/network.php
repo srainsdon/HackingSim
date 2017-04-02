@@ -20,4 +20,4 @@ $long2 = sprintf('%u', ip2long($ip2));
 $smarty->assign('networks', $sql->listNets());
 $smarty->assign("body", "IP1: $ip1 - $long1<br />\nIP2: $ip2 - $long2<br />\n\n"
     . "<pre>INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`) VALUES ('406579200', '406579454');</pre>");
-$smarty->display('main.tpl');
+$smarty->display('network.tpl');
