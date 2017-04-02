@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div class="page-header">
-        <h1><span class="glyphicons glyphicons-display"></span> {$title|default='Welcome To the Game'}</h1>
+        <h1><span class="glyphicons glyphicons-display"></span> {$title|default:'Welcome To the Game'}</h1>
         <p><a href="https://github.com/werc/TreeTraversal">github.com/werc/TreeTraversal</a></p>
     </div>
     {block name=body}
