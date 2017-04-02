@@ -34,8 +34,7 @@
                     targets: [0],
                     orderData: [1, 0]
                 }]
-            )
+            })
         });
-        })
     </script>
 {/block}
