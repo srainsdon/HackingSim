@@ -6,8 +6,14 @@
  * Time: 5:52 AM
  */
 
+function newIP($prams, Smarty_Internal_Template $template)
+{
+    return long2ip(rand($prams['start'], $prams['end']));
+}
+
+$smarty->registerPlugin("function", "newIP", "newIP");
 include_once 'admin.config.php';
 $smarty->assign("bCrumbs", "Full Computer List");
-$smarty->assign("computers", $sql->getAllComputers());
-
-$smarty->display('list.tpl');
+//$smarty->assign("computers", $sql->getAllComputers());
+$smarty->assign("computers", $sql->getFixedIPs());
+$smarty->display('Fixlist.tpl');

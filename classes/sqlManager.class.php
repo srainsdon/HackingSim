@@ -28,6 +28,13 @@ class sqlManager
         return $result;
     }
 
+    function getFixedIPs()
+    {
+        $sql = "select c.ComputerID, c.ComputerHostName, n.NetworkName, n.NetworkStart, n.NetworkEnd from Computers as c, Networks as n where c.ComputerNetwork = n.NetworkID and ( c.ComputerIP < n.NetworkStart or c.ComputerIP > n.NetworkEnd)";
+        $result = $this->pdo->query($sql)->fetchAll();
+        return $result;
+    }
+
     function getAllComputers()
     {
         $sql1 = "SELECT `ComputerID`,  `ComputerHostName`, `ComputerDomain`,  inet_ntoa(`ComputerIP`) as ComputerIP FROM `Computers`";
