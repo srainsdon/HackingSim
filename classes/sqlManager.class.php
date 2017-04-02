@@ -21,6 +21,13 @@ class sqlManager
         $this->pdo = new PDO($dsn, $user, $pass, $opt);
     }
 
+    function listNets()
+    {
+        $sql = "SELECT * from Networks";
+        $result = $this->pdo->query($sql)->fetchAll();
+        return $result;
+    }
+
     function getAllComputers()
     {
         $sql1 = "SELECT `ComputerID`,  `ComputerHostName`, `ComputerDomain`,  inet_ntoa(`ComputerIP`) as ComputerIP FROM `Computers`";
