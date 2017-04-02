@@ -20,6 +20,5 @@ if (isset($_GET['fix'])) {
 } else {
     $smarty->assign("bCrumbs", "Full Computer List");
     $smarty->assign("computers", $sql->getAllComputers());
-    $smarty->assign("computers", $newData);
     $smarty->display('list.tpl');
 }
