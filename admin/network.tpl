@@ -20,6 +20,16 @@
             </tbody>
         </table>
     </table>
+    {$body}
+    <form method="POST" class="form-inline">
+        <div class="form-group"><input disabled="true" type="text" name="net_start" class="form-control"
+                                       value="{$ips.ip1}"></div>
+        <div class="form-group"><input disabled="true" type="text" name="net_end" class="form-control"
+                                       value="{$ips.ip2}"></div>
+        <div class="form-group"><input type="text" name="net_name" class="form-control" placeholder="Name"></div>
+        &nbsp;
+        <button type="submit" name="delete" class="btn btn-default">Delete</button>
+    </form>
 {/block}
 {block name=bottomScripts}
     <script>
