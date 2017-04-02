@@ -1,7 +1,7 @@
 {extends file="main.tpl"}
 {block name=body}
     <table>
-        <table class="table table-striped">
+        <table class="table table-striped table-hover table-bordered">
             <thead>
             <tr>
                 <th>Computer ID</th>
@@ -20,5 +20,4 @@
             </tbody>
         </table>
     </table>
-    <pre>{$data}</pre>
 {/block}
