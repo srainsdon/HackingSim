@@ -1,5 +1,7 @@
 {extends file="main.tpl"}
 {block name=body}
+    {if isset($message)}
+        <pre>{$Message}</pre>{/if}
     <table>
         <table id='networks' class="table table-striped table-hover table-bordered">
             <thead>
@@ -20,15 +22,16 @@
             </tbody>
         </table>
     </table>
-    {$body}
     <form method="POST" class="form-inline">
+        <input type="hidden" name="long1" value="{$ips.long1}">
+        <input type="hidden" name="long1" value="{$ips.long2}">
         <div class="form-group"><input disabled="true" type="text" name="net_start" class="form-control"
                                        value="{$ips.ip1}"></div>
         <div class="form-group"><input disabled="true" type="text" name="net_end" class="form-control"
                                        value="{$ips.ip2}"></div>
         <div class="form-group"><input type="text" name="net_name" class="form-control" placeholder="Name"></div>
         &nbsp;
-        <button type="submit" name="delete" class="btn btn-default">Delete</button>
+        <button type="submit" name="new_net" class="btn btn-default">Add Network</button>
     </form>
 {/block}
 {block name=bottomScripts}
