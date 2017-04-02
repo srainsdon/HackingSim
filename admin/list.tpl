@@ -12,9 +12,9 @@
             <tbody>
             {foreach $computers as $computer}
                 <tr>
-                    <td>{$computer->ComputerID}</td>
-                    <td>{$computer->ComputerName}</td>
-                    <td>{$computer->ComputerIP}</td>
+                    <td>{$computer.ComputerID}</td>
+                    <td>{$computer.ComputerName}</td>
+                    <td>{$computer.ComputerIP}</td>
                 </tr>
             {/foreach}
             </tbody>

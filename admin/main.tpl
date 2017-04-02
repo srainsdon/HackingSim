@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <div class="page-header">
-        <h1><span class="glyphicon glyphicon-remove-circle"></span> {$title|default:'Welcome To the Game'}</h1>
+        <h1><span class="glyphicon glyphicon-ok-circle"></span> {$title|default:'Welcome To the Game'}</h1>
         <p>--Bread Crumbs--</p>
     </div>
     {block name=body}{/block}
