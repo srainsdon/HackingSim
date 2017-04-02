@@ -4,9 +4,9 @@
         <table id='computers' class="table table-striped table-hover table-bordered">
             <thead>
             <tr>
-                <th>Computer ID</th>
-                <th>Computer Name</th>
-                <th>Computer IP</th>
+                <th>Name</th>
+                <th>Domain</th>
+                <th>IP</th>
             </tr>
             </thead>
             <tbody>
@@ -29,7 +29,15 @@
             });
         });
         $(document).ready(function () {
-            $('#computers').DataTable();
+            $('#computers').DataTable(
+                columnDefs
+            :
+            [{
+                targets: [0],
+                orderData: [1, 0]
+            }]
+            )
+            ;
         });
     </script>
 {/block}
