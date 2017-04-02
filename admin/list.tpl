@@ -35,7 +35,7 @@
                     orderData: [1, 0]
                 }]
             )
-            ;
         });
+        })
     </script>
 {/block}
