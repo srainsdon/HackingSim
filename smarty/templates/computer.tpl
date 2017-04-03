@@ -1,11 +1,6 @@
 {extends file="main.tpl"}
 
 {block name=body}
-    <pre>
-    {foreach $Computer as $info}
-        {$info}
-    {/foreach}
-    </pre>
     <h3>{$Computer.ComputerName}</h3>
     <form method="POST"
     ">
