@@ -6,7 +6,8 @@
  * Time: 5:52 AM
  */
 include_once '../config.php';
-if (isset($_POST)) {
+
+if (isset($_POST['submit'])) {
     print_r($_POST);
 } elseif (isset($_GET['fix'])) {
     $data = $sql->getFixedIPs();
