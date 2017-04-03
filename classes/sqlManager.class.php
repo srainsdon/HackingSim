@@ -55,4 +55,11 @@ class sqlManager
         $computer = $stmt->fetch();
         return $computer;
     }
+
+    function getNetworkList()
+    {
+        $sql = "SELECT NetworkID, NetworkName FROM Networks";
+        $result = $this->pdo->query($sql)->fetchAll();
+        return $result;
+    }
 }

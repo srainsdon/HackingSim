@@ -20,6 +20,7 @@ if (isset($_GET['fix'])) {
 } elseif (isset($_GET['compID'])) {
     $smarty->assign("bCrumbs", "Full Computer List");
     $smarty->assign("computer", $sql->getComputerByID($_GET['compID']));
+    $smarty->assign("networklist", $sql->getNetworkList());
     $smarty->display('computer.tpl');
 } else {
     $smarty->assign("bCrumbs", "Full Computer List");
