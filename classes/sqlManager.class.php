@@ -51,7 +51,7 @@ class sqlManager
 
     function getComputerByID($id)
     {
-        $stmt = $this->pdo->query("SELECT * FROM Computers where ComputerID = $id");
+        $stmt = $this->pdo->query("SELECT Computers.ComputerID, CONCAT(Computers.ComputerHostName, '.', Computers.ComputerDomain) AS ComputerName, Computers.ComputerHostName, Computers.ComputerDomain, INET_NTOA(Computers.ComputerIP) AS ComputerIP, Networks.NetworkName FROM Computers, Networks WHERE Computers.ComputerNetwork = Networks.NetworkID and Computers.ComputerID = $id");
         $computer = $stmt->fetch();
         return $computer;
     }
