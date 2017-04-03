@@ -13,10 +13,6 @@ session_start();
 
 require 'vendor/autoload.php';
 
-spl_autoload_register(function ($class) {
-    include 'classes/' . $class . '.class.php';
-});
-
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim;
 
