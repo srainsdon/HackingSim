@@ -18,7 +18,7 @@ function __autoload($className)
     $file = $_SERVER["DOCUMENT_ROOT"] . "/classes/$className.class.php";
     error_log("attempt to autoload: $className as $file");
     if (file_exists($file)) {
-        require_once $file;
+        // require_once $file;
         return true;
     }
     return false;
