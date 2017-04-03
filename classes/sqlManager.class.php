@@ -59,7 +59,7 @@ class sqlManager
     function getNetworkList()
     {
         $sql = "SELECT NetworkID, NetworkName FROM Networks";
-        $result = $this->pdo->query($sql)->fetchAll();
+        $result = $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 }
