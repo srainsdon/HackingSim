@@ -14,9 +14,9 @@
                                                             value="{$Computer.ComputerDomain}"></div>
     <div class="form-group">
     <div class="form-group">
-        <label for="computer_ip">Domain Name:</label><input id="domain_ip" type="text" name="domain_ip"
-                                                            class="form-control" placeholder="Name"
-                                                            value="{$Computer.ComputerIP}"></div>
+        <label for="computer_ip">Domain IP:</label><input id="domain_ip" type="text" name="domain_ip"
+                                                          class="form-control" placeholder="Name"
+                                                          value="{$Computer.ComputerIP}"></div>
     <div class="form-group">
         <label for="network_id">Network:</label><select name="network_id" id="network_id" class="form-control">
                 {foreach $Networks as $Network}
@@ -24,6 +24,6 @@
                 {/foreach}
             </select></div>
         &nbsp;
-    <button type="submit" name="{$task}" class="btn btn-default">Insert</button>
+    <button type="submit" name="submit" value="{$task}" class="btn btn-default">{$task}</button>
     </form>
 {/block}
