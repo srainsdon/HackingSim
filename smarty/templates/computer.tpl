@@ -1,5 +1,5 @@
 {extends file="main.tpl"}
-
+{debug}
 {block name=body}
     <h3>{$Computer.ComputerName}</h3>
     <form method="POST"
