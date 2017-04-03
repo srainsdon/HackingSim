@@ -8,7 +8,7 @@
     </pre>
     <form method="POST" class="form-inline">
         <div class="form-group"><input type="text" name="computer_name" class="form-control" placeholder="Name"
-                                       value="{$Comptuer.ComputerHostName}"></div>
+                                       value="{$Computer.ComputerHostName}"></div>
         <div class="form-group">&nbsp;<select name="parent_id" class="form-control">
                 {foreach $Networks as $Network}
                     <option value="{$Network.NetworkID}">{$Network.NetworkName}</option>
