@@ -18,11 +18,9 @@
                                                           class="form-control" placeholder="Name"
                                                           value="{$Computer.ComputerIP}"></div>
     <div class="form-group">
-        <label for="network_id">Network:</label><select name="network_id" id="network_id" class="form-control">
-                {foreach $Networks as $Network}
-                    <option value="{$Network.NetworkID}">{$Network.NetworkName}</option>
-                {/foreach}
-            </select></div>
+        <label for="network_id">Network:</label>
+        {html_options name=network_id id=network_id class=form-control options=$Networks selected=$ComputerNetwork}
+    </div>
         &nbsp;
     <button type="submit" name="submit" value="{$task}" class="btn btn-default">{$task}</button>
     </form>
