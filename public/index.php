@@ -9,8 +9,8 @@
 include_once '../config.php';
 
 $smarty->assign('links', array(
-    'Computers' => './computer.php',
-    'Networks' => './network.php',
+    'Computers' => './computer/',
+    'Networks' => './network/',
 ));
 
 $smarty->display('index.tpl');
