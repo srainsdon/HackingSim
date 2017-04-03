@@ -2,11 +2,11 @@
 
 {block name=body}
     <pre>
-    {foreach $computer as $info}
+    {foreach $Computer as $info}
         {$info}
     {/foreach}
     </pre>
-    <h3>{$Computer.ComptuerName}</h3>
+    <h3>{$Computer.ComputerName}</h3>
     <form method="POST"
     ">
     <div class="form-group"><label for="computer_name">Host Name:</label>
