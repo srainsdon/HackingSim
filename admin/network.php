@@ -8,7 +8,7 @@
 
 // INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`) VALUES ('406579200', '406579454');
 
-include_once 'admin.config.php';
+include_once '../config.php';
 
 if (isset($_POST['new_net'])) {
     $l1 = $_POST['long1'];

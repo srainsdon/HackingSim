@@ -5,7 +5,7 @@
  * Date: 3/30/2017
  * Time: 5:52 AM
  */
-include_once 'admin.config.php';
+include_once '../config.php';
 if (isset($_POST)) {
     print_r($_POST);
 } elseif (isset($_GET['fix'])) {
