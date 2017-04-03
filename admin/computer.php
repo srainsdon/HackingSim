@@ -18,13 +18,13 @@ if (isset($_GET['fix'])) {
     $smarty->assign("computers", $newData);
     $smarty->display('Fixlist.tpl');
 } elseif (isset($_GET['compID'])) {
-    $smarty->assign("bCrumbs", " -> Computer Editor");
+    $smarty->assign("bCrumbs", " - <a href='computers.php' >Computer List</a> - Computer Editor");
     $smarty->assign("Computer", $sql->getComputerByID($_GET['compID']));
     $smarty->assign("Networks", $sql->getNetworkList());
     $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
 } else {
-    $smarty->assign("bCrumbs", " -> Computer List");
+    $smarty->assign("bCrumbs", " - Computer List");
     $smarty->assign("computers", $sql->getAllComputers());
     $smarty->display('list.tpl');
 }
