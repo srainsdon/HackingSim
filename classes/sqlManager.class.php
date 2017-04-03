@@ -21,6 +21,13 @@ class sqlManager
         $this->pdo = new PDO($dsn, $user, $pass, $opt);
     }
 
+    function addNetwork($l1, $l2, $name)
+    {
+        $sql = "INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`, `NetworkName`) VALUES ('$l1', '$l2', '$name');";
+        $result = $this->pdo->exec($sql);
+        return $result;
+    }
+
     function listNets()
     {
         $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) as NetworkStart, inet_ntoa(`NetworkEnd`) as NetworkEnd, `NetworkName` from Networks";
