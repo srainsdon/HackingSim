@@ -19,9 +19,8 @@ if (isset($_GET['cmd'])) {
             include_once 'network.php';
             break;
         default:
+            error_log("Cmd: empty = default");
             include_once 'home.php';
             break;
     }
-} else {
-    include_once 'home.php';
 }
