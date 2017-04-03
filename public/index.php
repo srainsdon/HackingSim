@@ -12,6 +12,7 @@ include_once '../config.php';
 if (isset($_GET['data'])) {
     $smarty->assign('data', $_GET['data']);
     $cmd = explode('/', $_GET['data'], 1);
+    $smarty->assign('Cmd:', $cmd);
     switch ($cmd) {
         case "computer":
             error_log("Cmd: computer");
