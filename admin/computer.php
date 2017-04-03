@@ -8,7 +8,9 @@
 include_once '../config.php';
 
 if (isset($_POST['submit'])) {
-    print_r($_POST);
+    if ($_POST['submit'] == 'edit') {
+
+    }
 } elseif (isset($_GET['fix'])) {
     $data = $sql->getFixedIPs();
     $newData = array();
