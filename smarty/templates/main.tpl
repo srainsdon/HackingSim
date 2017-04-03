@@ -13,7 +13,7 @@
 <div class="container">
     <div class="page-header">
         <h1><span class="glyphicon glyphicon-ok-circle"></span> {$title|default:'Welcome'} - {$app_name}</h1>
-        <p><a href="../../public/home.php">Home</a>{$bCrumbs|default:''}</p>
+        <p><a href="/">Home</a>{$bCrumbs|default:''}</p>
     </div>
     {block name=body}{$body}{/block}
 </div>
