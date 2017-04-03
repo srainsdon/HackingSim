@@ -21,6 +21,7 @@ if (isset($_GET['fix'])) {
     $smarty->assign("bCrumbs", "Full Computer List");
     $smarty->assign("Computer", $sql->getComputerByID($_GET['compID']));
     $smarty->assign("Networks", $sql->getNetworkList());
+    $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
 } else {
     $smarty->assign("bCrumbs", "Full Computer List");
