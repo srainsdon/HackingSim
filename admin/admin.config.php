@@ -8,7 +8,5 @@
 
 include_once '../config.php';
 
-include_once "$base/classes/adminCommands.class.php";
-
-$commands = new adminCommands($host, $db, $user, $pass);
+$commands = new adminCommands(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 
