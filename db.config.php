@@ -6,7 +6,7 @@
  * Time: 10:56 PM
  */
 
-$host = '34.208.253.55';
-$db = 'HackingSim';
-$user = 'srainsdon';
-$pass = 'N0cand0a';
+$host = getenv('dbHost');
+$db = getenv('dbHost');
+$user = getenv('dbUser');
+$pass = getenv('dbPass');
