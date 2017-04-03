@@ -44,30 +44,9 @@ class sqlManager
 
     function getAllComputers()
     {
-        $sql1 = "select c.ComputerID, INET_NTOA(c.ComputerIP) as ComputerIP, c.ComputerHostName, n.NetworkName as ComputerDomain, n.NetworkStart, n.NetworkEnd from Computers as c, Networks as n where c.ComputerNetwork = n.NetworkID";
-        /* $sql2 = "SELECT CONCAT(REPEAT('..', COUNT(CAST(p.fsID AS CHAR)) - 1), n.fsName) AS Name"
-            . " FROM FileSystems AS n, FileSystems AS p"
-            . " WHERE (n.fsLft BETWEEN p.fsLft AND p.fsRgt) AND n.Computer = :CompID1 and p.Computer = :CompID2"
-            . " GROUP BY n.fsID"
-            . " ORDER BY n.fsLft;";*/
-        // echo "<!-- $sql2 -->\n";
-        // $stmt = $this->pdo->prepare($sql2);
-        $result = $this->pdo->query($sql1)->fetchAll();
+        $sql = "select Computers.ComputerID, concat(Computers.ComputerHostName, '.', Computers.ComputerDomain) as ComputerName, Computers.ComputerHostName, Computers.ComputerDomain, INET_NTOA(Computers.ComputerIP) as ComputerIP, Networks.NetworkName from Computers , Networks where Computers.ComputerNetwork = Networks.NetworkID";;
+        $result = $this->pdo->query($sql)->fetchAll();
         return $result;
-        /*foreach ($result as $row) {
-            echo "id: " . $row["ComputerID"] . " - FQDN: " . $row["ComputerHostName"] . "." . $row["ComputerDomain"] . " IP: " . long2ip($row["ComputerIP"]) . "<br>";
-
-            $stmt->bindParam(':CompID1', $row["ComputerID"], PDO::PARAM_INT);
-            $stmt->bindParam(':CompID2', $row["ComputerID"], PDO::PARAM_INT);
-            $stmt->execute();
-            $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
-//            foreach ($data as $line) { // TODO Move this over to a function of its own....
-//                echo $line['Name'] . "\n";
-//            }
-            if (count($data) > 0) {
-                echo implode("<br />\n", $data) . "<br />\n";
-            }
-        }*/
     }
 
     function getComputerByID($id)
