@@ -16,3 +16,4 @@ require 'vendor/autoload.php';
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim;
 
+error_log("Config File Loaded");
