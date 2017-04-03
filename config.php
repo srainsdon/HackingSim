@@ -22,5 +22,26 @@ include_once "$base/classes/computer.class.php";
 include_once "$base/classes/random.class.php";
 include_once "$base/classes/fileSystem.class.php";
 
+class Smarty_GuestBook extends Smarty
+{
+
+    function __construct()
+    {
+
+        // Class Constructor.
+        // These automatically get set with each new instance.
+
+        parent::__construct();
+
+        $this->setTemplateDir('./smarty/templates/');
+        $this->setCompileDir('./smarty/templates_c/');
+        $this->setConfigDir('./smarty/configs/');
+        $this->setCacheDir('./smarty/cache/');
+
+        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+        $this->assign('app_name', 'Game Simulator');
+    }
+
+}
 
 // include_once("dBug.php");
