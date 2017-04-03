@@ -17,10 +17,10 @@ function __autoload($className)
 {
     $file = $_SERVER["DOCUMENT_ROOT"] . "/classes/$className.class.php";
     echo "attempt to autoload: $className as $file<br \>\n";
-    if (file_exists($file)) {
+    /*if (file_exists($file)) {
         require_once $file;
         return true;
-    }
+    }*/
     return false;
 }
 
