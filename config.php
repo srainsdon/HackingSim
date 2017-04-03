@@ -16,6 +16,7 @@ require 'vendor/autoload.php';
 function __autoload($className)
 {
     $file = $_SERVER["DOCUMENT_ROOT"] . "/classes/$className.class.php";
+    echo "attempt to autoload: $className as $file<br \>\n";
     if (file_exists($file)) {
         require_once $file;
         return true;
@@ -23,9 +24,6 @@ function __autoload($className)
     return false;
 }
 
-
-include_once "$base/db.config.php";
-$sql = new sqlManager($host, $db, $user, $pass);
-
+$sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim;
 
