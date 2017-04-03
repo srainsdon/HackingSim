@@ -13,7 +13,6 @@
                                                             class="form-control" placeholder="Name"
                                                             value="{$Computer.ComputerDomain}"></div>
     <div class="form-group">
-    <div class="form-group">
         <label for="computer_ip">Domain IP:</label><input id="domain_ip" type="text" name="domain_ip"
                                                           class="form-control" placeholder="Name"
                                                           value="{$Computer.ComputerIP}"></div>
