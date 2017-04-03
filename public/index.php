@@ -7,9 +7,11 @@
  * Time: 3:24 PM
  */
 include_once '../config.php';
-$smarty->assign('GET', $_GET);
-if (isset($_GET['cmd'])) {
-    switch ($_GET['cmd']) {
+
+
+if (isset($_GET['data'])) {
+    $cmd = explode('/', $_GET['data'], 1);
+    switch ($cmd) {
         case "computer":
             error_log("Cmd: computer");
             include_once 'computer.php';
