@@ -23,4 +23,7 @@ if (isset($_GET['cmd'])) {
             include_once 'home.php';
             break;
     }
+} else {
+    error_log("no cmd");
+    include_once 'home.php';
 }
