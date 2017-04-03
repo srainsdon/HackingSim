@@ -14,11 +14,11 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data'], 1);
     $smarty->assign('Cmd:', $cmd);
     switch ($cmd[0]) {
-        case "computer":
+        case "computer/":
             error_log("Cmd: computer");
             include_once 'computer.php';
             break;
-        case "network":
+        case "network/":
             error_log("Cmd: network");
             include_once 'network.php';
             break;
