@@ -33,12 +33,11 @@ class Smarty_GuestBook extends Smarty
 
         parent::__construct();
 
-        $this->setTemplateDir('./smarty/templates/');
-        $this->setCompileDir('./smarty/templates_c/');
-        $this->setConfigDir('./smarty/configs/');
-        $this->setCacheDir('./smarty/cache/');
+        $this->setTemplateDir('/app/smarty/templates/');
+        $this->setCompileDir('/app/smarty/templates_c/');
+        $this->setConfigDir('/app/smarty/configs/');
+        $this->setCacheDir('/app/smarty/cache/');
 
-        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
         $this->assign('app_name', 'Game Simulator');
     }
 
