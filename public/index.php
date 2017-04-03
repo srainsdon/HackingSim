@@ -7,7 +7,7 @@
  * Time: 3:24 PM
  */
 include_once '../config.php';
-
+$smarty->assign('GET', $_GET);
 if (isset($_GET['cmd'])) {
     switch ($_GET['cmd']) {
         case "computer":
