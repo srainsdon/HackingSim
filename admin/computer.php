@@ -18,6 +18,7 @@ if (isset($_GET['fix'])) {
     $smarty->assign("computers", $newData);
     $smarty->display('Fixlist.tpl');
 } elseif (isset($_GET['compID'])) {
+    print_r($sql->getNetworkList());
     $smarty->assign("bCrumbs", " - <a href='computer.php' >Computer List</a> - Computer Editor");
     $smarty->assign("Computer", $sql->getComputerByID($_GET['compID']));
     $smarty->assign("Networks", $sql->getNetworkList());
