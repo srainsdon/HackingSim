@@ -13,4 +13,4 @@ $smarty->assign('links', array(
     'Networks' => './network/',
 ));
 
-$smarty->display('index.tpl');
+$smarty->display('home.tpl');
