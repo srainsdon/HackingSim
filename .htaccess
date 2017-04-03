@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # redirect all api calls to /api/index.php
-RewriteRule ^/((?!index\.php$).+)$ /index.php [L,NC]
+RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
 
 # If the request is a file, folder or symlink that exists, serve it up
 RewriteCond %{REQUEST_FILENAME} -f [OR]
