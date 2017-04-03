@@ -24,7 +24,6 @@ include_once "$base/classes/fileSystem.class.php";
 
 class Smarty_GuestBook extends Smarty
 {
-
     function __construct()
     {
 
@@ -32,7 +31,7 @@ class Smarty_GuestBook extends Smarty
         // These automatically get set with each new instance.
 
         parent::__construct();
-
+        $base = $_SERVER["DOCUMENT_ROOT"];
         $this->setTemplateDir("$base/smarty/templates/");
         $this->setCompileDir("$base/smarty/templates_c/");
         $this->setConfigDir("$base/smarty/configs/");
