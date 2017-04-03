@@ -19,7 +19,7 @@
                                                           value="{$Computer.ComputerIP}"></div>
     <div class="form-group">
         <label for="network_id">Network:</label>
-        {html_options name=network_id id=network_id class=form-control options=$Networks selected=$ComputerNetwork}
+        {html_options name=network_id id=network_id class=form-control options=$Networks selected=$Computer.ComputerNetwork}
     </div>
         &nbsp;
     <button type="submit" name="submit" value="{$task}" class="btn btn-default">{$task}</button>
