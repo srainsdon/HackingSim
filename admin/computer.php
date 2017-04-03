@@ -6,7 +6,9 @@
  * Time: 5:52 AM
  */
 include_once 'admin.config.php';
-if (isset($_GET['fix'])) {
+if (isset($_POST)) {
+    print_r($_POST);
+} elseif (isset($_GET['fix'])) {
     $data = $sql->getFixedIPs();
     $newData = array();
     foreach ($data as $row) {
