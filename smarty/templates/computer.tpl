@@ -1,6 +1,7 @@
 {extends file="main.tpl"}
 
 {block name=body}
+    {debug}
     <h3>{$Computer.ComputerName}</h3>
     <form method="POST">
         <div class="form-group">
