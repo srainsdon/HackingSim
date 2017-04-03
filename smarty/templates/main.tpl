@@ -1,3 +1,4 @@
+{debug}
 <!DOCTYPE html>
 <html>
 <head>
