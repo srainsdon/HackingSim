@@ -6,10 +6,14 @@
         {$info}
     {/foreach}
     </pre>
-    <form method="POST" class="form-inline">
-        <div class="form-group"><input type="text" name="computer_name" class="form-control" placeholder="Name"
+    <h3>{$Computer.ComptuerName}</h3>
+    <form method="POST"
+    ">
+    <div class="form-group"><label for="computer_name">Host Name:</label>
+        <input id="computer_name" type="text" name="computer_name" class="form-control" placeholder="Name"
                                        value="{$Computer.ComputerHostName}"></div>
-        <div class="form-group">&nbsp;<select name="parent_id" class="form-control">
+    <div class="form-group"><label for="network_id">Network:</label>
+        <select name="network_id" id="network_id" class="form-control">
                 {foreach $Networks as $Network}
                     <option value="{$Network.NetworkID}">{$Network.NetworkName}</option>
                 {/foreach}
