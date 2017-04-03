@@ -1,4 +1,6 @@
 RewriteEngine On
-RewriteBase /
+
+RewriteBase '/'
+
 RewriteRule ^([^/]*)/$ /index.php?cmd=$1 [L]
 RewriteRule ^([^/]*)/([^/]*)/$ /index.php?cmd=$1&compID=$2 [L]
