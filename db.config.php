@@ -7,6 +7,6 @@
  */
 
 $host = getenv('dbHost');
-$db = getenv('dbHost');
+$db = getenv('dbDatabase');
 $user = getenv('dbUser');
 $pass = getenv('dbPass');
