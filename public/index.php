@@ -1,4 +1,5 @@
 <?php
+error_log("Index File Started");
 /**
  * Created by PhpStorm.
  * User: srainsdon
