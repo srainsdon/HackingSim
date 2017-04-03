@@ -17,6 +17,10 @@ if (isset($_GET['fix'])) {
     $smarty->assign("bCrumbs", "Fix Ip List");
     $smarty->assign("computers", $newData);
     $smarty->display('Fixlist.tpl');
+} elseif (isset($_GET['compID'])) {
+    $smarty->assign("bCrumbs", "Full Computer List");
+    $smarty->assign("computer", $sql->getComputerByID($_GET['compID']));
+    $smarty->display('computer.tpl');
 } else {
     $smarty->assign("bCrumbs", "Full Computer List");
     $smarty->assign("computers", $sql->getAllComputers());

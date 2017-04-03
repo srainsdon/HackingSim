@@ -5,7 +5,7 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Domain</th>
+                <th>Network</th>
                 <th>IP</th>
             </tr>
             </thead>
