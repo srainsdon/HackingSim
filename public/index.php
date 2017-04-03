@@ -1,5 +1,5 @@
 <?php
-error_log("Index File Started");
+
 /**
  * Created by PhpStorm.
  * User: srainsdon
@@ -11,10 +11,15 @@ include_once '../config.php';
 if (isset($_GET['cmd'])) {
     switch ($_GET['cmd']) {
         case "computer":
+            error_log("Cmd: computer");
             include_once 'computer.php';
             break;
         case "network":
+            error_log("Cmd: network");
             include_once 'network.php';
+            break;
+        default:
+            include_once 'home.php';
             break;
     }
 } else {
