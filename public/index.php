@@ -13,7 +13,7 @@ if (isset($_GET['data'])) {
     $smarty->assign('data', $_GET['data']);
     $cmd = explode('/', $_GET['data'], 1);
     $smarty->assign('Cmd:', $cmd);
-    switch ($cmd) {
+    switch ($cmd[0]) {
         case "computer":
             error_log("Cmd: computer");
             include_once 'computer.php';
