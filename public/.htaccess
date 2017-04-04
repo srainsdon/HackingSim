@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-
-RewriteRule ^/(((?!index\.php)|(?!\.css)).+)$ /index.php?data=$1 [L,NC]
+RewriteBase /
+RewriteRule ^(css|js)($|/) - [L]
+RewriteRule ^((?!index\.php).+)$ /index.php?data=$1 [L,NC]
 </IfModule>
