@@ -12,28 +12,46 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">{$app_name}</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a href="/admin/computer/">Computers</a></li>
-                    <li><a href="/admin/network/">Networks</a></li>
-                </div>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Navbar</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Network
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">...</a>
+                        <a class="dropdown-item" href="#">...</a>
+                        <a class="dropdown-item" href="#">...</a>
+                        <a class="dropdown-item" href="#">...</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/network/">Networks</a>
+                        <a class="dropdown-item" href="/computer/">Computers</a>
+                        <a class="dropdown-item" href="/computer/add/">Add Comupter</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
+
     <nav class="breadcrumb">
         {foreach $bCrumbs as $link}
             {$link}
