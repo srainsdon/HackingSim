@@ -15,7 +15,7 @@
         <h1><span class="glyphicon glyphicon-ok-circle"></span> {$title|default:'Welcome'} - {$app_name}</h1>
         <ul>
             {foreach $bCrumbs as $link}
-                <li>$link</li>
+                <li>{$link}</li>
             {/foreach}
         </ul>
     </div>

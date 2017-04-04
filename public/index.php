@@ -15,6 +15,7 @@ if (isset($_GET['data'])) {
     $smarty->assign('Cmd:', $cmd);
     switch ($cmd[0]) {
         case "admin": {
+            $smarty->append('bCrumbs', "<a href='/admin'>Admin</a>");
             switch ($cmd[1]) {
                 case
                 "computer":
