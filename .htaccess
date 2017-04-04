@@ -1,7 +1,8 @@
 RewriteEngine On
 
 # redirect all  calls to index.php
-RewriteCond %{REQUEST_URI} !^/css/[^/]+\.css$
+
+RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg)$
 RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
 
 # otherwise, serve your index.html app
