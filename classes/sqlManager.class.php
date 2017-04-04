@@ -76,24 +76,30 @@ class sqlManager
 
     function updateComputer($postData)
     {
-        $isNetwork = $this->isIPinNetwork($postData['ComputerIP'], $postData['NetworkID']);
-        foreach ($postData as $key => $value) {
-            if ($key == 'ComputerID')
-                continue;
-            if ($key == 'ComputerIP') {
-                $sqlupdate[] = "$key = INET_ATON('$value')";
-            } else {
-                $sqlupdate[] = "$key = '$value'";
+        if ($this->isIPinNetwork($postData['ComputerIP'], $postData['NetworkID'])) {
+            foreach ($postData as $key => $value) {
+                if ($key == 'ComputerID' || $key == 'submit')
+                    continue;
+                if ($key == 'ComputerIP') {
+                    $sqlupdate[] = "$key = INET_ATON('$value')";
+                } else {
+                    $sqlupdate[] = "$key = '$value'";
+                }
             }
+        } else {
+            return "New IP NOT IN New Netowork!!!";
         }
         $sqlupdate = implode(', ', $sqlupdate);
-        $sql = "$isNetwork\nUPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
+        $sql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
         return $sql;
     }
 
     function isIPinNetwork($ip, $networkID)
     {
         $sql = "SELECT NetworkStart, NetworkEnd, INET_NTOA('$ip') as NewIP FROM Networks WHERE NetworkID = $networkID;";
-        return $sql;
+        $networkInfo = $this->pdo->query($sql)->fetch();
+        if ($networkInfo['NewIP'] < $networkInfo['NetworkStart'] && $networkInfo['NewIP'] < $networkInfo['NetworkEnd'])
+            return TRUE;
+        return False;
     }
 }
