@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $tmp = array();
         foreach ($_POST as $key => $value) {
             $oldKey = "old_$key";
-            if (isset($_POST[$oldKey])) {
+            if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
                 $tmp[] = "New: {$_POST[$key]} Old: $_POST[$oldKey]";
             }
         }
