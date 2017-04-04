@@ -42,10 +42,10 @@ if (isset($_GET['data'])) {
         switch ($cmd[0]) {
             case "login":
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
-                $smarty->display('login.tlp');
+                $smarty->display('login.tpl');
             case "register":
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
-                $smarty->display('login.tlp');
+                $smarty->display('login.tpl');
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
                 include_once 'home.php';
