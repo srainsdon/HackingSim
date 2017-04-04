@@ -1,6 +1,5 @@
 {extends file="main.tpl"}
 {block name=body}
-    <table>
         <table id='computers' class="table table-striped table-hover table-bordered">
             <thead>
             <tr>
@@ -19,7 +18,6 @@
             {/foreach}
             </tbody>
         </table>
-    </table>
 {/block}
 {block name=bottomScripts}
     <script>
