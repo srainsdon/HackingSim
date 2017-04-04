@@ -43,8 +43,7 @@ if (isset($_GET['data'])) {
 
         switch ($cmd[0]) {
             case "login":
-                $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
-                $smarty->display('login.tpl');
+                include_once 'login.php';
                 break;
             case "register":
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
