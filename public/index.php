@@ -45,7 +45,7 @@ if (isset($_GET['data'])) {
         }
     }
 } else {
-    $key = openssl_random_pseudo_bytes(256, $boolean);
-    $smarty->assign('message', $key);
+    $smarty->assign('message', 'This is a message');
+    $smarty->assign('alert', 'This is a alert');
     include_once 'home.php';
 }
