@@ -76,7 +76,7 @@ class sqlManager
 
     function updateComputer($postData)
     {
-        if ($this->isIPinNetwork($postData['ComputerIP'], $postData['NetworkID'])) {
+        if ($this->isIPinNetwork($postData['ComputerIP'], $postData['ComputerNetwork'])) {
             foreach ($postData as $key => $value) {
                 if ($key == 'ComputerID' || $key == 'submit')
                     continue;
