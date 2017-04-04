@@ -18,6 +18,7 @@ if (isset($_GET['data'])) {
             switch ($cmd[1]) {
                 case
                 "computer":
+                    $computerId = $cmd[2];
                     error_log("Cmd: computer");
                     include_once 'admin/computer.php';
                     break;
