@@ -20,7 +20,8 @@
                                                               {if isset($Computer.ComputerIP)}value="{$Computer.ComputerIP}"{/if}>
         </div>
         <div class="form-group">
-            <label for="NetworkID">Network:</label><select name="NetworkID" id="NetworkID" class="form-control">
+            <label for="ComputerNetwork">Network:</label><select name="ComputerNetwork" id="ComputerNetwork"
+                                                                 class="form-control">
                 {if isset($Computer)}
                     {html_options options=$Networks selected=$Computer.NetworkID}
                 {else}
