@@ -45,7 +45,5 @@ if (isset($_GET['data'])) {
         }
     }
 } else {
-    $smarty->assign('message', 'This is a message');
-    $smarty->assign('alert', 'This is a alert');
     include_once 'home.php';
 }
