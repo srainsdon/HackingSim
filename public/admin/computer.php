@@ -10,12 +10,12 @@
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'Edit') {
 
-        $sqlupdate = '';
+        $sqlupdate = array();
         foreach ($_POST as $key => $value) {
             $oldKey = "old_$key";
             if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
 
-                $tmp[] = "$key: {$_POST[$key]} $oldKey: $_POST[$oldKey]";
+                $sqlupdate[] = "$key = {$_POST[$key]}";
             }
         }
         $smarty->assign('message', print_r($tmp, true));
