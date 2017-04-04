@@ -14,14 +14,14 @@ if (isset($_POST['submit'])) {
         foreach ($_POST as $key => $value) {
             $oldKey = "old_$key";
             if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
-                if ($key = 'ComputerIP') {
+                if ($key == 'ComputerIP') {
                     $sqlupdate[] = "$key = INET_ATON('{$_POST[$key]}')";
                 } else {
                     $sqlupdate[] = "$key = '{$_POST[$key]}'";
                 }
             }
         }
-        $smarty->assign('message', implode(',', $sqlupdate));
+        $smarty->assign('message', implode(', ', $sqlupdate));
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {
