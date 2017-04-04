@@ -9,14 +9,15 @@
 
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'Edit') {
-        $smarty->assign('message', print_r($_POST, true));
+
         $tmp = array();
         foreach ($_POST as $key => $value) {
-            if (preg_match('/old_/', $key)) {
-                $oldKey = "old_$key";
+            $oldKey = "old_$key";
+            if (isset($_POST[$oldKey])) {
                 $tmp[] = "New: {$_POST[$key]} Old: $_POST[$oldKey]";
             }
         }
+        $smarty->assign('message', print_r($tmp, true));
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {
