@@ -1,8 +1,3 @@
 RewriteEngine On
 
-# redirect all  calls to index.php
-RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
 RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
-
-# otherwise, serve your index.php app
-RewriteRule ^(.+)$ index.php [L]
