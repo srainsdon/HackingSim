@@ -47,7 +47,7 @@ if (isset($_GET['data'])) {
                 $smarty->display('login.tpl');
                 break;
             case "register":
-                $smarty->assign('message', print_r($auth->register('srainsdon@nunetnetworks.net', 'N0cand0a', 'N0cand0a'), True));
+                $smarty->assign('message', print_r($auth->register('srainsdon@nunetnetworks.net', 'Web Server Fun Toy 420', 'Web Server Fun Toy 420'), True));
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
                 $smarty->display('login.tpl');
                 break;
