@@ -6,7 +6,6 @@
  * Time: 5:19 AM
  */
 
-
 $smarty->assign('links', array(
     'Admin' => '/admin/',
 ));
