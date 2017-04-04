@@ -78,6 +78,8 @@ class sqlManager
     {
         $isNetwork = $this->isIPinNetwork($postData['ComputerIP'], $postData['NetworkID']);
         foreach ($postData as $key => $value) {
+            if ($key == 'ComputerID')
+                continue;
             if ($key == 'ComputerIP') {
                 $sqlupdate[] = "$key = INET_ATON('$value')";
             } else {
@@ -91,7 +93,7 @@ class sqlManager
 
     function isIPinNetwork($ip, $networkID)
     {
-        $sql = "SELECT NetworkStart, NetworkEnd FROM Networks WHERE NetworkID = $networkID;";
+        $sql = "SELECT NetworkStart, NetworkEnd, INET_NTOA('$ip') as NewIP FROM Networks WHERE NetworkID = $networkID;";
         return $sql;
     }
 }
