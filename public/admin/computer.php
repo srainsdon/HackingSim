@@ -16,14 +16,14 @@ if (isset($_POST['submit'])) {
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
     }
-    $smarty->append($bCrumbs, "<a href='/admin/computer/' >Computer List</a>");
-    $smarty->append($bCrumbs, "Computer Editor");
+    $smarty->append('bCrumbs', "<a href='/admin/computer/' >Computer List</a>");
+    $smarty->append('bCrumbs', "Computer Editor");
     $smarty->assign("Computer", $sql->getComputerByID($computerId));
     $smarty->assign("Networks", $tempData);
     $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
 } else {
-    $smarty->append($bCrumbs, "Computer List");
+    $smarty->append('bCrumbs', "Computer List");
     $smarty->assign("computers", $sql->getAllComputers());
     $smarty->display('list.tpl');
 }
