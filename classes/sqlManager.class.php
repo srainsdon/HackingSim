@@ -74,19 +74,18 @@ class sqlManager
         }
     }
 
-    function updateComputer($updateArray, $compID, $netID)
+    function updateComputer($postData)
     {
-        $isNetwork = '';
-        foreach ($updateArray as $key => $value) {
+        $isNetwork = $this->isIPinNetwork($postData['ComputerIP'], $postData['NetworkID']);
+        foreach ($postData as $key => $value) {
             if ($key == 'ComputerIP') {
-                $isNetwork = $this->isIPinNetwork($value, $netID);
                 $sqlupdate[] = "$key = INET_ATON('$value')";
             } else {
                 $sqlupdate[] = "$key = '$value'";
             }
         }
         $sqlupdate = implode(', ', $sqlupdate);
-        $sql = "$isNetwork\nUPDATE Computers SET $sqlupdate Where ComputerID = $compID;";
+        $sql = "$isNetwork\nUPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
         return $sql;
     }
 
