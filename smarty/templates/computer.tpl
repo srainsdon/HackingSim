@@ -13,14 +13,14 @@
         <div class="form-group">
             <label for="domain_name">Domain Name:</label><input id="domain_name" type="text" name="domain_name"
                                                                 class="form-control" placeholder="Domain Name"
-                                                                {if isset($Computer.ComputerDomain)}value="{$Computer.ComputerDomain}"{/if}>
+                                                                {if isset($Computer.ComputerDomain)}value="{$Computer.ComputerDomain}">
             <input type="hidden" name="old_domain_name" value="{$Computer.ComputerDomain}"
                     {/if}>
         </div>
         <div class="form-group">
             <label for="computer_ip">IP Address:</label><input id="computer_ip" type="text" name="computer_ip"
                                                                class="form-control" placeholder="IP Address"
-                                                               {if isset($Computer.ComputerIP)}value="{$Computer.ComputerIP}"{/if}>
+                                                               {if isset($Computer.ComputerIP)}value="{$Computer.ComputerIP}">
             <input type="hidden" name="old_computer_ip" value="{$Computer.ComputerIP}"
                     {/if}>
         </div>
