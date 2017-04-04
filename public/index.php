@@ -39,7 +39,11 @@ if (isset($_GET['data'])) {
                 break;
         }
     } else {
+
         switch ($cmd[0]) {
+            case "login":
+
+                $smarty->display('login.tlp');
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
                 include_once 'home.php';

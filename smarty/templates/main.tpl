@@ -19,8 +19,14 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="/computer/">Computers</a></li>
-                <li><a href="/network/">Networks</a></li>
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a href="/admin/computer/">Computers</a></li>
+                    <li><a href="/admin/network/">Networks</a></li>
+                </div>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -33,17 +39,17 @@
             {$link}
         {/foreach}
     </nav>
-        {if isset($message)}
-            <br/>
-            <div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
-                                                                          aria-label="close">&times;</a>{$message|nl2br}
-            </div>
-        {/if}
-        {if isset($alert)}
-            <div class="alert alert-danger alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
-                                                                         aria-label="close">&times;</a>{$alert|nl2br}
-            </div>
-        {/if}
+    {if isset($message)}
+        <br/>
+        <div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
+                                                                      aria-label="close">&times;</a>{$message|nl2br}
+        </div>
+    {/if}
+    {if isset($alert)}
+        <div class="alert alert-danger alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
+                                                                     aria-label="close">&times;</a>{$alert|nl2br}
+        </div>
+    {/if}
     {block name=body}{$body}{/block}
 </div>
 {block name=bottomScripts}{/block}
