@@ -15,5 +15,3 @@ require 'vendor/autoload.php';
 
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim;
-
-$smarty->append('bCrumbs', "<a href=\"/\">Home</a>");

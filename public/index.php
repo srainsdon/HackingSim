@@ -14,7 +14,8 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
-        $smarty->append('bCrumbs', "<a href='/admin'>Admin</a>");
+        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/' >Home</a>");
+        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         switch ($cmd[1]) {
             case "computer":
                 $computerId = $cmd[2];
@@ -35,10 +36,12 @@ if (isset($_GET['data'])) {
     } else {
         switch ($cmd[0]) {
             default:
+                $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
                 include_once 'home.php';
                 break;
         }
     }
 } else {
+    $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
     include_once 'home.php';
 }

@@ -36,8 +36,8 @@ if (isset($computerId) && $computerId != '') {
         $smarty->assign('task', "Add");
         $smarty->display('computer.tpl');
     } else {
-        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/computer/' >Computer List</span>");
-        $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer Editor</a>");
+        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/computer/' >Computer List</a>");
+        $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer Editor</span>");
         $smarty->assign("Computer", $sql->getComputerByID($computerId));
         $smarty->assign("Networks", $tempData);
         $smarty->assign('task', "Edit");
