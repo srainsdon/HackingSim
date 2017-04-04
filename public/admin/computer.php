@@ -21,7 +21,9 @@ if (isset($_POST['submit'])) {
                 }
             }
         }
-        $smarty->assign('message', implode(', ', $sqlupdate));
+        $sqlupdate = implode(', ', $sqlupdate);
+        $updateSql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$_POST['ComputerID']}";
+        $smarty->assign('message', $updateSql);
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {

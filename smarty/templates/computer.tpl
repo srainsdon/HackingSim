@@ -29,6 +29,7 @@
             </select>
         </div>
         &nbsp;{if isset($Computer)}
+    <input type="hidden" name="ComputerID" value="{$Computer.ComputerID}">
     <input type="hidden" name="old_ComputerHostName" value="{$Computer.ComputerHostName}">
     <input type="hidden" name="old_ComputerDomain" value="{$Computer.ComputerDomain}">
     <input type="hidden" name="old_ComputerIP" value="{$Computer.ComputerIP}">
