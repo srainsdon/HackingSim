@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # redirect all  calls to index.php
-
+RewriteLog /tmp/rewrite.log
 RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg)$
 RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
 
