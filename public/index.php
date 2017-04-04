@@ -26,6 +26,8 @@ if (isset($_GET['data'])) {
             case "log":
                 include_once 'admin/tail.php';
                 break;
+            case "info":
+                phpinfo();
             default:
                 include_once 'admin/home.php';
                 break;
