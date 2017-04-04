@@ -65,13 +65,26 @@ class sqlManager
 
     function addComputer($hostName, $domain, $ipaddress, $networkID)
     {
-        $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
-            . " VALUES ('$hostName', '$domain', INET_ATON('$ipaddress'), $networkID)";
-        if ($this->pdo->query($sql) != TRUE) {
-            return "Error: $sql<br />\n" . $this->pdo->errorCode();
+        if ($this->isIPinNetwork($ipaddress, $networkID)) {
+            $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
+                . " VALUES ('$hostName', '$domain', INET_ATON('$ipaddress'), $networkID)";
+            if ($this->pdo->query($sql) != TRUE) {
+                return "Error: $sql<br />\n" . $this->pdo->errorCode();
+            } else {
+                return TRUE;
+            }
         } else {
-            return TRUE;
+            return "IP ADDRESS NOT IN NETWORK!!";
         }
+    }
+
+    function isIPinNetwork($ip, $networkID)
+    {
+        $sql = "SELECT NetworkStart, NetworkEnd, INET_ATON('$ip') as NewIP FROM Networks WHERE NetworkID = $networkID;";
+        $networkInfo = $this->pdo->query($sql)->fetch();
+        if ($networkInfo['NewIP'] > $networkInfo['NetworkStart'] && $networkInfo['NewIP'] < $networkInfo['NetworkEnd'])
+            return TRUE;
+        return False;
     }
 
     function updateComputer($postData)
@@ -92,14 +105,5 @@ class sqlManager
         $sqlupdate = implode(', ', $sqlupdate);
         $sql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
         return $this->pdo->exec($sql);
-    }
-
-    function isIPinNetwork($ip, $networkID)
-    {
-        $sql = "SELECT NetworkStart, NetworkEnd, INET_ATON('$ip') as NewIP FROM Networks WHERE NetworkID = $networkID;";
-        $networkInfo = $this->pdo->query($sql)->fetch();
-        if ($networkInfo['NewIP'] > $networkInfo['NetworkStart'] && $networkInfo['NewIP'] < $networkInfo['NetworkEnd'])
-            return TRUE;
-        return False;
     }
 }
