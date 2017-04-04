@@ -58,7 +58,7 @@ class sqlManager
 
     function getNetworkList()
     {
-        $sql = "SELECT NetworkID, CONCAT(NetworkName, ' - ', INET_NTOA(NetworkStart), ' - ', INET_NTOA(NetworkEnd)) AS NetName FROM Networks";
+        $sql = "SELECT NetworkID, CONCAT(NetworkName, ' - ', CAST(INET_NTOA(NetworkStart) AS CHAR), ' - ', CAST(INET_NTOA(NetworkEnd) AS CHAR)) AS NetName FROM Networks";
         $result = $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
