@@ -7,7 +7,8 @@
  */
 
 if (isset($_POST)) {
-    $smarty->assign('message', print_r($_POST, true));
+    $smarty->assign('message', print_r($auth->login($_POST['email'], $_POST['pass']), true));
+    // $_SESSION["favcolor"];
 }
 
 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
