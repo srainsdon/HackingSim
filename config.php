@@ -15,3 +15,6 @@ require 'vendor/autoload.php';
 
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim;
+
+$config = new PHPAuth\Config($sql->getPdo());
+$auth = new PHPAuth\Auth($sql->getPdo(), $config);

@@ -14,6 +14,11 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
+        if (!$auth->isLogged()) {
+            header('HTTP/1.0 403 Forbidden');
+            echo "Forbidden";
+            exit();
+        }
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/' >Home</a>");
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         switch ($cmd[1]) {
