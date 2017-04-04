@@ -20,10 +20,10 @@
             {/foreach}
         </ul>
         {if isset($message)}
-            <div class="alert alert-success fade in">{$message|nl2br}</div>
+            <div class="alert alert-success alert-dismissable fade in">{$message|nl2br}</div>
         {/if}
         {if isset($alert)}
-            <div class="alert alert-danger fade in">{$alert|nl2br}</div>
+            <div class="alert alert-danger alert-dismissable fade in">{$alert|nl2br}</div>
         {/if}
     </div>
     {block name=body}{$body}{/block}
