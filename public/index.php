@@ -18,6 +18,8 @@ if (isset($_GET['data'])) {
             header('HTTP/1.0 403 Forbidden');
             echo "Forbidden";
             exit();
+        } else {
+            $smarty->assign('LogedIn', Flase);
         }
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         switch ($cmd[1]) {
@@ -45,6 +47,7 @@ if (isset($_GET['data'])) {
                 $smarty->display('login.tpl');
                 break;
             case "register":
+                $auth->register('srainsdon@nunetnetworks.net', 'N0cand0a', 'N0cand0a');
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
                 $smarty->display('login.tpl');
                 break;

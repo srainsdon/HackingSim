@@ -18,3 +18,4 @@ $smarty = new Smarty_HackingSim;
 
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new PHPAuth\Auth($sql->getPdo(), $config);
+$smarty->assign('LogedIn', Flase);

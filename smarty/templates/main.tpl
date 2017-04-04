@@ -21,6 +21,8 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
+                <li><a href="#">Page 2</a></li>
+                {if ($LogedIn)}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
                         <span class="caret"></span></a>
@@ -29,7 +31,6 @@
                         <li><a href="#">...</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Page 2</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
                         <span class="caret"></span></a>
@@ -42,6 +43,7 @@
                     </ul>
                 </li>
             </ul>
+            {/if}
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
