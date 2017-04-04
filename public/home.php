@@ -6,8 +6,4 @@
  * Time: 5:19 AM
  */
 
-$smarty->assign('links', array(
-    'Admin' => '/admin/',
-));
-
-$smarty->display('adminHome.tpl');
+$smarty->display('main.tpl');
