@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
             $oldKey = "old_$key";
             if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
 
-                $tmp[] = "New: {$_POST[$key]} Old: $_POST[$oldKey]";
+                $tmp[] = "$key: {$_POST[$key]} $oldKey: $_POST[$oldKey]";
             }
         }
         $smarty->assign('message', print_r($tmp, true));
