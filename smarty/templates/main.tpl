@@ -22,7 +22,7 @@
         {if isset($message)}
             <div class="message">{$message|nl2br}</div>
         {/if}
-        {if isset($message)}
+        {if isset($alert)}
             <div class="alert">{$alert|nl2br}</div>
         {/if}
     </div>
