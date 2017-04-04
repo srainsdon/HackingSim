@@ -22,13 +22,13 @@ if (isset($_POST['submit'])) {
     $smarty->assign("bCrumbs", "Fix Ip List");
     $smarty->assign("computers", $newData);
     $smarty->display('Fixlist.tpl');
-} elseif (isset($cmd[2]) && $cmd[2] != '') {
+} elseif (isset($computerId) && $computerId != '') {
     $tempData = array();
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
     }
     $smarty->assign("bCrumbs", " - <a href='/admin/computer/' >Computer List</a> - Computer Editor");
-    $smarty->assign("Computer", $sql->getComputerByID($cmd[1]));
+    $smarty->assign("Computer", $sql->getComputerByID($computerId));
     $smarty->assign("Networks", $tempData);
     $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
