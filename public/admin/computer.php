@@ -14,8 +14,11 @@ if (isset($_POST['submit'])) {
         foreach ($_POST as $key => $value) {
             $oldKey = "old_$key";
             if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
-
-                $sqlupdate[] = "$key = {$_POST[$key]}";
+                if ($key = 'ComputerIP') {
+                    $sqlupdate[] = "$key = INET_ATON('{$_POST[$key]}')";
+                } else {
+                    $sqlupdate[] = "$key = '{$_POST[$key]}'";
+                }
             }
         }
         $smarty->assign('message', implode(',', $sqlupdate));
