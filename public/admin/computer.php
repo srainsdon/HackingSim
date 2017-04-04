@@ -11,29 +11,19 @@ if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'edit') {
 
     }
-} elseif (isset($_GET['fix'])) {
-    $data = $sql->getFixedIPs();
-    $newData = array();
-    foreach ($data as $row) {
-        $row['NewLong'] = rand($row['NetworkStart'], $row['NetworkEnd']);
-        $row['NewIP'] = long2ip($row['NewLong']);
-        $newData[] = $row;
-    }
-    $smarty->assign("bCrumbs", "Fix Ip List");
-    $smarty->assign("computers", $newData);
-    $smarty->display('Fixlist.tpl');
 } elseif (isset($computerId) && $computerId != '') {
     $tempData = array();
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
     }
-    $smarty->assign("bCrumbs", " - <a href='/admin/computer/' >Computer List</a> - Computer Editor");
+    $smarty->append($bCrumbs, "<a href='/admin/computer/' >Computer List</a>");
+    $smarty->append($bCrumbs, "Computer Editor");
     $smarty->assign("Computer", $sql->getComputerByID($computerId));
     $smarty->assign("Networks", $tempData);
     $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
 } else {
-    $smarty->assign("bCrumbs", " - Computer List");
+    $smarty->append($bCrumbs, "Computer List");
     $smarty->assign("computers", $sql->getAllComputers());
     $smarty->display('list.tpl');
 }

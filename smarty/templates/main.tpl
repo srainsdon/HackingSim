@@ -13,7 +13,11 @@
 <div class="container">
     <div class="page-header">
         <h1><span class="glyphicon glyphicon-ok-circle"></span> {$title|default:'Welcome'} - {$app_name}</h1>
-        <p><a href="/">Home</a>{$bCrumbs|default:''}</p>
+        <ul>
+            {foreach $bCrumbs as $link}
+                <li>$link</li>
+            {/foreach}
+        </ul>
     </div>
     {block name=body}{$body}{/block}
 </div>
