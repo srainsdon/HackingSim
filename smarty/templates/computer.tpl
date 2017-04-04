@@ -1,7 +1,7 @@
 {extends file="main.tpl"}
 
 {block name=body}
-    <h3>{$Computer.ComputerName}</h3>
+    <h3>Editing: {$Computer.ComputerName}</h3>
     <form method="POST">
         <div class="form-group">
             <label for="computer_name">Host Name:</label><input id="computer_name" type="text" name="computer_name"
