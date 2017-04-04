@@ -21,10 +21,14 @@
         </ul>
         {if isset($message)}
             <br/>
-            <div class="alert alert-success alert-dismissable fade in">{$message|nl2br}</div>
+            <div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
+                                                                          aria-label="close">&times;</a>{$message|nl2br}
+            </div>
         {/if}
         {if isset($alert)}
-            <div class="alert alert-danger alert-dismissable fade in">{$alert|nl2br}</div>
+            <div class="alert alert-danger alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
+                                                                         aria-label="close">&times;</a>{$alert|nl2br}
+            </div>
         {/if}
     </div>
     {block name=body}{$body}{/block}
