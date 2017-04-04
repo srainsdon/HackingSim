@@ -10,10 +10,11 @@
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'Edit') {
 
-        $tmp = array();
+        $sqlupdate = '';
         foreach ($_POST as $key => $value) {
             $oldKey = "old_$key";
             if (isset($_POST[$oldKey]) && $_POST[$key] != $_POST[$oldKey]) {
+
                 $tmp[] = "New: {$_POST[$key]} Old: $_POST[$oldKey]";
             }
         }
