@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
     }
-    $smarty->assign("bCrumbs", " - <a href='computer.php' >Computer List</a> - Computer Editor");
+    $smarty->assign("bCrumbs", " - <a href='/admin/computer/' >Computer List</a> - Computer Editor");
     $smarty->assign("Computer", $sql->getComputerByID($cmd[1]));
     $smarty->assign("Networks", $tempData);
     $smarty->assign('task', "Edit");
