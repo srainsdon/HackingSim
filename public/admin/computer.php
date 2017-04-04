@@ -17,13 +17,13 @@ if (isset($_POST['submit'])) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
     }
     $smarty->append('bCrumbs', "<a href='/admin/computer/' >Computer List</a>");
-    $smarty->append('bCrumbs', "Computer Editor");
+    $smarty->append('bCrumbs', "<a href='./' >Computer Editor</a>");
     $smarty->assign("Computer", $sql->getComputerByID($computerId));
     $smarty->assign("Networks", $tempData);
     $smarty->assign('task', "Edit");
     $smarty->display('computer.tpl');
 } else {
-    $smarty->append('bCrumbs', "Computer List");
+    $smarty->append('bCrumbs', "<a href='./' >Computer List</a>");
     $smarty->assign("computers", $sql->getAllComputers());
     $smarty->display('list.tpl');
 }
