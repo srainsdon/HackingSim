@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $smarty->assign("bCrumbs", "Fix Ip List");
     $smarty->assign("computers", $newData);
     $smarty->display('Fixlist.tpl');
-} elseif (isset($cmd[1]) && $cmd[1] != '') {
+} elseif (isset($cmd[2]) && $cmd[2] != '') {
     $tempData = array();
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetworkName'];
