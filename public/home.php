@@ -9,8 +9,7 @@
 include_once '../config.php';
 
 $smarty->assign('links', array(
-    'Computers' => '/admin/computer/',
-    'Networks' => '/admin/network/',
+    'Admin' => '/admin/',
 ));
 
 $smarty->display('adminHome.tpl');

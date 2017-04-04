@@ -19,21 +19,20 @@ if (isset($_GET['data'])) {
                 case
                 "computer":
                     $computerId = $cmd[2];
-                    error_log("Cmd: computer");
                     include_once 'admin/computer.php';
                     break;
                 case "network":
-                    error_log("Cmd: network");
                     include_once 'admin/network.php';
                     break;
                 default:
-                    error_log("Cmd: empty = default");
                     include_once 'admin/home.php';
                     break;
             }
         }
+        default:
+            include_once 'admin/home.php';
+            break;
     }
 } else {
-    error_log("no cmd");
     include_once 'home.php';
 }
