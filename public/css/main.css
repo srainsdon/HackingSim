@@ -22,11 +22,3 @@ li a:hover {
     color: #ffffff;
     background-color: gray;
 }
-
-div.message {
-    background-color: green;
-}
-
-div.alert {
-    background-color: red;
-}
