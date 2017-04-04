@@ -98,7 +98,6 @@ class sqlManager
     {
         $sql = "SELECT NetworkStart, NetworkEnd, INET_ATON('$ip') as NewIP FROM Networks WHERE NetworkID = $networkID;";
         $networkInfo = $this->pdo->query($sql)->fetch();
-        print_r($networkInfo);
         if ($networkInfo['NewIP'] > $networkInfo['NetworkStart'] && $networkInfo['NewIP'] < $networkInfo['NetworkEnd'])
             return TRUE;
         return False;
