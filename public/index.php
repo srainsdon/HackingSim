@@ -31,7 +31,7 @@ if (isset($_GET['data'])) {
             }
         }
         default:
-            include_once 'admin/home.php';
+            include_once 'home.php';
             break;
     }
 } else {
