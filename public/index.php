@@ -23,6 +23,9 @@ if (isset($_GET['data'])) {
             case "network":
                 include_once 'admin/network.php';
                 break;
+            case "log":
+                include_once 'admin/tail.php';
+                break;
             default:
                 include_once 'admin/home.php';
                 break;
