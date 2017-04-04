@@ -34,11 +34,11 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/network/">Networks</a></li>
-                        <li><a href="/computer/">Computers</a></li>
+                        <li><a href="/admin/network/">Networks</a></li>
+                        <li><a href="/admin/computer/">Computers</a></li>
                         <hr/>
-                        <li><a href="/computer/add/">Add Computer</a></li>
-                        <li><a href="/info/">PhpInfo</a></li>
+                        <li><a href="/admin/computer/add/">Add Computer</a></li>
+                        <li><a href="/admin/info/">PhpInfo</a></li>
                     </ul>
                 </li>
             </ul>
