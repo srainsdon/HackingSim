@@ -3,7 +3,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #00c800;
+    background-color: lightgrey;
 }
 
 li {
@@ -20,5 +20,13 @@ li a {
 
 li a:hover {
     color: #ffffff;
-    background-color: #0000ff;
+    background-color: gray;
+}
+
+div.message {
+    background-color: green;
+}
+
+div.alert {
+    background-color: red;
 }

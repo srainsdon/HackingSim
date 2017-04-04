@@ -20,7 +20,11 @@
             {/foreach}
         </ul>
         {if isset($message)}
-            <div>{$message|nl2br}</div>{/if}
+            <div class="message">{$message|nl2br}</div>
+        {/if}
+        {if isset($message)}
+            <div class="alert">{$alert|nl2br}</div>
+        {/if}
     </div>
     {block name=body}{$body}{/block}
 </div>

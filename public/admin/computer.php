@@ -9,7 +9,8 @@
 
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'Edit') {
-        $smarty->assign('message', $sql->updateComputer($_POST));
+        if (!$sql->updateComputer($_POST))
+            $smarty->assign('alert', "Edit Failed");
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {
