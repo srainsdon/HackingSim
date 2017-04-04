@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
             }
         }
         if (count($sqlupdate) > 0) {
-            $smarty->assign('message', $sql->updateComputer($sqlupdate, $_POST['ComputerIP'], $_POST['NetworkID']));
+            $smarty->assign('message', $sql->updateComputer($sqlupdate, $_POST['ComputerID'], $_POST['NetworkID']));
         } else {
             $smarty->assign('message', "Nothing Was Changed!!!");
         }
