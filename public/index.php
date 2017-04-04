@@ -19,7 +19,6 @@ if (isset($_GET['data'])) {
             echo "Forbidden";
             exit();
         }
-        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/' >Home</a>");
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         switch ($cmd[1]) {
             case "computer":
@@ -42,7 +41,10 @@ if (isset($_GET['data'])) {
 
         switch ($cmd[0]) {
             case "login":
-
+                $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
+                $smarty->display('login.tlp');
+            case "register":
+                $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
                 $smarty->display('login.tlp');
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
