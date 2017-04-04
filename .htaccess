@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
+RewriteBase /
+RewriteRule /((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
 </IfModule>
