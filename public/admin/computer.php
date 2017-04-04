@@ -11,7 +11,12 @@ if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'edit') {
 
     } elseif ($_POST['submit'] == 'add') {
-        $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
+        $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
+        if ($res) {
+            echo "All GOOD!";
+        } else {
+            echo "$res\n";
+        }
     }
 } elseif (isset($computerId) && $computerId != '') {
     $tempData = array();
