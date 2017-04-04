@@ -1,5 +1,4 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /
 RewriteRule ^((?!index\.php|?!css$).+)$ /index.php?data=$1 [L,NC]
 </IfModule>
