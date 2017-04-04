@@ -42,11 +42,16 @@
                         <li><a href="/admin/info/">PhpInfo</a></li>
                     </ul>
                 </li>
+                {/if}
             </ul>
-            {/if}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {if ($LogedIn)}
+                    <li><a href="/profile/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {else}
+                    <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {/if}
             </ul>
         </div>
     </nav>
