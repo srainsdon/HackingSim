@@ -34,13 +34,6 @@ if (isset($_GET['data'])) {
         }
     } else {
         switch ($cmd[0]) {
-            case "computer":
-                $computerId = $cmd[2];
-                include_once 'admin/computer.php';
-                break;
-            case "network":
-                include_once 'admin/network.php';
-                break;
             default:
                 include_once 'home.php';
                 break;
