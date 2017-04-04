@@ -80,12 +80,12 @@ class sqlManager
         foreach ($updateArray as $key => $value) {
             if ($key == 'ComputerIP') {
                 $isNetwork = $this->isIPinNetwork($value, $netID);
-                $sqlupdate[] = "$key = INET_ATON('{$updateArray[$key]}')";
+                $sqlupdate[] = "$key = INET_ATON('$value')";
             } else {
-                $sqlupdate[] = "$key = '{$updateArray[$key]}'";
+                $sqlupdate[] = "$key = '$value'";
             }
         }
-        $sqlupdate = implode(', ', $updateArray);
+        $sqlupdate = implode(', ', $sqlupdate);
         $sql = "$isNetwork\nUPDATE Computers SET $sqlupdate Where ComputerID = $compID;";
         return $sql;
     }
