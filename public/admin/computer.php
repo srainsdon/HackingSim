@@ -12,12 +12,13 @@ if (isset($_POST['submit'])) {
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {
-            echo "All GOOD!";
+            $smarty->assign('message', "Computer {$_POST['computer_name']} was added!");
         } else {
-            echo "$res\n";
+            $smarty->assign('message', "ERROR:\n$res");
         }
     }
-} elseif (isset($computerId) && $computerId != '') {
+}
+if (isset($computerId) && $computerId != '') {
     $tempData = array();
     foreach ($sql->getNetworkList() as $row) {
         $tempData[$row['NetworkID']] = $row['NetName'];

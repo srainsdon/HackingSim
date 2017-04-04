@@ -2,7 +2,7 @@
 
 {block name=body}
     <h3>{if isset($Computer.ComputerName)}Editing: {$Computer.ComputerName}{else}New Computer{/if}</h3>
-    <form method="POST">
+    <form method="POST" action="/admin/computer/">
         <div class="form-group">
             <label for="computer_name">Host Name:</label><input id="computer_name" type="text" name="computer_name"
                                                                 class="form-control" placeholder="Host Name"

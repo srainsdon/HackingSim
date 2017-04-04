@@ -19,6 +19,8 @@
                 <li>{$link}</li>
             {/foreach}
         </ul>
+        {if isset($message)}
+            <div>{$message|nl2br}</div>{/if}
     </div>
     {block name=body}{$body}{/block}
 </div>
