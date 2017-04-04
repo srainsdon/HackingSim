@@ -6,9 +6,10 @@
  * Time: 4:27 PM
  */
 
-if (isset($_POST)) {
-    $smarty->assign('message', print_r($auth->login($_POST['email'], $_POST['pass']), true));
-    // $_SESSION["favcolor"];
+if (!isset($_SESSION['hash'])) {
+    $_SESSION['hash'] = $auth->login($_POST['email'], $_POST['pass']);
+} else {
+    $smarty->assign('body', $auth->checkSession($_SESSION['hash']));
 }
 
 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
