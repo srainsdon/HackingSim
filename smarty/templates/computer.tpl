@@ -14,7 +14,7 @@
                                                                 {if isset($Computer.ComputerDomain)}value="{$Computer.ComputerDomain}">{/if}
         </div>
         <div class="form-group">
-            <label for="computer_ip">Domain IP:</label><input id="domain_ip" type="text" name="domain_ip"
+            <label for="computer_ip">Domain IP:</label><input id="computer_ip" type="text" name="computer_ip"
                                                               class="form-control" placeholder="IP Address"
                                                               {if isset($Computer.ComputerIP)}value="{$Computer.ComputerIP}">{/if}
         </div>
