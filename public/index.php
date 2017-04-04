@@ -19,15 +19,15 @@ if (isset($_GET['data'])) {
                 case
                 "computer":
                     error_log("Cmd: computer");
-                    include_once 'computer.php';
+                    include_once 'admin/computer.php';
                     break;
                 case "network":
                     error_log("Cmd: network");
-                    include_once 'network.php';
+                    include_once 'admin/network.php';
                     break;
                 default:
                     error_log("Cmd: empty = default");
-                    include_once 'home.php';
+                    include_once 'admin/home.php';
                     break;
             }
         }
