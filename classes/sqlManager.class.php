@@ -91,7 +91,7 @@ class sqlManager
         }
         $sqlupdate = implode(', ', $sqlupdate);
         $sql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
-        return $sql;
+        return $this->pdo->exec($sql);
     }
 
     function isIPinNetwork($ip, $networkID)
