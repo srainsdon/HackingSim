@@ -6,7 +6,6 @@
  * Time: 5:19 AM
  */
 
-include_once '../config.php';
 
 $smarty->assign('links', array(
     'Computers' => '/admin/computer/',
