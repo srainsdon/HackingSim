@@ -66,14 +66,11 @@ class sqlManager
     function addComputer($hostName, $domain, $ipaddress, $networkID)
     {
         $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
-            . " VALUES ('$hostName', '$domain', INET_ATON($ipaddress), $networkID)";
-        echo "$sql\n";
-        /*
+            . " VALUES ('$hostName', '$domain', INET_ATON('$ipaddress'), $networkID)";
         if ($this->pdo->query($sql) != TRUE) {
             return "Error: $sql<br />\n" . $this->pdo->errorCode();
         } else {
             return TRUE;
         }
-        */
     }
 }
