@@ -22,7 +22,7 @@ $ip2 = $randip . "254";
 $long1 = sprintf('%u', ip2long($ip1));
 $long2 = sprintf('%u', ip2long($ip2));
 
-$smarty->append('bCrumbs', "<a href='./' >Network List</a>");
+$smarty->append('bCrumbs', "<a>Network List</a>");
 $smarty->assign('networks', $sql->listNets());
 $smarty->assign('ips', array('ip1' => $ip1, 'ip2' => $ip2, 'long1' => $long1, 'long2' => $long2));
 $smarty->display('network.tpl');
