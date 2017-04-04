@@ -67,10 +67,13 @@ class sqlManager
     {
         $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
             . " VALUES ('$hostName', '$domain', INET_ATON($ipaddress), $networkID)";
+        echo "$sql\n";
+        /*
         if ($this->pdo->query($sql) != TRUE) {
             return "Error: $sql<br />\n" . $this->pdo->errorCode();
         } else {
             return TRUE;
         }
+        */
     }
 }
