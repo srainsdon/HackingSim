@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # redirect all  calls to index.php
-RewriteCond $1 !^(favicon\.ico|favicon\.png|media|robots\.txt|crossdomain\.xml|css|js)
+RewriteCond %{REQUEST_URI} !^/css/[^/]+\.css$
 RewriteRule ^/((?!index\.php$).+)$ /index.php?data=$1 [L,NC]
 
 # otherwise, serve your index.html app
