@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 } elseif (isset($computerId) && $computerId != '') {
     $tempData = array();
     foreach ($sql->getNetworkList() as $row) {
-        $tempData[$row['NetworkID']] = $row['NetworkName'];
+        $tempData[$row['NetworkID']] = $row['NetName'];
     }
     if ($computerId == 'add') {
         $smarty->append('bCrumbs', "<a href='/admin/computer/' >Computer List</a>");
