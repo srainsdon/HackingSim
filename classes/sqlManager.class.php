@@ -30,21 +30,21 @@ class sqlManager
 
     function listNets()
     {
-        $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) as NetworkStart, inet_ntoa(`NetworkEnd`) as NetworkEnd, `NetworkName` from Networks";
+        $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) AS NetworkStart, inet_ntoa(`NetworkEnd`) AS NetworkEnd, `NetworkName` FROM Networks";
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
 
     function getFixedIPs()
     {
-        $sql = "select c.ComputerID, c.ComputerIP, c.ComputerHostName, n.NetworkName, n.NetworkStart, n.NetworkEnd from Computers as c, Networks as n where c.ComputerNetwork = n.NetworkID and ( c.ComputerIP < n.NetworkStart or c.ComputerIP > n.NetworkEnd)";
+        $sql = "SELECT c.ComputerID, c.ComputerIP, c.ComputerHostName, n.NetworkName, n.NetworkStart, n.NetworkEnd FROM Computers AS c, Networks AS n WHERE c.ComputerNetwork = n.NetworkID AND ( c.ComputerIP < n.NetworkStart OR c.ComputerIP > n.NetworkEnd)";
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
 
     function getAllComputers()
     {
-        $sql = "select Computers.ComputerID, concat(Computers.ComputerHostName, '.', Computers.ComputerDomain) as ComputerName, Computers.ComputerHostName, Computers.ComputerDomain, INET_NTOA(Computers.ComputerIP) as ComputerIP, Networks.NetworkName from Computers , Networks where Computers.ComputerNetwork = Networks.NetworkID";;
+        $sql = "SELECT Computers.ComputerID, concat(Computers.ComputerHostName, '.', Computers.ComputerDomain) AS ComputerName, Computers.ComputerHostName, Computers.ComputerDomain, INET_NTOA(Computers.ComputerIP) AS ComputerIP, Networks.NetworkName FROM Computers , Networks WHERE Computers.ComputerNetwork = Networks.NetworkID";;
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
@@ -72,5 +72,27 @@ class sqlManager
         } else {
             return TRUE;
         }
+    }
+
+    function updateComputer($updateArray, $compID, $netID)
+    {
+        $isNetwork = '';
+        foreach ($updateArray as $key => $value) {
+            if ($key == 'ComputerIP') {
+                $isNetwork = $this->isIPinNetwork($value, $netID);
+                $sqlupdate[] = "$key = INET_ATON('{$_POST[$key]}')";
+            } else {
+                $sqlupdate[] = "$key = '{$_POST[$key]}'";
+            }
+        }
+        $sqlupdate = implode(', ', $updateArray);
+        $sql = "$isNetwork\nUPDATE Computers SET $sqlupdate Where ComputerID = {$_POST['ComputerID']};";
+        return $sql;
+    }
+
+    function isIPinNetwork($ip, $networkID)
+    {
+        $sql = "SELECT NetworkStart, NetworkEnd FROM Networks WHERE NetworkID = $networkID;";
+        return $sql;
     }
 }
