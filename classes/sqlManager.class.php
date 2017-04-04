@@ -62,4 +62,15 @@ class sqlManager
         $result = $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    function addComputer($hostName, $domain, $ipaddress, $networkID)
+    {
+        $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
+            . " VALUES ('$hostName', '$domain', INET_ATON($ipaddress), $networkID)";
+        if ($this->pdo->query($sql) == FALSE) {
+            return "Error: $sql<br />\n" . $this->pdo->errorCode();
+        } else {
+            return TRUE;
+        }
+    }
 }
