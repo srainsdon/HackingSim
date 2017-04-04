@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
                 $sqlupdate[] = "$key = {$_POST[$key]}";
             }
         }
-        $smarty->assign('message', print_r($tmp, true));
+        $smarty->assign('message', implode(',', $sqlupdate));
     } elseif ($_POST['submit'] == 'Add') {
         $res = $sql->addComputer($_POST['computer_name'], $_POST['domain_name'], $_POST['computer_ip'], $_POST['network_id']);
         if ($res) {
