@@ -20,6 +20,7 @@
             {/foreach}
         </ul>
         {if isset($message)}
+            <br/>
             <div class="alert alert-success alert-dismissable fade in">{$message|nl2br}</div>
         {/if}
         {if isset($alert)}
