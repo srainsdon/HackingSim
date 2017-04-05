@@ -24,7 +24,6 @@ if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
     $smarty->assign('alert', $loginInfo['message']);
     $message .= "Session:\n" . print_r($_SESSION, True);
     $smarty->assign('message', $message);
-    $smarty->assign('message', "is session['authID'] Good. " . $auth->checkSession($_SESSION['authID']) . " Is Logged In? " . $auth->isLogged());
 }
 if (isset($_SESSION)) {
     $smarty->assign('body', print_r($_SESSION, true));
