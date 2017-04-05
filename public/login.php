@@ -7,10 +7,13 @@
  */
 
 if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
-    $message = "Login Info:\n";
-    $message .= print_r($_POST, true);
-    $_SESSION['hash'] = $auth->login($_POST['email'], $_POST['pass']);
-    $message .= print_r($_SESSION);
+    $message = "";
+    $message .= "Post:\n" . print_r($_POST, true);
+    $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
+    $message .= "Login Info:\n" . print_r($loginInfo, true);
+    $_SESSION['hash'] = $loginInfo['hash'];
+    $smarty->assign('alert', $message['message']);
+    $message .= "Session:\n" . print_r($_SESSION, True);
     $smarty->assign('message', $message);
 } elseif (isset($_SESSION['hash'])) {
     $smarty->assign('body', $auth->checkSession($_SESSION['hash']));
