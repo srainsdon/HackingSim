@@ -35,7 +35,7 @@
             {/if}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            {if ($LogedIn)}
+            {if ($LoggedIn)}
                 <li><a href="/profile/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             {else}
