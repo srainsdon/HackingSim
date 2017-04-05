@@ -43,7 +43,7 @@ class ipv4
 
     function network()
     {
-        return (long2ip((ip2long($this->address))
+        return (long2ip(~(ip2long($this->address))
             & (ip2long($this->netmask()))));
     }
 
