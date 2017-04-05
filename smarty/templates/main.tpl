@@ -36,4 +36,5 @@
 </div>
 {block name=bottomScripts}{/block}
 </body>
+<!-- {$userIP} -->
 </html>

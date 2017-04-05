@@ -28,6 +28,8 @@ if ($auth->isLogged()) {
 
 $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
+$userIP = getIp();
+$smarty->assign('userIP', $userIP);
 /*
 $smarty->registerPlugin("function", "date_now", "print_current_date");
 
@@ -35,3 +37,12 @@ function print_nav_bar($params, $smarty)
 {
     $navMenu = array();
 }*/
+
+function getIp()
+{
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        return $_SERVER['REMOTE_ADDR'];
+    }
+}
