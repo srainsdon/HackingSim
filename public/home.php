@@ -18,5 +18,5 @@ print "Broadcast: {$ip->broadcast()}\n";
 
 $message = ob_get_contents();
 ob_clean();
-$smarty->assign('body', nl2br(getIpInfo() . '\n\n' . $message));
+$smarty->assign('body', nl2br(getIpInfo() . "\n\n" . $message));
 $smarty->display('main.tpl');
