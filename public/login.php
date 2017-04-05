@@ -9,12 +9,12 @@
 if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
     list($error, $message, $hash, $expire) = $auth->login($_POST['email'], $_POST['pass']);
     $smarty->assign('AuthData', $loginInfo);
-    if ($loginInfo['error'] > 0) {
-        $smarty->assign('alert', $loginInfo['message']);
+    if ($error > 0) {
+        $smarty->assign('alert', $message);
     } else {
-        setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
+        setcookie('authID', $hash, time() + 60 * 60 * 24 * 365, '/');
         $smarty->assign('LogedIn', True);
-        $smarty->assign('message', $loginInfo['message']);
+        $smarty->assign('message', $message);
     }
 } elseif (isset($_COOKIE['authID'])) {
     if (!$auth->isLogged()) {
