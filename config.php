@@ -15,8 +15,8 @@ require 'vendor/autoload.php';
 
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on
-
-$user = new userManager($sql->getPdo());
+$config = new PHPAuth\Config($sql->getPdo());
+$auth = new userManager($sql->getPdo(), $config);
 
 if ($auth->isLogged()) {
     $smarty->assign('LogedIn', True);
