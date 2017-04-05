@@ -18,7 +18,6 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
 } elseif (isset($_COOKIE['authID'])) {
     $message = "Is COOKIE['authID'] Good. " . $auth->checkSession($_COOKIE['authID']) . " Is Logged In? " . $auth->isLogged() . "\n";
     $message .= "Post:\n" . print_r($_POST, true);
-    $message .= "Login Info:\n" . print_r($loginInfo, true);
     $message .= "Session:\n" . print_r($_COOKIE, True);
     $smarty->assign('message', $message);
 }
