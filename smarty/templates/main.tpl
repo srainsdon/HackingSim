@@ -21,7 +21,7 @@
                 <a class="navbar-brand" href="/">{$app_name}</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
+                <li {if !isset($data)}class="active"{/if}><a href="/">Home</a></li>
                 <li><a href="#">Page 2</a></li>
                 {if ($LogedIn)}
                     <li class="dropdown">
