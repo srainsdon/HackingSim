@@ -26,10 +26,8 @@ if ($auth->isLogged()) {
     $smarty->assign('LogedIn', False);
 }
 
-$location = '/';
-
-
-
+$location = $_SERVER['REQUEST_URI'];
+$smarty->assign('location', $location);
 /*
 $smarty->registerPlugin("function", "date_now", "print_current_date");
 
