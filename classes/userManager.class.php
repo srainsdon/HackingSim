@@ -18,6 +18,6 @@ class userManager extends PHPAuth\Auth
     {
         $sql = "SELECT permisions.permisionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN groupPermisions ON groupPermisions.gpGroup = userGroup.groupID JOIN permisions ON groupPermisions.gpPermision = permisions.permisionID WHERE users.id = 1";
         $permisions = $this->dbh->query($sql)->fetchAll();
-        return array_search($level, $sql);
+        return array_search($level, $permisions);
     }
 }
