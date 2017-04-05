@@ -18,7 +18,7 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
     $smarty->assign('message', $message);
 } elseif (isset($_COOKIE['authID'])) {
     if (!$auth->isLogged()) {
-        setcookie('authID', "", time() - 3600);
+        setcookie('authID', "", time() - 3600, '/');
     }
 }
 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
