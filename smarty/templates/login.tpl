@@ -48,7 +48,7 @@
             border-top-right-radius: 0;
         }
     </style>
-    {if ($LogedIn)}
+    {if ($LoggedIn)}
         You Are Signed in as someone.
     {else}
         <form class="form-signin" method="post" action="/login/signin/">
