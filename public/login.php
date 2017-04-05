@@ -11,12 +11,12 @@ if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
     $message .= "Post:\n" . print_r($_POST, true);
     $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
     $message .= "Login Info:\n" . print_r($loginInfo, true);
-    $_SESSION['hash'] = $loginInfo['hash'];
+    $_SESSION['authID'] = $loginInfo['hash'];
     $smarty->assign('alert', $loginInfo['message']);
     $message .= "Session:\n" . print_r($_SESSION, True);
     $smarty->assign('message', $message);
-} elseif (isset($_SESSION['hash'])) {
-    $smarty->assign('message', $auth->checkSession($_SESSION['hash']));
+} elseif (isset($_SESSION['authID'])) {
+    $smarty->assign('message', $auth->checkSession($_SESSION['authID']));
 }
 if (isset($_SESSION)) {
     $smarty->assign('body', print_r($_SESSION, true));
