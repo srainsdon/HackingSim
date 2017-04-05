@@ -6,7 +6,7 @@
  * Time: 4:27 PM
  */
 
-if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
+if (!isset($_SESSION['authID']) && isset($_POST['email'])) {
     $message = "";
     $message .= "Post:\n" . print_r($_POST, true);
     $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
