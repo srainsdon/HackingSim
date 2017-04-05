@@ -19,7 +19,7 @@ $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
 
 $loggedIN = $auth->isLogged();
-$smarty->assign('LogedIn', $loggedIN);
+$smarty->assign('LoggedIn', $loggedIN);
 $smarty->assign('session', $_SESSION);
 $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);

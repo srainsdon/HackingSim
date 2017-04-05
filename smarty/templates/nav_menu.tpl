@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav">
             <li {if $location == '/'}class="active"{/if}><a href="/">Home</a></li>
             <li><a {if $location == '/store/'}class="active"{/if} href="#">Store</a></li>
-            {if ($LogedIn)}
+            {if ($LoggedIn)}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
                         <span class="caret"></span></a>
