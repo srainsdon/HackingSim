@@ -9,4 +9,4 @@
 
 $smarty->assign('data', getIpInfo());
 
-$smarty->display('adminHome.tpl');
+$smarty->display('main.tpl');
