@@ -7,15 +7,15 @@
  */
 
 if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
-    $message = "";
-    $message .= "Post:\n" . print_r($_POST, true);
     $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
-    $message .= "Login Info:\n" . print_r($loginInfo, true);
-    setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
-    $smarty->assign('LogedIn', True);
-    $smarty->assign('alert', $loginInfo['message']);
-    $message .= "Session:\n" . print_r($_COOKIE, True);
-    $smarty->assign('message', $message);
+    if ($loginInfo['error'] > 0) {
+        $smarty->assign('alert', $loginInfo['message']);
+    } else {
+        setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
+        $smarty->assign('LogedIn', True);
+        $smarty->assign('message', $loginInfo['message']);
+        $message .= "Session:\n" . print_r($_COOKIE, True);
+    }
 } elseif (isset($_COOKIE['authID'])) {
     if (!$auth->isLogged()) {
         setcookie('authID', "", time() - 3600, '/');
