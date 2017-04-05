@@ -11,12 +11,12 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
     $message .= "Post:\n" . print_r($_POST, true);
     $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
     $message .= "Login Info:\n" . print_r($loginInfo, true);
-    $_COOKIE['authID'] = $loginInfo['hash'];
+    setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
     $smarty->assign('alert', $loginInfo['message']);
     $message .= "Session:\n" . print_r($_COOKIE, True);
     $smarty->assign('message', $message);
 } elseif (isset($_COOKIE['authID'])) {
-    $message = "Is session['authID'] Good. " . $auth->checkSession($_COOKIE['authID']) . " Is Logged In? " . $auth->isLogged() . "\n";
+    $message = "Is COOKIE['authID'] Good. " . $auth->checkSession($_COOKIE['authID']) . " Is Logged In? " . $auth->isLogged() . "\n";
     $message .= "Post:\n" . print_r($_POST, true);
     $message .= "Login Info:\n" . print_r($loginInfo, true);
     $message .= "Session:\n" . print_r($_COOKIE, True);
