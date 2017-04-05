@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li {if $location == '/'}class="active"{/if}><a href="/">Home</a></li>
-            <li><a href="#">Store</a></li>
+            <li><a {if $location == '/store/'}class="active"{/if} href="#">Store</a></li>
             {if ($LogedIn)}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
@@ -19,11 +19,14 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/network/">Networks</a></li>
-                        <li><a href="/admin/computer/">Computers</a></li>
+                        <li><a {if $location == '/admin/network/'}class="active"{/if}
+                               href="/admin/network/">Networks</a></li>
+                        <li><a {if $location == '/admin/computer/'}class="active"{/if}
+                               href="/admin/computer/">Computers</a></li>
                         <hr/>
-                        <li><a href="/admin/computer/add/">Add Computer</a></li>
-                        <li><a href="/admin/info/">PhpInfo</a></li>
+                        <li><a {if $location == '/admin/computer/add/'}class="active"{/if} href="/admin/computer/add/">Add
+                                Computer</a></li>
+                        <li><a {if $location == '/admin/info/'}class="active"{/if} href="/admin/info/">PhpInfo</a></li>
                     </ul>
                 </li>
             {/if}
