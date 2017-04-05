@@ -7,9 +7,6 @@
  */
 
 
-$smarty->assign('links', array(
-    'Computers' => '/admin/computer/',
-    'Networks' => '/admin/network/',
-));
+$smarty->assign('data', getIpInfo());
 
 $smarty->display('adminHome.tpl');

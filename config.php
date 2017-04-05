@@ -38,6 +38,25 @@ function print_nav_bar($params, $smarty)
     $navMenu = array();
 }*/
 
+function getIpInfo()
+{
+    $ip_addr = "172.14.1.57";
+    $subnet_mask = "255.255.255.0";
+
+    $ip = ip2long($ip_addr);
+    $nm = ip2long($subnet_mask);
+    $nw = ($ip & $nm);
+    $bc = $nw | (~$nm);
+    $data = '';
+    $data .= "IP Address:         " . long2ip($ip) . "\n";
+    $data .= "Subnet Mask:        " . long2ip($nm) . "\n";
+    $data .= "Network Address:    " . long2ip($nw) . "\n";
+    $data .= "Broadcast Address:  " . long2ip($bc) . "\n";
+    $data .= "Number of Hosts:    " . ($bc - $nw - 1) . "\n";
+    $data .= "Host Range:         " . long2ip($nw + 1) . " -> " . long2ip($bc - 1) . "\n";
+    return $data;
+}
+
 function getIp()
 {
     if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
