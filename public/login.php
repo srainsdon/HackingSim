@@ -12,17 +12,14 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
     $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
     $message .= "Login Info:\n" . print_r($loginInfo, true);
     setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
+    $smarty->assign('LogedIn', True);
     $smarty->assign('alert', $loginInfo['message']);
     $message .= "Session:\n" . print_r($_COOKIE, True);
     $smarty->assign('message', $message);
 } elseif (isset($_COOKIE['authID'])) {
-    $message = "Is COOKIE['authID'] Good. " . $auth->checkSession($_COOKIE['authID']) . " Is Logged In? " . $auth->isLogged() . "\n";
-    $message .= "Post:\n" . print_r($_POST, true);
-    $message .= "Session:\n" . print_r($_COOKIE, True);
-    $smarty->assign('message', $message);
-}
-if (isset($_COOKIE)) {
-    $smarty->assign('body', print_r($_COOKIE, true));
+    if (!$auth->isLogged()) {
+        setcookie($_COOKIE['authID'], "", time() - 3600);
+    }
 }
 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
 $smarty->display('login.tpl');

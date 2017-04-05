@@ -15,28 +15,33 @@ if (isset($_GET['data'])) {
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
-        switch ($cmd[1]) {
-            case "computer":
-                $computerId = $cmd[2];
-                include_once 'admin/computer.php';
-                break;
-            case "network":
-                include_once 'admin/network.php';
-                break;
-            case "log":
-                include_once 'admin/tail.php';
-                break;
-            /*case "info":
-                ob_start();
-                phpinfo();
-                $strPhpInfo = ob_get_contents();
-                ob_clean();
-                $smarty->assign('body', $strPhpInfo);
-                $smarty->display('main.tpl');
-                break;*/
-            default:
-                include_once 'admin/home.php';
-                break;
+        if ($auth->isLogged()) {
+            switch ($cmd[1]) {
+                case "computer":
+                    $computerId = $cmd[2];
+                    include_once 'admin/computer.php';
+                    break;
+                case "network":
+                    include_once 'admin/network.php';
+                    break;
+                case "log":
+                    include_once 'admin/tail.php';
+                    break;
+                /*case "info":
+                    ob_start();
+                    phpinfo();
+                    $strPhpInfo = ob_get_contents();
+                    ob_clean();
+                    $smarty->assign('body', $strPhpInfo);
+                    $smarty->display('main.tpl');
+                    break;*/
+                default:
+                    include_once 'admin/home.php';
+                    break;
+            }
+        } else {
+            header('HTTP/1.0 403 Forbidden');
+            $smarty->assign('alart', "You are not authorised.");
         }
     } else {
 
