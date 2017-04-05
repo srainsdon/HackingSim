@@ -6,6 +6,6 @@
  * Time: 5:19 AM
  */
 
-$smarty->assign('body', getIpInfo());
+$smarty->assign('body', nl2br(getIpInfo()));
 
 $smarty->display('main.tpl');
