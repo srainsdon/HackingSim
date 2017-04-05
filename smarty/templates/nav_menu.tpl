@@ -16,10 +16,11 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
+                    <a {if $location == '/admin/network/' || $location == '/admin/computer/'}class="active"{/if}
+                       class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a {if $location == '/admin/network/'}class="active"{/if}
+                        <li><a class="active"{/if}
                                href="/admin/network/">Networks</a></li>
                         <li><a {if $location == '/admin/computer/'}class="active"{/if}
                                href="/admin/computer/">Computers</a></li>
