@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="/">{$app_name}</a>
         </div>
         <ul class="nav navbar-nav">
-            <li {if !isset($data)}class="active"{/if}><a href="/">Home</a></li>
+            <li {if $location == '/'}class="active"{/if}><a href="/">Home</a></li>
             <li><a href="#">Store</a></li>
             {if ($LogedIn)}
                 <li class="dropdown">
