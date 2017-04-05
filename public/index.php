@@ -26,13 +26,20 @@ if (isset($_GET['data'])) {
                 case "log":
                     include_once 'admin/tail.php';
                     break;
-                case "info":
+                /*case "info":
                     ob_start();
                     phpinfo();
                     $strPhpInfo = ob_get_contents();
                     ob_clean();
                     $smarty->assign('body', $strPhpInfo);
                     $smarty->display('main.tpl');
+                    break;*/
+                case "dash":
+                    $randoms = '';
+                    for ($x = 0; $x <= 10; $x++) {
+                        $randoms .= openssl_random_pseudo_bytes(30) . "\n";
+                    }
+                    $smarty->assign('body', nl2br($randoms));
                     break;
                 default:
                     include_once 'admin/home.php';
