@@ -2,7 +2,7 @@
 
 class Smarty_HackingSim extends Smarty
 {
-    function __construct()
+    function __construct($debug = false)
     {
 
         // Class Constructor.
@@ -13,7 +13,9 @@ class Smarty_HackingSim extends Smarty
         $this->setCompileDir("/app/smarty/templates_c/");
         $this->setConfigDir("/app/smarty/configs/");
         $this->setCacheDir("/app/smarty/cache/");
-        $this->setDebugging(true);
+        if ($debug) {
+            $this->setDebugging(true);
+        }
         $this->assign('app_name', 'Game Simulator');
     }
 
