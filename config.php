@@ -30,19 +30,9 @@ $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
 $userIP = getIp();
 $smarty->assign('userIP', $userIP);
-/*
-$smarty->registerPlugin("function", "date_now", "print_current_date");
 
-function print_nav_bar($params, $smarty)
+function getIpInfo($ip_addr = "172.14.1.57", $subnet_mask = "255.255.255.0")
 {
-    $navMenu = array();
-}*/
-
-function getIpInfo()
-{
-    $ip_addr = "172.14.1.57";
-    $subnet_mask = "255.255.255.0";
-
     $ip = ip2long($ip_addr);
     $nm = ip2long($subnet_mask);
     $nw = ($ip & $nm);

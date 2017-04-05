@@ -40,6 +40,7 @@ if (isset($_GET['data'])) {
                         $randoms .= openssl_random_pseudo_bytes(30) . "\n";
                     }
                     $smarty->assign('body', nl2br($randoms));
+                    $smarty->display('main.tpl');
                     break;
                 default:
                     include_once 'admin/home.php';
