@@ -25,3 +25,10 @@ if ($auth->isLogged()) {
 } else {
     $smarty->assign('LogedIn', False);
 }
+
+$smarty->registerPlugin("function", "date_now", "print_current_date");
+
+function print_nav_bar($params, $smarty)
+{
+    $navMenu = array();
+}

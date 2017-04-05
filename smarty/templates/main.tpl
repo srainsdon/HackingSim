@@ -1,3 +1,4 @@
+{debug}
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,25 +24,25 @@
                 <li class="active"><a href="/">Home</a></li>
                 <li><a href="#">Page 2</a></li>
                 {if ($LogedIn)}
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">main.slayer1of1.players.net</a></li>
-                        <li><a href="#">...</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/admin/network/">Networks</a></li>
-                        <li><a href="/admin/computer/">Computers</a></li>
-                        <hr/>
-                        <li><a href="/admin/computer/add/">Add Computer</a></li>
-                        <li><a href="/admin/info/">PhpInfo</a></li>
-                    </ul>
-                </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">main.slayer1of1.players.net</a></li>
+                            <li><a href="#">...</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/admin/network/">Networks</a></li>
+                            <li><a href="/admin/computer/">Computers</a></li>
+                            <hr/>
+                            <li><a href="/admin/computer/add/">Add Computer</a></li>
+                            <li><a href="/admin/info/">PhpInfo</a></li>
+                        </ul>
+                    </li>
                 {/if}
             </ul>
             <ul class="nav navbar-nav navbar-right">
