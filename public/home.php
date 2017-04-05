@@ -9,12 +9,12 @@
 
 ob_start();
 $ip = new ipv4("192.168.2.1", 24);
-print "Address: $ip->address()\n";
-print "Netbits: $ip->netbits()\n";
-print "Netmask: $ip->netmask()\n";
-print "Inverse: $ip->inverse()\n";
-print "Network: $ip->network()\n";
-print "Broadcast: $ip->broadcast()\n";
+print "Address: {$ip->address()}\n";
+print "Netbits: {$ip->netbits()}\n";
+print "Netmask: {$ip->netmask()}\n";
+print "Inverse: {$ip->inverse()}\n";
+print "Network: {$ip->network()}\n";
+print "Broadcast: {$ip->broadcast()}\n";
 
 $message = ob_get_contents();
 ob_clean();
