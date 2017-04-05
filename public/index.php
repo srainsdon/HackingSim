@@ -10,7 +10,6 @@ include_once '../config.php';
 
 if (isset($_GET['data'])) {
     error_log($_GET['data']);
-    // $smarty->debugging = true;
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
