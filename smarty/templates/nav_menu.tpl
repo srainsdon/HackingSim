@@ -28,7 +28,8 @@
                         <li {if $location == '/admin/computer/add/'} class="active"{/if} ><a
                                     href="/admin/computer/add/">Add
                                 Computer</a></li>
-                        <li><a {if $location == '/admin/info/'}class="active"{/if} href="/admin/info/">PhpInfo</a></li>
+                        <li><a {if $location == '/admin/dash/'}class="active"{/if} href="/admin/dash/">Random
+                                Strings</a></li>
                     </ul>
                 </li>
             {/if}
