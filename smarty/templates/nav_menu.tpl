@@ -25,7 +25,8 @@
                         <li {if $location == '/admin/computer/'} class="active"{/if} ><a
                                     href="/admin/computer/">Computers</a></li>
                         <hr/>
-                        <li><a {if $location == '/admin/computer/add/'}class="active"{/if} href="/admin/computer/add/">Add
+                        <li {if $location == '/admin/computer/add/'} class="active"{/if} ><a
+                                    href="/admin/computer/add/">Add
                                 Computer</a></li>
                         <li><a {if $location == '/admin/info/'}class="active"{/if} href="/admin/info/">PhpInfo</a></li>
                     </ul>
