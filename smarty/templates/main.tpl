@@ -32,7 +32,7 @@
                                                                      aria-label="close">&times;</a>{$alert|nl2br}
         </div>
     {/if}
-    {block name=body}{$body}{/block}
+    {block name=body}{$body|default:''}{/block}
 </div>
 {block name=bottomScripts}{/block}
 </body>
