@@ -26,14 +26,14 @@ if (isset($_GET['data'])) {
             case "log":
                 include_once 'admin/tail.php';
                 break;
-            case "info":
+            /*case "info":
                 ob_start();
                 phpinfo();
                 $strPhpInfo = ob_get_contents();
                 ob_clean();
                 $smarty->assign('body', $strPhpInfo);
                 $smarty->display('main.tpl');
-                break;
+                break;*/
             default:
                 include_once 'admin/home.php';
                 break;
@@ -43,6 +43,9 @@ if (isset($_GET['data'])) {
         switch ($cmd[0]) {
             case "login":
                 include_once 'login.php';
+                break;
+            case "logout":
+                $auth->logout($_COOKIE['authID']);
                 break;
             case "register":
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
