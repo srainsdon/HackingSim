@@ -13,7 +13,12 @@ if (isset($_POST['new_net'])) {
     $l1 = $_POST['long1'];
     $l2 = $_POST['long2'];
     $name = $_POST['net_name'];
-    $smarty->assign('message', $sql->addNetwork($l1, $l2, $name));
+    $res = $sql->addNetwork($l1, $l2, $name);
+    if ($res) {
+        $smarty->assign('message', $_POST['net_name'] . " Added!!!");
+    } else {
+        $smarty->assign('alert', "Error: $res");
+    }
 }
 
 $randip = rand(1, 254) . "." . rand(1, 254) . "." . rand(1, 254) . ".";
