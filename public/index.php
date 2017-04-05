@@ -51,7 +51,7 @@ if (isset($_GET['data'])) {
                 break;
             case "logout":
                 $auth->logout($_COOKIE['authID']);
-                setcookie($_COOKIE['authID'], "", time() - 3600);
+                setcookie($_COOKIE['authID'], "", time() - 3600, '/');
                 break;
             case "register":
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
