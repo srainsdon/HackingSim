@@ -18,7 +18,6 @@ if (!isset($_SESSION['authID']) && isset($_POST['email'])) {
 } elseif (isset($_SESSION['authID'])) {
     $message = "Is session['authID'] Good. " . $auth->checkSession($_SESSION['authID']) . " Is Logged In? " . $auth->isLogged() . "\n";
     $message .= "Post:\n" . print_r($_POST, true);
-    $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
     $message .= "Login Info:\n" . print_r($loginInfo, true);
     $_SESSION['authID'] = $loginInfo['hash'];
     $smarty->assign('alert', $loginInfo['message']);
