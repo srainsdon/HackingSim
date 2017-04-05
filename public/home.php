@@ -15,6 +15,8 @@ print "Netmask: $ip->netmask()\n";
 print "Inverse: $ip->inverse()\n";
 print "Network: $ip->network()\n";
 print "Broadcast: $ip->broadcast()\n";
-$message = ob_flush();
+
+$message = ob_get_contents();
+ob_clean();
 $smarty->assign('body', nl2br(getIpInfo() . '\n\n' . $message));
 $smarty->display('main.tpl');
