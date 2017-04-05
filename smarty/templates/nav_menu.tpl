@@ -22,7 +22,7 @@
                     <ul class="dropdown-menu">
                         <li {if $location == '/admin/network/'} class="active"{/if} ><a
                                     href="/admin/network/">Networks</a></li>
-                        <li {if $location == '/admin/network/'} class="active"{/if} ><a
+                        <li {if $location == '/admin/computer/'} class="active"{/if} ><a
                                     href="/admin/computer/">Computers</a></li>
                         <hr/>
                         <li><a {if $location == '/admin/computer/add/'}class="active"{/if} href="/admin/computer/add/">Add
