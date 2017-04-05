@@ -23,7 +23,11 @@ class userManager extends PHPAuth\Auth
 
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
-        list($error, $message, $hash, $expire) = parent::login($email, $password, $remember, $captcha);
+        $data = parent::login($email, $password, $remember, $captcha);
+        $error = $data['error'];
+        $message = $data['message'];
+        $hash = $data['hash'];
+        $expire = $data['expire'];
         if ($error > 0) {
             return array($error, $message, $hash, $expire);
         } else {
