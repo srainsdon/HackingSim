@@ -27,7 +27,7 @@ class userManager extends PHPAuth\Auth
         if ($error > 0) {
             return array($error, $message, $hash, $expire);
         } else {
-
+            return array($error, $message, $hash, $expire);
         }
     }
 }
