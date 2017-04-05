@@ -18,12 +18,8 @@ $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug o
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
 
-if ($auth->isLogged()) {
-    $smarty->assign('LogedIn', True);
-} else {
-    $smarty->assign('LogedIn', False);
-}
-
+$loggedIN = $auth->isLogged();
+$smarty->assign('LogedIn', $loggedIN);
 $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
 $userIP = getIp();
