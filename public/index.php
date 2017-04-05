@@ -32,6 +32,7 @@ if (isset($_GET['data'])) {
                 $strPhpInfo = ob_get_contents();
                 ob_clean();
                 $smarty->assign('body', $strPhpInfo);
+                $smarty->display('main.tpl');
                 break;
             default:
                 include_once 'admin/home.php';
