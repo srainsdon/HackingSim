@@ -15,15 +15,15 @@
                         <li><a href="#">...</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a {if $location == '/admin/network/' || $location == '/admin/computer/'}class="active"{/if}
-                       class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
+                <li {if $location == '/admin/network/' || $location == '/admin/computer/'}class="active"{/if}
+                    class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a {if $location == '/admin/network/'} class="active"{/if}
-                               href="/admin/network/">Networks</a></li>
-                        <li><a {if $location == '/admin/computer/'}class="active"{/if}
-                               href="/admin/computer/">Computers</a></li>
+                        <li {if $location == '/admin/network/'} class="active"{/if} ><a
+                                    href="/admin/network/">Networks</a></li>
+                        <li {if $location == '/admin/network/'} class="active"{/if} ><a
+                                    href="/admin/computer/">Computers</a></li>
                         <hr/>
                         <li><a {if $location == '/admin/computer/add/'}class="active"{/if} href="/admin/computer/add/">Add
                                 Computer</a></li>
