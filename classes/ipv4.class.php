@@ -9,7 +9,7 @@ class ipv4
 
     //--------------
     // Create new class
-    function ipv4($address, $netbits)
+    function __construct($address, $netbits)
     {
         $this->address = $address;
         $this->netbits = $netbits;
