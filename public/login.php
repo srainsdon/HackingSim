@@ -12,6 +12,8 @@ if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
 } elseif (isset($_SESSION['hash'])) {
     $smarty->assign('body', $auth->checkSession($_SESSION['hash']));
 }
-
+if (isset($_SESSION)) {
+    $smarty->assign('body', print_r($_SESSION, true));
+}
 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
 $smarty->display('login.tpl');
