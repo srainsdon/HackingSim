@@ -7,7 +7,7 @@
  */
 
 if (!isset($_SESSION['hash']) && isset($_POST['email'])) {
-    $smarty->assign('message', $_POST);
+    $smarty->assign('message', print_r($_POST, true));
     $_SESSION['hash'] = $auth->login($_POST['email'], $_POST['pass']);
 } elseif (isset($_SESSION['hash'])) {
     $smarty->assign('body', $auth->checkSession($_SESSION['hash']));
