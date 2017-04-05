@@ -7,6 +7,6 @@
  */
 
 
-$smarty->assign('data', getIpInfo());
+$smarty->assign('body', getIpInfo());
 
 $smarty->display('main.tpl');
