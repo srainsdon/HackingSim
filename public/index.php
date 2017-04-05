@@ -43,7 +43,7 @@ if (isset($_GET['data'])) {
                     $smarty->display('main.tpl');
                     break;
                 default:
-                    include_once 'admin/home.php';
+                    include_once 'admin/adminHome.php';
                     break;
             }
         } else {
