@@ -20,4 +20,14 @@ class userManager extends PHPAuth\Auth
         $permisions = $this->dbh->query($sql)->fetchAll();
         return array_search($level, $permisions);
     }
+
+    public function login($email, $password, $remember = 0, $captcha = NULL)
+    {
+        list($error, $message, $hash, $expire) = parent::login($email, $password, $remember, $captcha);
+        if ($error > 0) {
+            return array($error, $message, $hash, $expire);
+        } else {
+
+        }
+    }
 }

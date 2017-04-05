@@ -7,7 +7,7 @@
  */
 
 if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
-    $loginInfo = $auth->login($_POST['email'], $_POST['pass']);
+    list($error, $message, $hash, $expire) = $auth->login($_POST['email'], $_POST['pass']);
     $smarty->assign('AuthData', $loginInfo);
     if ($loginInfo['error'] > 0) {
         $smarty->assign('alert', $loginInfo['message']);
