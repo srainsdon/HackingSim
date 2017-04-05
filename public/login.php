@@ -14,7 +14,6 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
         setcookie('authID', $loginInfo['hash'], time() + 60 * 60 * 24 * 365, '/');
         $smarty->assign('LogedIn', True);
         $smarty->assign('message', $loginInfo['message']);
-        $message .= "Session:\n" . print_r($_COOKIE, True);
     }
 } elseif (isset($_COOKIE['authID'])) {
     if (!$auth->isLogged()) {
