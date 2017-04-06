@@ -56,10 +56,10 @@ class userManager extends PHPAuth\Auth
             $this->setupUserData();
         $isAuth = false;
         if (parent::isLogged()) {
-            $sql = "SELECT permissions.permisionName "
+            $sql = "SELECT permissions.permissionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
                 . "JOIN groupPermission ON groupPermission.gpGroup = userGroup.groupID "
-                . "JOIN permissions ON groupPermission.gpPermision = permissions.permisionID "
+                . "JOIN permissions ON groupPermission.gpPermission = permissions.permissionID "
                 . "WHERE users.id = " . $this->userID;
 
             //$this->permissions = $this->dbh->query($sql)->fetchAll();
