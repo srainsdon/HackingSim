@@ -47,8 +47,7 @@ class userManager extends PHPAuth\Auth
         $message = $data['message'];
         $hash = $data['hash'];
         $expire = $data['expire'];
-        $userData = $this->setupUserData($this->userID);
-        return array($error, $message, $hash, $expire, $userData);
+        return array($error, $message, $hash, $expire);
     }
 
     /**
