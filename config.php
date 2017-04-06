@@ -20,7 +20,6 @@ $auth = new userManager($sql->getPdo(), $config);
 
 $loggedIN = $auth->isLogged();
 $smarty->assign('LoggedIn', $loggedIN);
-$smarty->assign('session', print_r($_SESSION, true));
 $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
 $userIP = getIp();
