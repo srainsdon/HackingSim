@@ -86,7 +86,7 @@ class userManager extends PHPAuth\Auth
                 'loggedin' => $isAuth,
                 'sql' => $sql,
                 'Permissions' => $this->permissions);
-            return $isAuth;
         }
+        return $isAuth;
     }
 }

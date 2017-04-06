@@ -27,18 +27,14 @@ if (isset($_GET['data'])) {
                 case "log":
                     include_once 'admin/tail.php';
                     break;
-                /*case "info":
-                    ob_start();
-                    phpinfo();
-                    $strPhpInfo = ob_get_contents();
-                    ob_clean();
-                    $smarty->assign('body', $strPhpInfo);
+                case "info":
+                    $smarty->assign('body', quick_dev_insights_phpinfo());
                     $smarty->display('main.tpl');
-                    break;*/
+                    break;
                 case "dash":
                     $randoms = '';
                     for ($x = 0; $x <= 10; $x++) {
-                        $randoms .= openssl_random_pseudo_bytes(30) . "\n";
+                        $randoms .= $auth->getRandomKey(30) . "\n";
                     }
                     $smarty->assign('body', nl2br($randoms));
                     $smarty->display('main.tpl');
