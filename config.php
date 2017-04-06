@@ -12,7 +12,7 @@ $base = $_SERVER["DOCUMENT_ROOT"];
 session_start();
 
 require 'vendor/autoload.php';
-include_once '';
+
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
 $config = new PHPAuth\Config($sql->getPdo());
