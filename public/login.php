@@ -7,7 +7,7 @@
  */
 
 if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
-    list($error, $message, $hash, $expire, $userData) = $auth->login($_POST['email'], $_POST['pass']);
+    list($error, $message, $hash, $expire) = $auth->login($_POST['email'], $_POST['pass']);
     $smarty->assign(nl2br('AuthData', "UserData: $userData\n Error: $error\n Message: $message\n Hash: $hash\n Expire: $expire"));
     if ($error > 0) {
         $smarty->assign('alert', $message);
