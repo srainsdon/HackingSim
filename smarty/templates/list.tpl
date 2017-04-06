@@ -12,25 +12,25 @@
                         <div class="form-group">
                             <label for="ComputerHostName">Host Name:</label><input id="ComputerHostName" type="text"
                                                                                    name="ComputerHostName"
-                                                                                   class="form-control"
+                                                                                   class="input-sm form-control"
                                                                                    placeholder="Host Name">
                         </div>
                         <div class="form-group">
                             <label for="ComputerDomain">Domain Name:</label><input id="ComputerDomain" type="text"
                                                                                    name="ComputerDomain"
-                                                                                   class="form-control"
+                                                                                   class="input-sm form-control"
                                                                                    placeholder="Domain Name">
                         </div>
                         <div class="form-group">
                             <label for="ComputerIP">IP Address:</label><input id="ComputerIP" type="text"
                                                                               name="ComputerIP"
-                                                                              class="form-control"
+                                                                              class="input-sm form-control"
                                                                               placeholder="IP Address">
                         </div>
                         <div class="form-group">
                             <label for="ComputerNetwork">Network:</label><select name="ComputerNetwork"
                                                                                  id="ComputerNetwork"
-                                                                                 class="form-control">
+                                                                                 class="input-sm form-control">
                                 {if isset($Computer)}
                                     {html_options options=$Networks selected=$Computer.NetworkID}
                                 {else}
