@@ -81,8 +81,8 @@ class userManager extends PHPAuth\Auth
     public function setupUserData()
     {
         if ($this->isLogged()) {
-            if (empty($this->userID))
-                $this->userID = $this->getUID($this->userEmail);
+            $this->userID = $this->getSessionUID($_COOKIE['authID']);
+            $this->userEmail = getUser($_COOKIE['authID'])['email'];
         }
     }
 }
