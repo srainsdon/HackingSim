@@ -38,7 +38,7 @@
                                 {/if}
                             </select>
                         </div>
-                        <button type=" submit" name="submit" value="Add" class="btn btn-default"><span
+                        <button type=" submit" name="submit" value="Add" class="btn btn-default btn-small"><span
                                     class="glyphicon glyphicon-ok"/> Add
                         </button>
                     </form>
