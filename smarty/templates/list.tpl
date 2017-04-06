@@ -8,7 +8,7 @@
                 </h4>
                 <div id="collapse1" class="panel-collapse collapse">
                     <br/>
-                    <form method="POST" action="/admin/computer/">
+                    <form class="form-horizontal" method="POST" action="/admin/computer/">
                         <div class="form-group">
                             <label for="ComputerHostName">Host Name:</label><input id="ComputerHostName" type="text"
                                                                                    name="ComputerHostName"
