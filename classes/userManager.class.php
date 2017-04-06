@@ -78,11 +78,11 @@ class userManager extends PHPAuth\Auth
                 . "JOIN permissions ON grouppermissions.gpPermision = permissions.permisionID "
                 . "WHERE users.id = " . $this->userID;
 
-            $this->permissions = $this->dbh->query($sql)->fetchAll();
-            if (isset($level)) {
+            //$this->permissions = $this->dbh->query($sql)->fetchAll();
+            /*if (isset($level)) {
                 if (in_array($level, $this->permissions))
                     $isAuth = true;
-            }
+            }*/
             return array(
                 'loggedin' => $isAuth,
                 'sql' => $sql,
