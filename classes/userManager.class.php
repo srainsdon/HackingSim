@@ -11,6 +11,7 @@ class userManager extends PHPAuth\Auth
     private $userID;
     private $userName;
     private $userEmail;
+    private $permissions;
 
     /**
      * @return mixed
@@ -28,6 +29,13 @@ class userManager extends PHPAuth\Auth
         return $this->userName;
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @param int $remember
+     * @param null $captcha
+     * @return array
+     */
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
         $this->userEmail = $email;
@@ -39,24 +47,47 @@ class userManager extends PHPAuth\Auth
         $message = $data['message'];
         $hash = $data['hash'];
         $expire = $data['expire'];
-        if ($error > 0) {
-            return "Error: ";
-        } else {
-            return array($error, $message, $hash, $expire, $userData);
-        }
+        $userData = $this->setupUserData($this->userID);
+        return array($error, $message, $hash, $expire, $userData);
     }
 
+    /**
+     * @return array
+     */
     public function setupUserData()
     {
         if ($this->isLogged()) {
-            $sql = "SELECT permisions.permisionName "
+            $sql = "SELECT permissions.permisionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
-                . "JOIN groupPermisions ON groupPermisions.gpGroup = userGroup.groupID "
-                . "JOIN permisions ON groupPermisions.gpPermision = permisions.permisionID "
+                . "JOIN grouppermissions ON grouppermissions.gpGroup = userGroup.groupID "
+                . "JOIN permissions ON grouppermissions.gpPermision = permissions.permisionID "
                 . "WHERE users.id = " . $this->userID;
 
-            $permisions = $this->dbh->query($sql)->fetchAll();
-            return array($sql, $permisions);
+            $this->permissions = $this->dbh->query($sql)->fetchAll();
+            return array($sql, $this->permissions);
+        }
+    }
+
+    public function isAuthorised($level = null)
+    {
+        $isAuth = false;
+        if (parent::isLogged()) {
+            $sql = "SELECT permissions.permisionName "
+                . "FROM users JOIN userGroup ON userGroup.userID = users.id "
+                . "JOIN grouppermissions ON grouppermissions.gpGroup = userGroup.groupID "
+                . "JOIN permissions ON grouppermissions.gpPermision = permissions.permisionID "
+                . "WHERE users.id = " . $this->userID;
+
+            $this->permissions = $this->dbh->query($sql)->fetchAll();
+            if (isset($level)) {
+                if (in_array($level, $this->permissions))
+                    $isAuth = true;
+            }
+            return array(
+                'loggedin' => $isAuth,
+                'sql' => $sql,
+                'Permissions' => $this->permissions);
+            return $isAuth;
         }
     }
 }

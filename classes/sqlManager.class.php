@@ -118,7 +118,7 @@ class sqlManager
 
     function getPermissions()
     {
-        $sql = "SELECT permisions.permisionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN groupPermisions ON groupPermisions.gpGroup = userGroup.groupID JOIN permisions ON groupPermisions.gpPermision = permisions.permisionID WHERE users.id = 1";
-        $permisions = $this->sql->query($sql)->fetchAll();
+        $sql = "SELECT permissions.permissionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN grouppermission ON grouppermission.gpGroup = userGroup.groupID JOIN permissions ON grouppermission.gpPermission = permissions.permissionID WHERE users.id = 1";
+        $permissions = $this->pdo->query($sql)->fetchAll();
     }
 }
