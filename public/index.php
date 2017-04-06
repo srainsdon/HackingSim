@@ -13,39 +13,34 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
-        if ($auth->isAuthorised('ADMIN_DASHBOARD') === userManager::AUTHORISED) {
-            $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
-            switch ($cmd[1]) {
-                case "computer":
-                    $computerId = $cmd[2];
-                    include_once 'admin/computer.php';
-                    break;
-                case "network":
-                    include_once 'admin/network.php';
-                    break;
-                case "log":
-                    include_once 'admin/tail.php';
-                    break;
-                case "info":
-                    $smarty->assign('body', $extras->server_info());
-                    $smarty->display('main.tpl');
-                    break;
-                case "dash":
-                    $randoms = '';
-                    for ($x = 0; $x <= 10; $x++) {
-                        $randoms .= $auth->getRandomKey(30) . "\n";
-                    }
-                    $smarty->assign('body', nl2br($randoms));
-                    $smarty->display('main.tpl');
-                    break;
-                default:
-                    include_once 'admin/adminHome.php';
-                    break;
-            }
-        } else {
-            header('HTTP/1.0 403 Forbidden');
-            $smarty->assign('alert', "You are not authorised.");
-            $smarty->display('main.tpl');
+        $extras->checkACL(ADMIN_DASHBOARD);
+        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
+        switch ($cmd[1]) {
+            case "computer":
+                $computerId = $cmd[2];
+                include_once 'admin/computer.php';
+                break;
+            case "network":
+                include_once 'admin/network.php';
+                break;
+            case "log":
+                include_once 'admin/tail.php';
+                break;
+            case "info":
+                $smarty->assign('body', $extras->server_info());
+                $smarty->display('main.tpl');
+                break;
+            case "dash":
+                $randoms = '';
+                for ($x = 0; $x <= 10; $x++) {
+                    $randoms .= $auth->getRandomKey(30) . "\n";
+                }
+                $smarty->assign('body', nl2br($randoms));
+                $smarty->display('main.tpl');
+                break;
+            default:
+                include_once 'admin/adminHome.php';
+                break;
         }
     } else {
 

@@ -71,11 +71,20 @@ class sns_Extras
         return $tempData;
     }
 
-    function checkACL()
+    function checkACL($level)
     {
-        header('HTTP/1.0 403 Forbidden');
-        $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
-        $this->smarty->assign('alert', 'You are not authorised!!!');
-        $this->smarty->display('main.tpl');
+        $acl = $this->auth->isAuthorised($level);
+        if ($acl !== userManager::AUTHORISED && $acl === userManager::LOGGED_IN) {
+            header('HTTP/1.0 403 Forbidden');
+            $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Not Autherised</span>");
+            $this->smarty->assign('alert', 'You are not authorised!!!');
+            $this->smarty->display('main.tpl');
+            exit;
+        } elseif ($acl === userManager::GUEST) {
+            $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Not Logged In</span>");
+            $this->smarty->assign('alert', 'You are not Logged In!!!');
+            $this->smarty->display('main.tpl');
+            exit;
+        }
     }
 }
