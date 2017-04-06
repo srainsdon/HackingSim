@@ -13,7 +13,7 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
-        $extras->checkACL(ADMIN_DASHBOARD);
+        $extras->checkACL('ADMIN_DASHBOARD');
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         switch ($cmd[1]) {
             case "computer":
