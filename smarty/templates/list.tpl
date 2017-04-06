@@ -64,9 +64,10 @@
                 <td>{$computer.ComputerName}</td>
                 <td>{$computer.NetworkName}</td>
                 <td>{$computer.ComputerIP}</td>
-                <td><a href='/admin/computer/{$computer.ComputerID}'><span class="glyphicon glyphicon-pencil"/></a>
-                    <span class="glyphicon glyphicon-remove"/> <span
-                            class="glyphicon glyphicon-cog"/></td>
+                <td><a href='/admin/computer/{$computer.ComputerID}'><span
+                                class="glyphicon glyphicon-pencil"></span></a>
+                    <span class="glyphicon glyphicon-remove"></span> <span
+                            class="glyphicon glyphicon-cog"></span></td>
             </tr>
         {/foreach}
         </tbody>
