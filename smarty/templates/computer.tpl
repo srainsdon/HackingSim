@@ -1,3 +1,6 @@
+{extends file="main.tpl"}
+
+{block name=body}
     <h3>{if isset($Computer.ComputerName)}Editing: {$Computer.ComputerName}{else}New Computer{/if}</h3>
     <form method="POST" action="/admin/computer/">
         <div class="form-group">
@@ -31,3 +34,4 @@
         {/if}
         <button type=" submit" name="submit" value="{$task}" class="btn btn-default">{$task}</button>
     </form>
+{/block}

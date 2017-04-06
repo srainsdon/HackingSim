@@ -28,15 +28,15 @@ if (!$auth->isAuthorised('ADMIN_COMPUTER')) {
             }
         }
     }
+    $tempData = array();
+    foreach ($sql->getNetworkList() as $row) {
+        $tempData[$row['NetworkID']] = $row['NetName'];
+    }
+    $smarty->assign("Networks", $tempData);
     if (isset($computerId) && $computerId != '') {
-        $tempData = array();
-        foreach ($sql->getNetworkList() as $row) {
-            $tempData[$row['NetworkID']] = $row['NetName'];
-        }
         if ($computerId == 'add') {
             $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/computer/' >Computer List</a>");
             $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">New Computer</span>");
-            $smarty->assign("Networks", $tempData);
             $smarty->assign('task', "Add");
             $smarty->display('computer.tpl');
         } else {

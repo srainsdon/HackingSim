@@ -7,31 +7,61 @@
                     <a data-toggle="collapse" href="#collapse1">New Computer</a>
                 </h4>
                 <div id="collapse1" class="panel-collapse collapse">
-                {include 'computer.tpl'}
+                    <form method="POST" action="/admin/computer/">
+                        <div class="form-group">
+                            <label for="ComputerHostName">Host Name:</label><input id="ComputerHostName" type="text"
+                                                                                   name="ComputerHostName"
+                                                                                   class="form-control"
+                                                                                   placeholder="Host Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="ComputerDomain">Domain Name:</label><input id="ComputerDomain" type="text"
+                                                                                   name="ComputerDomain"
+                                                                                   class="form-control"
+                                                                                   placeholder="Domain Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="ComputerIP">IP Address:</label><input id="ComputerIP" type="text"
+                                                                              name="ComputerIP"
+                                                                              class="form-control"
+                                                                              placeholder="IP Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="ComputerNetwork">Network:</label><select name="ComputerNetwork"
+                                                                                 id="ComputerNetwork"
+                                                                                 class="form-control">
+                                {if isset($Computer)}
+                                    {html_options options=$Networks selected=$Computer.NetworkID}
+                                {else}
+                                    {html_options options=$Networks}
+                                {/if}
+                            </select>
+                        </div>
+                        <button type=" submit" name="submit" value="New" class="btn btn-default">New</button>
+                    </form>
                 </div>
-            <div class="panel-footer">Footer</div>
+                <div class="panel-footer">Footer</div>
             </div>
         </div>
     </div>
-    <div id="collapse1" class="panel-collapse collapse">
-        <table id='computers' class="table table-striped table-hover table-bordered">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Network</th>
-                <th>IP</th>
+    <table id='computers' class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Network</th>
+            <th>IP</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $computers as $computer}
+            <tr class='clickable-row' data-href='/admin/computer/{$computer.ComputerID}'>
+                <td>{$computer.ComputerName}</td>
+                <td>{$computer.NetworkName}</td>
+                <td>{$computer.ComputerIP}</td>
             </tr>
-            </thead>
-            <tbody>
-            {foreach $computers as $computer}
-                <tr class='clickable-row' data-href='/admin/computer/{$computer.ComputerID}'>
-                    <td>{$computer.ComputerName}</td>
-                    <td>{$computer.NetworkName}</td>
-                    <td>{$computer.ComputerIP}</td>
-                </tr>
-            {/foreach}
-            </tbody>
-        </table>
+        {/foreach}
+        </tbody>
+    </table>
 {/block}
 {block name=bottomScripts}
     <script>
