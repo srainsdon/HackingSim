@@ -6,8 +6,8 @@
                 <h4 class="panel-title">
                     <a data-toggle="collapse" href="#collapse1">New Network</a>
                 </h4>
-                <br/>
                 <div id="collapse1" class="panel-collapse collapse">
+                    <br/>
                     <form method="POST" class="form-inline">
                         <input type="hidden" name="long1" value="{$ips.long1}">
                         <input type="hidden" name="long2" value="{$ips.long2}">
