@@ -58,8 +58,8 @@ class userManager extends PHPAuth\Auth
         if (parent::isLogged()) {
             $sql = "SELECT permissions.permisionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
-                . "JOIN grouppermissions ON grouppermissions.gpGroup = userGroup.groupID "
-                . "JOIN permissions ON grouppermissions.gpPermision = permissions.permisionID "
+                . "JOIN groupPermissions ON groupPermissions.gpGroup = userGroup.groupID "
+                . "JOIN permissions ON groupPermissions.gpPermision = permissions.permisionID "
                 . "WHERE users.id = " . $this->userID;
 
             //$this->permissions = $this->dbh->query($sql)->fetchAll();
@@ -68,7 +68,7 @@ class userManager extends PHPAuth\Auth
                     $isAuth = true;
             }*/
             return array(
-                'loggedin' => $isAuth,
+                'loggedin' => true,
                 'sql' => $sql,
                 'Permissions' => $this->permissions);
         }
