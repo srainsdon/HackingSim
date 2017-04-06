@@ -73,7 +73,7 @@ class sns_Extras
 
     function checkACL($level)
     {
-        $acl = $this->auth->isAuthorised($level);
+        $acl = $this->user->isAuthorised($level);
         if ($acl !== userManager::AUTHORISED && $acl === userManager::LOGGED_IN) {
             header('HTTP/1.0 403 Forbidden');
             $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Not Autherised</span>");
