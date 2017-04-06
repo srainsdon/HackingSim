@@ -22,5 +22,5 @@ $loggedIN = $auth->isLogged();
 $smarty->assign('LoggedIn', $loggedIN);
 $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
-$userIP = getIp();
+$userIP = $extras->getIp();
 $smarty->assign('userIP', $userIP);

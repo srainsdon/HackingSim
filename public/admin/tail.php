@@ -77,7 +77,6 @@ if ($_GET['getLog']) {
                 if (scrollLock == true) {
                     $('html,body').animate({scrollTop: $("#scrollLock").offset().top}, <?php echo $interval; ?>)
                 }
-                ;
             });
         }
     </script>

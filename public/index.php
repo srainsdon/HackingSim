@@ -27,7 +27,7 @@ if (isset($_GET['data'])) {
                     include_once 'admin/tail.php';
                     break;
                 case "info":
-                    $smarty->assign('body', quick_dev_insights_phpinfo());
+                    $smarty->assign('body', $extras->server_info());
                     $smarty->display('main.tpl');
                     break;
                 case "dash":
