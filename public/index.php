@@ -14,7 +14,8 @@ if (isset($_GET['data'])) {
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
         $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
-        if ($loggedIN && $auth->isAuthorised('ADMIN_DASHBOARD')) {
+        if ($loggedIN) {
+            $smarty->assign('stuff', $auth->isAuthorised('ADMIN_DASHBOARD'));
             switch ($cmd[1]) {
                 case "computer":
                     $computerId = $cmd[2];
