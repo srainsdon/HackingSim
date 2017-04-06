@@ -8,35 +8,57 @@
  */
 class userManager extends PHPAuth\Auth
 {
-    /*
-    public function __construct(\PDO $dbh, $config)
+    private $userID;
+    private $userName;
+    private $userEmail;
+
+    /**
+     * @return mixed
+     */
+    public function getUserEmail()
     {
-        parent::__construct($dbh, $config);
+        return $this->userEmail;
     }
-    */
-    public function isAuthorised($level)
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    public function login($email, $password, $remember = 0, $captcha = NULL)
+    {
+        $this->userEmail = $email;
+        $this->userID = getUID($email);
+
+        $data = parent::login($email, $password, $remember, $captcha);
+
+        $error = $data['error'];
+        $message = $data['message'];
+        $hash = $data['hash'];
+        $expire = $data['expire'];
+        $this->setupUserData();
+        if ($error > 0) {
+            return "Error: ";
+        } else {
+            $this->setupUserData();
+            return array($error, $message, $hash, $expire);
+        }
+    }
+
+    public function setupUserData()
     {
         if ($this->isLogged()) {
             $sql = "SELECT permisions.permisionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
                 . "JOIN groupPermisions ON groupPermisions.gpGroup = userGroup.groupID "
                 . "JOIN permisions ON groupPermisions.gpPermision = permisions.permisionID "
-                . "WHERE users.id = 1";
+                . "WHERE users.id = " . $this->userID;
 
             $permisions = $this->dbh->query($sql)->fetchAll();
-            return array($level, $sql, $permisions);
+            return array($sql, $permisions);
         }
-    }
-
-    public function login($email, $password, $remember = 0, $captcha = NULL)
-    {
-        $data = parent::login($email, $password, $remember, $captcha);
-        $error = $data['error'];
-        $message = $data['message'];
-        $hash = $data['hash'];
-        $expire = $data['expire'];
-
-        return array($error, $message, $hash, $expire);
-
     }
 }
