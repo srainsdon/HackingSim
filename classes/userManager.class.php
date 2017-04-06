@@ -31,7 +31,7 @@ class userManager extends PHPAuth\Auth
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
         $this->userEmail = $email;
-        $this->userID = getUID($email);
+        $this->userID = $this->getUID($email);
 
         $data = parent::login($email, $password, $remember, $captcha);
 
