@@ -13,8 +13,8 @@ if (isset($_GET['data'])) {
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     if (isset($cmd[0]) && $cmd[0] == "admin") {
-        $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
         if ($auth->isAuthorised('ADMIN_DASHBOARD')) {
+            $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
             switch ($cmd[1]) {
                 case "computer":
                     $computerId = $cmd[2];

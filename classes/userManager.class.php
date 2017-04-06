@@ -61,7 +61,7 @@ class userManager extends PHPAuth\Auth
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
                 . "JOIN groupPermission ON groupPermission.gpGroup = userGroup.groupID "
                 . "JOIN permissions ON groupPermission.gpPermission = permissions.permissionID "
-                . "WHERE users.id = " . $this->userID . "ORDER BY permissionName;";
+                . "WHERE users.id = " . $this->userID . " ORDER BY permissionName;";
 
             $tempData = $this->dbh->query($sql)->fetchAll();
             array_walk_recursive($tempData, function ($item, $key) {
