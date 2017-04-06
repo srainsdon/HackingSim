@@ -64,7 +64,8 @@
                 <td>{$computer.ComputerName}</td>
                 <td>{$computer.NetworkName}</td>
                 <td>{$computer.ComputerIP}</td>
-                <td><span class="glyphicon glyphicon-pencil"/><span class="glyphicon glyphicon-remove"/></td>
+                <td><span class="glyphicon glyphicon-pencil"/> <span class="glyphicon glyphicon-remove"/> <span
+                            class="glyphicon glyphicon-cog"/></td>
             </tr>
         {/foreach}
         </tbody>
