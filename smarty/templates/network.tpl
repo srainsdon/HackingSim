@@ -39,6 +39,7 @@
                     <td>{$network.NetworkName}</td>
                     <td>{$network.NetworkStart}</td>
                     <td>{$network.NetworkEnd}</td>
+                    <td><span class="glyphicon glyphicon-pencil"/> - <span class="glyphicon glyphicon-remove"/></td>
                 </tr>
             {/foreach}
             </tbody>
