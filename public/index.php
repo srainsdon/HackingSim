@@ -59,6 +59,14 @@ if (isset($_GET['data'])) {
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Sign up</span>");
                 $smarty->display('login.tpl');
                 break;
+            case "api":
+                $computerList = array();
+                $tmpList = $sql->getAllComputers();
+                array_walk_recursive($tempList, function ($item, $key) {
+                    //echo "$key holds $item\n";
+                    $computerList[] = $item;
+                });
+                echo json_encode($computerList);
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
                 include_once 'home.php';
