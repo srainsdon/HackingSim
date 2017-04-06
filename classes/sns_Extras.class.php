@@ -6,8 +6,23 @@
  * Date: 4/6/2017
  * Time: 12:06 AM
  */
-class sns_Functions
+class sns_Extras
 {
+    const AUTHORISED = 200;
+    const LOGGED_IN = 100;
+    const GUEST = 10;
+
+    private $smarty;
+    private $sql;
+    private $user;
+
+    function __construct(Smarty_HackingSim &$smarty, sqlManager &$sql, userManager &$user)
+    {
+        $this->smarty = $smarty;
+        $this->sql = $sql;
+        $this->user = $user;
+    }
+
     function getIp()
     {
         if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
@@ -17,7 +32,7 @@ class sns_Functions
         }
     }
 
-    function quick_dev_insights_phpinfo()
+    function server_info()
     {
         ob_start();
         phpinfo(11);
@@ -62,8 +77,8 @@ class sns_Functions
     function checkACL()
     {
         header('HTTP/1.0 403 Forbidden');
-        $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
-        $smarty->assign('alert', 'You are not authorised!!!');
-        $smarty->display('main.tpl');
+        $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
+        $this->smarty->assign('alert', 'You are not authorised!!!');
+        $this->smarty->display('main.tpl');
     }
 }

@@ -17,7 +17,7 @@ $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), 
 $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
-
+$extras = new sns_Extras($smarty, $sql, $auth);
 $loggedIN = $auth->isLogged();
 $smarty->assign('LoggedIn', $loggedIN);
 $location = $_SERVER['REQUEST_URI'];
