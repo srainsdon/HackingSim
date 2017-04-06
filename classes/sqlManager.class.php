@@ -30,9 +30,9 @@ class sqlManager
         return $this->pdo;
     }
 
-    function addNetwork($l1, $l2, $name)
+    function addNetwork($net_start, $net_end, $name)
     {
-        $sql = "INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`, `NetworkName`) VALUES ('$l1', '$l2', '$name');";
+        $sql = "INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`, `NetworkName`) VALUES (INET_NTOA('$net_start'), INET_NTOA('$net_end'), '$name');";
         $result = $this->pdo->exec($sql);
         return $result;
     }

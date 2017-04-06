@@ -4,7 +4,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse1">New Computer</a>
+                    <a data-toggle="collapse" href="#collapse1">New Network</a>
                 </h4>
                 <div id="collapse1" class="panel-collapse collapse">
                     <form method="POST" class="form-inline">
