@@ -115,4 +115,10 @@ class sqlManager
         $sql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
         return $this->pdo->exec($sql);
     }
+
+    function getPermissions()
+    {
+        $sql = "SELECT permisions.permisionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN groupPermisions ON groupPermisions.gpGroup = userGroup.groupID JOIN permisions ON groupPermisions.gpPermision = permisions.permisionID WHERE users.id = 1";
+        $permisions = $this->sql->query($sql)->fetchAll();
+    }
 }
