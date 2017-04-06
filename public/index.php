@@ -44,7 +44,7 @@ if (isset($_GET['data'])) {
             }
         } else {
             header('HTTP/1.0 403 Forbidden');
-            $smarty->assign('alart', "You are not authorised.");
+            $smarty->assign('alert', "You are not authorised.");
             $smarty->display('main.tpl');
         }
     } else {
