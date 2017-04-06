@@ -82,7 +82,7 @@ class userManager extends PHPAuth\Auth
     {
         if ($this->isLogged()) {
             $this->userID = $this->getSessionUID($_COOKIE['authID']);
-            $this->userEmail = getUser($_COOKIE['authID'])['email'];
+            $this->userEmail = $this->getUser($_COOKIE['authID'])['email'];
         }
     }
 }
