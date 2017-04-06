@@ -52,9 +52,10 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
+        $isAuth = false;
         if ((empty($this->userEmail)) || (empty($this->userID)))
             $this->setupUserData();
-        $isAuth = false;
+
         if (parent::isLogged()) {
             $sql = "SELECT permissions.permissionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
@@ -62,11 +63,11 @@ class userManager extends PHPAuth\Auth
                 . "JOIN permissions ON groupPermission.gpPermission = permissions.permissionID "
                 . "WHERE users.id = " . $this->userID;
 
-            //$this->permissions = $this->dbh->query($sql)->fetchAll();
-            /*if (isset($level)) {
+            $this->permissions = $this->dbh->query($sql)->fetchAll();
+            if (isset($level)) {
                 if (in_array($level, $this->permissions))
                     $isAuth = true;
-            }*/
+            }
             return array(
                 'loggedin' => true,
                 'sql' => $sql,
