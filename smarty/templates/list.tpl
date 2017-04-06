@@ -40,7 +40,6 @@
                         <button type=" submit" name="submit" value="New" class="btn btn-default">New</button>
                     </form>
                 </div>
-                <div class="panel-footer">Footer</div>
             </div>
         </div>
     </div>
