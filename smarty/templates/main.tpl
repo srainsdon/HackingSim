@@ -16,7 +16,7 @@
 
     {include 'nav_menu.tpl'}
 
-    <nav class="breadcrumb">
+    <nav class="breadcrumb well-sm">
         {foreach $bCrumbs as $link}
             {$link}
         {/foreach}
