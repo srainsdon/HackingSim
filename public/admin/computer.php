@@ -7,6 +7,7 @@
  */
 
 if (!$auth->isAuthorised('ADMIN_COMPUTER')) {
+    $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
     $smarty->assign('alert', 'You are not authorised!!!');
     $smarty->display('main.tpl');
 } else {
