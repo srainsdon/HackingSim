@@ -41,6 +41,7 @@
         });
         $(document).ready(function () {
             $('#networks').DataTable({
+                "pageLength": 50,
                 columnDefs: [{
                     targets: [0],
                     orderData: [1, 0]
