@@ -8,9 +8,6 @@
  */
 class sns_Extras
 {
-    const AUTHORISED = 200;
-    const LOGGED_IN = 100;
-    const GUEST = 10;
 
     private $smarty;
     private $sql;

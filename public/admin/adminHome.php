@@ -7,6 +7,6 @@
  */
 
 
-$smarty->assign('body', getIpInfo());
+$smarty->assign('body', '<h2>Welcome</h2>');
 
 $smarty->display('main.tpl');

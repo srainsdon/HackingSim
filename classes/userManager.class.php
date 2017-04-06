@@ -8,11 +8,16 @@
  */
 class userManager extends PHPAuth\Auth
 {
+    const AUTHORISED = 200;
+    const LOGGED_IN = 100;
+    const GUEST = 10;
+
     private $userID;
     private $userName;
     private $userEmail;
     private $permissions;
     private $isAuthed;
+
     /**
      * @return mixed
      */
@@ -52,11 +57,12 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
-        $this->isAuthed = false;
+        $this->isAuthed = userManager::GUEST;
         if ((empty($this->userEmail)) || (empty($this->userID)))
             $this->setupUserData();
 
         if (parent::isLogged()) {
+            $this->isAuthed = userManager::LOGGED_IN;
             $sql = "SELECT permissions.permissionName "
                 . "FROM users JOIN userGroup ON userGroup.userID = users.id "
                 . "JOIN groupPermission ON groupPermission.gpGroup = userGroup.groupID "
@@ -70,7 +76,7 @@ class userManager extends PHPAuth\Auth
             });
             if (isset($level)) {
                 if (in_array($level, $this->permissions))
-                    $this->isAuthed = true;
+                    $this->isAuthed = userManager::AUTHORISED;
             }
             /*return array(
                 'loggedin' => true,
@@ -89,5 +95,6 @@ class userManager extends PHPAuth\Auth
             $this->userID = $this->getSessionUID($_COOKIE['authID']);
             $this->userEmail = $this->getUser($_COOKIE['authID'])['email'];
         }
+        return true;
     }
 }
