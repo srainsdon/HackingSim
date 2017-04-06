@@ -7,6 +7,7 @@
  */
 
 if (!$auth->isAuthorised('ADMIN_COMPUTER')) {
+    header('HTTP/1.0 403 Forbidden');
     $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
     $smarty->assign('alert', 'You are not authorised!!!');
     $smarty->display('main.tpl');
@@ -20,7 +21,6 @@ if (!$auth->isAuthorised('ADMIN_COMPUTER')) {
             }
         } elseif ($_POST['submit'] == 'Add') {
             $res = $sql->addComputer($_POST['ComputerHostName'], $_POST['ComputerDomain'], $_POST['ComputerIP'], $_POST['ComputerNetwork']);
-            print_r($sql);
             if ($res) {
                 $smarty->assign('message', "Computer {$_POST['ComputerHostName']} was added!");
             } else {

@@ -7,6 +7,7 @@
  */
 
 if (!$auth->isAuthorised('ADMIN_NETWORK')) {
+    header('HTTP/1.0 403 Forbidden');
     $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Network List</span>");
     $smarty->assign('alert', 'You are not authorised!!!');
     $smarty->display('main.tpl');
