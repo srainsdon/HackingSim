@@ -67,6 +67,7 @@ if (isset($_GET['data'])) {
                     $computerList[] = $item;
                 });
                 echo json_encode($computerList);
+                break;
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
                 include_once 'home.php';
