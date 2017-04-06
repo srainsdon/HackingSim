@@ -12,7 +12,7 @@ class userManager extends PHPAuth\Auth
     private $userName;
     private $userEmail;
     private $permissions;
-
+    private $isAuthed;
     /**
      * @return mixed
      */
@@ -52,7 +52,7 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
-        $isAuth = false;
+        $this->isAuthed = false;
         if ((empty($this->userEmail)) || (empty($this->userID)))
             $this->setupUserData();
 
@@ -70,14 +70,14 @@ class userManager extends PHPAuth\Auth
             });
             if (isset($level)) {
                 if (in_array($level, $this->permissions))
-                    $isAuth = true;
+                    $this->isAuthed = true;
             }
-            return array(
+            /*return array(
                 'loggedin' => true,
                 'sql' => $sql,
-                'Permissions' => $this->permissions);
+                'Permissions' => $this->permissions);*/
         }
-        return $isAuth;
+        return $this->isAuthed;
     }
 
     /**
