@@ -60,13 +60,13 @@ if (isset($_GET['data'])) {
                 $smarty->display('login.tpl');
                 break;
             case "api":
-                $computerList = array();
+                //$computerList = array();
                 $tmpList = $sql->getAllComputers();
-                array_walk_recursive($tempList, function ($item, $key) {
+                /*array_walk_recursive($tmpList, function ($item, $key) {
                     //echo "$key holds $item\n";
                     $computerList[] = $item;
-                });
-                echo json_encode($computerList);
+                });*/
+                echo json_encode($tmpList);
                 break;
             default:
                 $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span>");
