@@ -50,25 +50,10 @@ class userManager extends PHPAuth\Auth
         return array($error, $message, $hash, $expire);
     }
 
-    /**
-     * @return array
-     */
-    public function setupUserData()
-    {
-        if ($this->isLogged()) {
-            $sql = "SELECT permissions.permisionName "
-                . "FROM users JOIN userGroup ON userGroup.userID = users.id "
-                . "JOIN grouppermissions ON grouppermissions.gpGroup = userGroup.groupID "
-                . "JOIN permissions ON grouppermissions.gpPermision = permissions.permisionID "
-                . "WHERE users.id = " . $this->userID;
-
-            $this->permissions = $this->dbh->query($sql)->fetchAll();
-            return array($sql, $this->permissions);
-        }
-    }
-
     public function isAuthorised($level = null)
     {
+        if ((empty($this->userEmail)) || (empty($this->userID)))
+            $this->setupUserData();
         $isAuth = false;
         if (parent::isLogged()) {
             $sql = "SELECT permissions.permisionName "
@@ -88,5 +73,16 @@ class userManager extends PHPAuth\Auth
                 'Permissions' => $this->permissions);
         }
         return $isAuth;
+    }
+
+    /**
+     * @return array
+     */
+    public function setupUserData()
+    {
+        if ($this->isLogged()) {
+            if (empty($this->userID))
+                $this->userID = $this->getUID($this->userEmail);
+        }
     }
 }
