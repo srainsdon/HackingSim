@@ -24,4 +24,3 @@ $location = $_SERVER['REQUEST_URI'];
 $smarty->assign('location', $location);
 $userIP = getIp();
 $smarty->assign('userIP', $userIP);
-
