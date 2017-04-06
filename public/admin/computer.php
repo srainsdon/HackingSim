@@ -22,7 +22,7 @@ if (!$auth->isAuthorised('ADMIN_COMPUTER')) {
         } elseif ($_POST['submit'] == 'Add') {
             $res = $sql->addComputer($_POST['ComputerHostName'], $_POST['ComputerDomain'], $_POST['ComputerIP'], $_POST['ComputerNetwork']);
             if ($res) {
-                $smarty->assign('message', "Computer {$_POST['ComputerHostName']} was added!");
+                $smarty->assign('message', "Computer {$_POST['ComputerHostName']}.{$_POST['ComputerDomain']} was added!");
             } else {
                 $smarty->assign('alert', "ERROR:\n$res");
             }

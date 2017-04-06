@@ -13,10 +13,10 @@ if (!$auth->isAuthorised('ADMIN_NETWORK')) {
     $smarty->display('main.tpl');
 } else {
     if (isset($_POST['new_net'])) {
-        $l1 = $_POST['long1'];
-        $l2 = $_POST['long2'];
+        $net_start = $_POST['net_start'];
+        $net_end = $_POST['net_end'];
         $name = $_POST['net_name'];
-        $res = $sql->addNetwork($l1, $l2, $name);
+        $res = $sql->addNetwork($net_start, $net_end, $name);
         if ($res) {
             $smarty->assign('message', $_POST['net_name'] . " Added!!!");
         } else {
