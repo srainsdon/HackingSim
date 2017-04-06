@@ -32,6 +32,7 @@
         &nbsp;{if isset($Computer)}
     <input type="hidden" name="ComputerID" value="{$Computer.ComputerID}">
         {/if}
-        <button type=" submit" name="submit" value="{$task}" class="btn btn-default">{$task}</button>
+        <button type=" submit" name="submit" value="{$task}" class="btn btn-default"><span
+                    class="glyphicon glyphicon-ok"/> {$task}</button>
     </form>
 {/block}
