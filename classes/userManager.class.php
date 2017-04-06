@@ -42,7 +42,6 @@ class userManager extends PHPAuth\Auth
         if ($error > 0) {
             return "Error: ";
         } else {
-            $userData = $this->setupUserData($this->userID);
             return array($error, $message, $hash, $expire, $userData);
         }
     }
