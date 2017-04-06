@@ -7,6 +7,7 @@
                     <a data-toggle="collapse" href="#collapse1">New Computer</a>
                 </h4>
                 <div id="collapse1" class="panel-collapse collapse">
+                    <br/>
                     <form method="POST" action="/admin/computer/">
                         <div class="form-group">
                             <label for="ComputerHostName">Host Name:</label><input id="ComputerHostName" type="text"
@@ -57,7 +58,7 @@
                 <td>{$computer.ComputerName}</td>
                 <td>{$computer.NetworkName}</td>
                 <td>{$computer.ComputerIP}</td>
-                <td><span class="glyphicon glyphicon-pencil"/> - <span class="glyphicon glyphicon-remove"/></td>
+                <td><span class="glyphicon glyphicon-pencil"/><span class="glyphicon glyphicon-remove"/></td>
             </tr>
         {/foreach}
         </tbody>
