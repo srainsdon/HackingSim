@@ -12,7 +12,7 @@ $base = $_SERVER["DOCUMENT_ROOT"];
 session_start();
 
 require 'vendor/autoload.php';
-Logger::configure($base . '/../log/log4php.xml');
+Logger::configure($base . '/../log4php.xml');
 $log = Logger::getLogger('Main');
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on

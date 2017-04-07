@@ -8,11 +8,13 @@
  */
 class sqlManager
 {
+    private $logger;
     private $pdo;
     private $dsn;
 
     function __construct($host, $db, $user, $pass, $charset = 'utf8')
     {
+        $this->logger = Logger::getLogger(__CLASS__);
         $this->dsn = "mysql:host=$host;dbname=$db;charset=$charset";
         $opt = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
