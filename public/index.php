@@ -16,23 +16,29 @@ if (isset($_GET['data'])) {
     $smarty->assign('Cmd:', $cmd);
     switch ($cmd[0]) {
         case "admin": { // cmd = /admin/
+            $log->debug("cmd = /admin/");
             $extras->checkACL('ADMIN_DASHBOARD');
-            $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
+            $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/'>Admin</a>");
             switch ($cmd[1]) {
                 case "computer": // cmd = /admin/computer/
+                    $log->debug("cmd = /admin/computer/");
                     $computerId = $cmd[2]; // cmd = /admin/computer/{$compID}/
                     include_once 'admin/computer.php';
                     break;
                 case "network": // cmd = /admin/network/
+                    $log->debug("cmd = /admin/network/");
                     include_once 'admin/network.php';
                     break;
                 case "log": // cmd = /admin/log/
+                    $log->debug("cmd = /admin/log/");
                     include_once 'admin/logs.php';
                     break;
                 case "info": // cmd = /admin/info/
+                    $log->debug("cmd = /admin/info/");
                     phpinfo();
                     break;
                 case "dash": {// cmd = /admin/dash/
+                    $log->debug("cmd = /admin/dash/");
                     $randoms = array();
                     $tmpArray = array();
                     for ($x = 1; $x <= 30; $x++) {
@@ -43,13 +49,18 @@ if (isset($_GET['data'])) {
                             $tmpArray = array();
                         }
                     }
+
                     $smarty->assign('strings', $randoms);
                     $smarty->display('main.tpl');
+                    break;
                 }
+
                 default: {// cmd = /admin/
+                    $log->debug("default = /admin/");
                     include_once 'admin/adminHome.php';
                 }
             }
+            break;
         }
         case "login": // cmd = /login/
             include_once 'login.php';
@@ -67,6 +78,7 @@ if (isset($_GET['data'])) {
             break;
         case "api": { // cmd = /api/
             include_once 'api.php';
+            break;
         }
         default:
             $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span><!-- Default of First Folder -->");
