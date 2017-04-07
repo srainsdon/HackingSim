@@ -18,7 +18,7 @@ switch ($cmd[1]) {
             case "json": { // cmd = /api/v1/json/
                 switch ($cmd[3]) {
                     case "logs": // cmd = /api/v1/json/logs/
-                        $query = 'SELECT * FROM `HackingSim`.`log4php_log`';
+                        $query = 'SELECT * FROM log4php_log';
                         $result = $sql->getPdo()->query($query)->fetchAll();
                         $list = array();
                         foreach ($result as $row) {
