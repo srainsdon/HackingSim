@@ -8,7 +8,7 @@
  */
 include_once '../config.php';
 
-$extras->isBlackListed();
+$extras->ACLblacklist();
 
 if (isset($_GET['data'])) {
     error_log($_GET['data']);
