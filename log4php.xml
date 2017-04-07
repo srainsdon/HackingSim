@@ -3,8 +3,8 @@
     <appender name="default" class="LoggerAppenderPDO">
         <param name="dsn" value="mysql:host=34.208.253.55;dbname=logdb" />
         <param name="user" value="log4php_logger" />
-        <param name="password" value="secret" />
-        <param name="table" value="puCutagiy1hopojeM74Ej8coj745Va" />
+        <param name="password" value="puCutagiy1hopojeM74Ej8coj745Va" />
+        <param name="table" value="log4php_log" />
     </appender>
     <root>
         <appender_ref ref="default"/>
