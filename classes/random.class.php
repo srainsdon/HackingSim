@@ -8,17 +8,17 @@
  */
 class random
 {
+    public $password = array();
     private $key = 'aa2d03f9-aa9b-424c-920f-80427d4f2365';
     private $url = 'https://api.random.org/json-rpc/1/invoke';
-    public $password = array();
-    function getPassword() {
-        if (count($this->password) < 1) {
-            $this->getPasswords();
-        }
-        return array_shift($this->password);
 
+    function __construct()
+    {
+        $this->getPasswords();
     }
-    private function getPasswords () {
+
+    private function getPasswords()
+    {
         $request = array(
             'jsonrpc' => 2.0,
             'method' => 'generateStrings',
@@ -44,7 +44,7 @@ class random
 
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-        if ( $status != 200 ) {
+        if ($status != 200) {
             die("Error: call to URL $this->url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
         }
 
@@ -55,8 +55,13 @@ class random
         $password = $response['result']['random']['data'];
         $this->password = $this->password + $password;
     }
-    function __construct()
+
+    function getPassword()
     {
-        $this->getPasswords();
+        if (count($this->password) < 1) {
+            $this->getPasswords();
+        }
+        return array_shift($this->password);
+
     }
 }

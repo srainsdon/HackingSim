@@ -64,7 +64,7 @@ class fileSystem
         return ob_get_clean();
     }
 
-    function fullList($a, $num = 0,$path = array())
+    function fullList($a, $num = 0, $path = array())
     {
         $num++;
         if (count($path) < 1)

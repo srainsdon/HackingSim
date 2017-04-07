@@ -7,7 +7,6 @@
  */
 
 
-
 $ip = new ipv4("192.168.2.1", 24);
 $message = "Address: {$ip->address()}\n";
 $message .= "Netbits: {$ip->netbits()}\n";

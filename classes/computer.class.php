@@ -6,27 +6,6 @@
  * Date: 3/29/2017
  * Time: 5:29 AM
  */
-/*
- * $settings = array(
-    "services" => array(
-        "ssh" => array(
-            "users" => array(
-                'version' => '1.0',
-                'root' => $pass->getPassword(),
-                'baduser' => $pass->getPassword())
-        ),
-        "http" => array(
-            "version" => '1.0'
-        )
-    ),
-    "firewall" => array(
-        "ping" => 1,
-        22 => 1,
-        80 => 1
-    )
-);
- */
-
 class computer
 {
     public $fileSystem;
