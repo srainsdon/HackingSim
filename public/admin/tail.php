@@ -6,7 +6,7 @@
  *
  * just fill in the varibles bellow, open in a web browser and tail away
  */
-$logFile = "/tmp/rewrite.log"; // local path to log file
+$logFile = "/app/log/my.log"; // local path to log file
 $interval = 1000; //how often it checks the log file for changes, min 100
 $textColor = ""; //use CSS color
 

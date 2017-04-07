@@ -24,9 +24,8 @@
                         <li {if $location == '/admin/computer/'} class="active"{/if} ><a
                                     href="/admin/computer/">Computers</a></li>
                         <hr/>
-                        <li {if $location == '/admin/computer/add/'} class="active"{/if} ><a
-                                    href="/admin/computer/add/">Add
-                                Computer</a></li>
+                        <li {if $location == '/admin/log/'} class="active"{/if} ><a
+                                    href="/admin/computer/add/">Tail Logs</a></li>
                         <li><a {if $location == '/admin/dash/'}class="active"{/if} href="/admin/dash/">Random
                                 Strings</a></li>
                     </ul>
