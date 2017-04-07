@@ -9,7 +9,7 @@
 
 class Runtime
 {
-    function Runtime()
+    function __construct()
     {
         register_shutdown_function(array($this, 'shutdown'));
     }
