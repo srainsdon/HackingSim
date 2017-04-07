@@ -4,18 +4,34 @@
  * User: srainsdon
  * Date: 4/6/2017
  * Time: 11:39 PM
+ *
+ * Version: 1
+ *
+ * This file works as the api router.
+ *
+ * /api/v1/json/logs/ dumps the last {blah} lines from the log table
  */
 
 switch ($cmd[1]) {
     case "v1": { // cmd = /api/v1/
         switch ($cmd[2]) {
-            case "logs": // cmd = /api/v1/logs/
-                include_once '/admin/logs.php';
+            case "json": { // cmd = /api/v1/json/
+                switch ($cmd[3]) {
+                    case "logs": // cmd = /api/v1/json/logs/
+                        $query = 'SELECT * FROM `HackingSim`.`log4php_log`';
+                        $result = $sql->getPdo()->query($query)->fetchAll();
+                        $list = array();
+                        foreach ($result as $row) {
+                            $list[] = new logEntry($row['timestamp'], $row['logger'], $row['thread'], $row['file'], $row['line'], $row['level'], $row['message']);
+                        }
+                        echo json_encode($tmpList);
                 break;
-            case "computers": // cmd = /api/v1/logs/
-                $tmpList = $sql->getAllComputers();
-                echo json_encode($tmpList);
-                break;
+                    case "computers": // cmd = /api/v1/json/logs/
+                        $tmpList = $sql->getAllComputers();
+                        echo json_encode($tmpList);
+                        break;
+                }
+            } // TODO[Seth Rainsdon] - Add needed code for xml output as well
         }
-    }
+    } // This was added from the start to allow for backwards compatibility
 }
