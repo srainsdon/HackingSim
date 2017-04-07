@@ -18,13 +18,12 @@ switch ($cmd[1]) {
             case "json": { // cmd = /api/v1/json/
                 switch ($cmd[3]) {
                     case "logs": // cmd = /api/v1/json/logs/
-                        $query = 'SELECT * FROM log4php_log';
-                        $result = $sql->getPdo()->query($query)->fetchAll();
+
                         $list = array();
-                        foreach ($result as $row) {
+                        foreach ($sql->getLogLines() as $row) {
                             $list[] = new logEntry($row['timestamp'], $row['logger'], $row['thread'], $row['file'], $row['line'], $row['level'], $row['message']);
                         }
-                        echo json_encode($tmpList);
+                        echo json_encode($list);
                 break;
                     case "computers": // cmd = /api/v1/json/logs/
                         $tmpList = $sql->getAllComputers();

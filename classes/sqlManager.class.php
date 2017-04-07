@@ -118,9 +118,23 @@ class sqlManager
         return $this->pdo->exec($sql);
     }
 
+    /**
+     * getLogLines
+     * Gives you the logs that have been collected
+     *
+     * @param int $num number of lines you would like
+     * @return array the dump from the log table
+     */
+    function getLogLines($num = 50)
+    {
+        $sql = "SELECT * FROM log4php_log";
+        return $this->pdo->query($sql)->fetchAll();
+    }
+
     function getPermissions()
     {
         $sql = "SELECT permissions.permissionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN grouppermission ON grouppermission.gpGroup = userGroup.groupID JOIN permissions ON grouppermission.gpPermission = permissions.permissionID WHERE users.id = 1";
         $permissions = $this->pdo->query($sql)->fetchAll();
+        return $permissions;
     }
 }
