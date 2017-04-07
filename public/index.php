@@ -24,7 +24,7 @@ if (isset($_GET['data'])) {
                 include_once 'admin/network.php';
                 break;
             case "log":
-                include_once 'admin/log.php';
+                include_once 'admin/logs.php';
                 break;
             case "info":
                 phpinfo();
