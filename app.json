@@ -1,0 +1,29 @@
+{
+  "name": "HackingSim",
+  "scripts": {
+  },
+  "env": {
+    "dbDatabase": {
+      "required": true
+    },
+    "dbHost": {
+      "required": true
+    },
+    "dbPass": {
+      "required": true
+    },
+    "dbUser": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
