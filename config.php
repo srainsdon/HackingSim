@@ -13,6 +13,7 @@ session_start();
 
 require 'vendor/autoload.php';
 Logger::configure($base . '/../log4php.xml');
+$runtime = new Runtime();
 $log = Logger::getLogger('Main');
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on

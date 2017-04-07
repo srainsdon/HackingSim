@@ -79,8 +79,11 @@ class sqlManager
         if ($this->isIPinNetwork($ipaddress, $networkID)) {
             $sql = "INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork)"
                 . " VALUES ('$hostName', '$domain', INET_ATON('$ipaddress'), $networkID)";
+            $this->logger->debug("addComputer sql query: $sql");
             if ($this->pdo->query($sql) != TRUE) {
-                return "Error: $sql<br />\n" . $this->pdo->errorCode();
+                $ec = $this->pdo->errorCode();
+                $this->logger->error("Error: $sql\n$ec");
+                return "Error: $sql<br />\n$ec";
             } else {
                 return TRUE;
             }
@@ -115,6 +118,7 @@ class sqlManager
         }
         $sqlupdate = implode(', ', $sqlupdate);
         $sql = "UPDATE Computers SET $sqlupdate Where ComputerID = {$postData['ComputerID']};";
+        $this->logger->debug("updateComputer sql query: $sql");
         return $this->pdo->exec($sql);
     }
 
@@ -127,14 +131,15 @@ class sqlManager
      */
     function getLogLines($num = 50)
     {
-        $sql = "SELECT * FROM log4php_log";
+        $sql = "SELECT * FROM log4php_log ORDER BY timestamp DESC LIMIT 1000";
+        $this->logger->debug("getLogLines sql query: $sql");
         return $this->pdo->query($sql)->fetchAll();
     }
 
     function getPermissions()
     {
         $sql = "SELECT permissions.permissionName FROM users JOIN userGroup ON userGroup.userID = users.id JOIN grouppermission ON grouppermission.gpGroup = userGroup.groupID JOIN permissions ON grouppermission.gpPermission = permissions.permissionID WHERE users.id = 1";
-        $permissions = $this->pdo->query($sql)->fetchAll();
-        return $permissions;
+        $this->logger->debug("getPermissions sql query: $sql");
+        return $this->pdo->query($sql)->fetchAll();
     }
 }

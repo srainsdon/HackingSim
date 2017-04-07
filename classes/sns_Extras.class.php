@@ -13,9 +13,11 @@ class sns_Extras
     private $smarty;
     private $sql;
     private $user;
+    private $logger;
 
     function __construct(Smarty_HackingSim &$smarty, sqlManager &$sql, userManager &$user)
     {
+        $this->logger = new Logger(__CLASS__);
         $this->smarty = $smarty;
         $this->sql = $sql;
         $this->user = $user;
