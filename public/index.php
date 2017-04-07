@@ -45,7 +45,6 @@ if (isset($_GET['data'])) {
                     }
                     $smarty->assign('strings', $randoms);
                     $smarty->display('main.tpl');
-                    break;
                 }
                 default: {// cmd = /admin/
                     include_once 'admin/adminHome.php';
