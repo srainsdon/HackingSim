@@ -71,17 +71,17 @@ class userManager extends PHPAuth\Auth
 
             $tempData = $this->dbh->query($sql)->fetchAll();
             array_walk_recursive($tempData, function ($item, $key) {
-                //echo "$key holds $item\n";
                 $this->permissions[] = $item;
             });
             if (isset($level)) {
                 if (in_array($level, $this->permissions))
                     $this->isAuthed = userManager::AUTHORISED;
+            } else {
+                return array(
+                    'loggedin' => true,
+                    'sql' => $sql,
+                    'Permissions' => $this->permissions);
             }
-            /*return array(
-                'loggedin' => true,
-                'sql' => $sql,
-                'Permissions' => $this->permissions);*/
         }
         return $this->isAuthed;
     }

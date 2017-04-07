@@ -20,7 +20,7 @@ if (isset($_GET['data'])) {
             $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin'>Admin</a>");
             switch ($cmd[1]) {
                 case "computer": // cmd = /admin/computer/
-                    $computerId = $cmd[2];
+                    $computerId = $cmd[2]; // cmd = /admin/computer/{$compID}/
                     include_once 'admin/computer.php';
                     break;
                 case "network": // cmd = /admin/network/
