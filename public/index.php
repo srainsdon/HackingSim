@@ -24,11 +24,10 @@ if (isset($_GET['data'])) {
                 include_once 'admin/network.php';
                 break;
             case "log":
-                include_once 'admin/tail.php';
+                include_once 'admin/log.php';
                 break;
             case "info":
-                $smarty->assign('body', $extras->server_info());
-                $smarty->display('main.tpl');
+                phpinfo();
                 break;
             case "dash":
                 $randoms = '';
