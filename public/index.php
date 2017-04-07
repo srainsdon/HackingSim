@@ -40,6 +40,7 @@ if (isset($_GET['data'])) {
                             $tmpArray[] = $auth->getRandomKey(30);
                         } else {
                             $randoms[] = $tmpArray;
+                            $tmpArray = array();
                         }
                     }
                     $smarty->assign('strings', $randoms);

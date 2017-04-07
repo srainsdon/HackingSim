@@ -4,10 +4,9 @@
     <tbody>
     <tr>
     {foreach $strings as $value}
-        <td>Tiger Nixon</td>
-        <td>System Architect</td>
-        <td>Edinburgh</td>
-        <td>61</td>
+        {foreach $value as $string}
+            <td>{$string}</td>
+        {/foreach}
     {/foreach}
     </tr>
     </tbody>
