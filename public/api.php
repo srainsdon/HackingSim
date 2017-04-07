@@ -11,7 +11,7 @@
  *
  * /api/v1/json/logs/ dumps the last {blah} lines from the log table
  */
-
+header('Content-Type: application/json');
 switch ($cmd[1]) {
     case "v1": { // cmd = /api/v1/
         switch ($cmd[2]) {
