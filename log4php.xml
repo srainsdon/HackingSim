@@ -7,6 +7,7 @@
         <param name="table" value="log4php_log" />
     </appender>
     <root>
+        <level value="info" />
         <appender_ref ref="default"/>
     </root>
 </configuration>
