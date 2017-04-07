@@ -98,7 +98,7 @@ class sns_Extras
 
     function ACLblacklist()
     {
-        if (in_array($this->getIp(), sns_Extras::IP_BLACKLIST)) {
+        if (! in_array($this->getIp(), sns_Extras::IP_BLACKLIST)) {
             header('HTTP/1.0 403 Forbidden');
             $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Not Autherised</span>");
             $this->smarty->assign('alert', 'You are not authorised!!!');

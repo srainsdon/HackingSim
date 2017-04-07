@@ -34,7 +34,7 @@ if (isset($_GET['data'])) {
                     break;
                 case "dash":
                     $randoms = '';
-                    for ($x = 0; $x <= 30; $x++) {
+                    for ($x = 1; $x <= 30; $x++) {
                         $randoms .= $auth->getRandomKey(30);
                         if ($x % 3 == 0) {
                             $randoms .= "\n";
