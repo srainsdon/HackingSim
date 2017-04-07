@@ -33,22 +33,22 @@ if (isset($_GET['data'])) {
                     phpinfo();
                     break;
                 case "dash": {// cmd = /admin/dash/
-                    $randoms = '';
+                    $randoms = array();
+                    $tmpArray = array();
                     for ($x = 1; $x <= 30; $x++) {
-                        $randoms .= $auth->getRandomKey(30);
-                        if ($x % 3 == 0) {
-                            $randoms .= "\n";
+                        if ($x % 4 != 0) {
+                            $tmpArray[] = $auth->getRandomKey(30);
                         } else {
-                            $randoms .= " ";
+                            $randoms[] = $tmpArray;
                         }
                     }
-                    $smarty->assign('body', nl2br($randoms));
+                    $smarty->assign('strings', $randoms);
                     $smarty->display('main.tpl');
                     break;
                 }
-                default: // cmd = /admin/
+                default: {// cmd = /admin/
                     include_once 'admin/adminHome.php';
-                    break;
+                }
             }
         }
         case "login": // cmd = /login/
