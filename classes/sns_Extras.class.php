@@ -96,12 +96,14 @@ class sns_Extras
         return trim($output);
     }
 
-    function isRemoteDev()
+    function ACLblacklist()
     {
-        if (in_array($this->getIp(), DEV_IP_ARRAY)) {
-            return true;
-        } else {
-            return false;
+        if (in_array($this->getIp(), sns_Extras::IP_BLACKLIST)) {
+            header('HTTP/1.0 403 Forbidden');
+            $this->smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Not Autherised</span>");
+            $this->smarty->assign('alert', 'You are not authorised!!!');
+            $this->smarty->display('main.tpl');
+            exit;
         }
     }
 
@@ -111,6 +113,15 @@ class sns_Extras
             return $_SERVER['HTTP_X_FORWARDED_FOR'];
         } else {
             return $_SERVER['REMOTE_ADDR'];
+        }
+    }
+
+    function isRemoteDev()
+    {
+        if (in_array($this->getIp(), sns_Extras::DEV_IP_ARRAY)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

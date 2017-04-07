@@ -8,6 +8,8 @@
  */
 include_once '../config.php';
 
+$extras->isBlackListed();
+
 if (isset($_GET['data'])) {
     error_log($_GET['data']);
     $cmd = explode('/', $_GET['data']);
