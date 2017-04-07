@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns="http://logging.apache.org/log4php/">
-    <appender name="default" class="LoggerAppenderFile">
-        <layout class="LoggerLayoutSimple"/>
-        <param name="file" value="/app/log/my.log"/>
-        <param name="append" value="true"/>
+    <appender name="default" class="LoggerAppenderPDO">
+        <param name="dsn" value="mysql:host=34.208.253.55;dbname=logdb" />
+        <param name="user" value="log4php_logger" />
+        <param name="password" value="secret" />
+        <param name="table" value="puCutagiy1hopojeM74Ej8coj745Va" />
     </appender>
     <root>
         <appender_ref ref="default"/>
