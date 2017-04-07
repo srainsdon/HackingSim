@@ -45,6 +45,7 @@ class sns_Extras
             'access' => ini_get('access_log'),
             'log4php' => '/app/log/my.log'
         );
+        return $errorPath;
     }
 
     /**
