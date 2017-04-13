@@ -40,7 +40,7 @@
             </div>
             {foreach $Computer.ComputerServices as $service}
             <div class="form-group">
-                <label class="control-label input-sm col-sm-2" for="Service-{$service.name}"></label>
+                <label class="control-label input-sm col-sm-2" for="Service-{$service.name}">{$service.name}</label>
             </div>
             {/foreach}
             <button type=" submit" name="submit" value="Add" class="btn btn-default btn-small"><span
