@@ -35,6 +35,7 @@
             {/block}
         </div>
     {else}
-        <h1>Please Log In.</h1>
+        <h1>Welcome.</h1>
+        <p>This is the game simulator. There will be more later.</p>
     {/if}
 {/block}
