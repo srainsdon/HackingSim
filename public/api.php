@@ -30,7 +30,7 @@ switch ($cmd[1]) {
                         $log->info('Returned ' . count($list) . ' Records');
                         echo json_encode($list);
                 break;
-                    case "computers": // cmd = /api/v1/json/logs/
+                    case "computers": // cmd = /api/v1/json/computers/
                         $tmpList = $sql->getAllComputers();
                         echo json_encode($tmpList);
                         break;
