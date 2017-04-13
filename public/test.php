@@ -23,9 +23,9 @@ foreach ($netList as $row) {
     $netData = explode(" - ", $row['NetName']);
     $netIP = new ipv4($netData[1] . '/24');
     echo $netIP->getAddress() . ":<br />";
-    foreach ($netIP->getAllAddress() as $newIP) {
-        echo $newIP . "<br />";
-    }
+    $netAll = $netIP->getAllAddress();
+    reset($netAll);
+    echo "First: " . current($netAll) . " Last: " . end($netAll);
     echo "<br />";
 }
 
