@@ -1,30 +1,30 @@
 {extends file="home.tpl"}
 {block name=MainPanel}
     <div class="form-group">
-        <form class="form-horizontal" method="POST" action="/admin/computer/">
+        <form class="form-horizontal" method="POST">
             <div class="form-group">
-                <label class="control-label col-sm-2" for="ComputerHostName">Host Name:</label><input
+                <label class="control-label input-sm col-sm-2" for="ComputerHostName">Host Name:</label><input
                         id="ComputerHostName" type="text"
                         name="ComputerHostName"
                         class="input-sm form-control"
                         placeholder="Host Name">
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="ComputerDomain">Domain Name:</label><input
+                <label class="control-label input-sm col-sm-2" for="ComputerDomain">Domain Name:</label><input
                         id="ComputerDomain" type="text"
                         name="ComputerDomain"
                         class="input-sm form-control"
                         placeholder="Domain Name">
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="ComputerIP">IP Address:</label><input
+                <label class="control-label input-sm col-sm-2" for="ComputerIP">IP Address:</label><input
                         id="ComputerIP" type="text"
                         name="ComputerIP"
                         class="input-sm form-control"
                         placeholder="IP Address">
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-2" for="ComputerNetwork">Network:</label><select
+                <label class="control-label input-sm col-sm-2" for="ComputerNetwork">Network:</label><select
                         name="ComputerNetwork"
                         id="ComputerNetwork"
                         class="input-sm form-control">
