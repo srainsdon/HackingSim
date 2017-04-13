@@ -86,6 +86,11 @@ class sqlManager
         return $results;
     }
 
+    function getServices() {
+        $sql = "SELECT ServiceName FROM `HackingSim`.`Services`";
+        return $this->pdo->query($sql)->fetchAll();
+    }
+
     function getNetworkList()
     {
         $sql = "SELECT NetworkID, CONCAT(NetworkName, ' - ', CAST(INET_NTOA(NetworkSubNetID) AS CHAR), '/', Subnet ) AS NetName FROM Networks";

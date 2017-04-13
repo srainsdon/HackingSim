@@ -16,6 +16,7 @@ if ($auth->isLogged()) {
             $tempData[$row['NetworkID']] = $row['NetName'];
         }
         $smarty->assign("Networks", $tempData);
+        $smarty->assign('Services', $sql->getServices());
         $smarty->debugging = true;
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
