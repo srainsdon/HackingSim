@@ -9,7 +9,7 @@
 include_once '../config.php';
 
 $settings = new appSettings();
-
+$settings->setData('name', 'ssh');
 $settings->setData('version', '0.12');
-$settings->setData('port', '5312');
+$settings->setPorts(22,"open");
 echo $settings->getData();

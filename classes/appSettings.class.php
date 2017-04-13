@@ -23,9 +23,18 @@ class appSettings
      */
     public function getData()
     {
+        $this->data['ports'] = $this->ports;
         return json_encode($this->data);
     }
 
+    /**
+     * @param mixed $ports
+     */
+    public function setPorts($port, $state)
+    {
+
+        $this->ports[$port] = $state;
+    }
     /**
      * @param mixed $data
      */
