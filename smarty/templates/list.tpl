@@ -1,5 +1,14 @@
 {extends file="main.tpl"}
 {block name=body}
+    <style>
+        td.details-control {
+            background: url('/images/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown td.details-control {
+            background: url('/images/details_close.png') no-repeat center center;
+        }
+    </style>
     <div class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
