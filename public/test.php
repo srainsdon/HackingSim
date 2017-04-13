@@ -10,29 +10,16 @@ include_once '../config.php';
 
 $cidr = new cidr();
 $ip = new ipv4('28.237.245.45/26');
-echo "<h3>" . $ip->getAddress() . "/" . $ip->getCidr() . "</h3>";
-$cidrValue = $ip->getCidr();
-$netMask = $cidr->cidr2netmask($cidrValue);
-echo "cidr2netmask: $cidrValue $netMask<br />\n";
-echo "cidr2network: 28.237.245.45/24 " . $cidr->cidr2network('28.237.245.45', 26) . "<br />\n";
-echo "netmask2cidr: $netMask " . $cidr->netmask2cidr($netMask) . "<br />\n";
-echo "cidr_match: 28.237.245.45/24 " . $cidr->cidr_match('28.237.245.45', '28.237.245.0', '26') . "<br />\n";
-
 $netList = $sql->listNets();
-
 foreach ($netList as $row) {
     // echo "<pre>" . print_r($row,true) . "</pre>";
     $netIP = new ipv4($row['NetworkStart'], $row['Subnet']);
-    echo $netIP->getAddress() . ":";
+    echo $netIP->getAddress() . " " . $row['NetworkName'] . ":";
     $netAll = $netIP->getAllAddress();
     reset($netAll);
     echo count($netAll) . "<br />First: " . current($netAll) . " Last: " . end($netAll);
     echo "<br />";
 }
-
-$all = $ip->getAllAddress();
-reset($all);
-echo "First: " . current($all) . " Last: " . end($all);
 /*
 $settings = new appSettings();
 $settings->setData('name', 'ssh');
