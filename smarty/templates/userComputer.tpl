@@ -46,9 +46,9 @@
                             <div class="panel-heading">{$service.name}</div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <label class="control-label input-sm col-sm-2"
+                                    <label class="control-label input-sm"
                                            for="Service-{$service.name}">Service:</label>
-                                    <input type="text" name="Service-{$service.name}" id="Service-{$service.name}"
+                                    <input class="control-input input-sm" type="text" name="Service-{$service.name}" id="Service-{$service.name}"
                                            value="{$service.name}">
                                 </div>
                             </div>
