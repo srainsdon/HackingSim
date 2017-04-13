@@ -17,6 +17,8 @@ switch ($comand[0]) {
     case 'connect':
         $_SESSION['DisplayData']['ConnectedTo'] = $comand[1];
         break;
+    default:
+        $_SESSION['CommandHistory'] .= $comand[0] . " is an un known command try help.\n";
 }
     }
     if (isset($computerip)) {
