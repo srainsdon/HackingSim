@@ -17,6 +17,13 @@ class userManager extends PHPAuth\Auth
     private $userEmail;
     private $permissions;
     private $isAuthed;
+    private $log;
+
+    public function __construct(\PDO $dbh, $config, $language = "en_GB")
+    {
+        $log = new Logger(__CLASS__);
+        parent::__construct($dbh, $config, $language);
+    }
 
     /**
      * @return mixed logged in user's email address
@@ -43,6 +50,7 @@ class userManager extends PHPAuth\Auth
      */
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
+        $this->log->debug($email, $password, $remember = 0, $captcha = NULL);
         $this->userEmail = $email;
         $data = parent::login($email, $password, $remember, $captcha);
         $this->userID = $this->getUID($email);
@@ -56,6 +64,7 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
+        $this->log->debug($this->userID . $level);
         $this->isAuthed = userManager::GUEST;
 
         if ((empty($this->userEmail)) || (empty($this->userID))) {
