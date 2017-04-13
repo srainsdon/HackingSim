@@ -10,7 +10,7 @@ class appSettings
 {
     private $ports;
     private $data;
-
+    private $networks;
     function __construct($json = null)
     {
         if($json) {
@@ -30,7 +30,7 @@ class appSettings
     /**
      * @param mixed $ports
      */
-    public function setPorts($port, $state)
+    public function setPorts($cidr, $port, $state)
     {
 
         $this->ports[$port] = $state;
