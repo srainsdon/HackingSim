@@ -8,9 +8,9 @@
  */
 class service
 {
-    private $name;
-    private $ports;
-    private $version;
+    protected $name;
+    protected $ports;
+    protected $version;
 
     function __construct($json = null)
     {
@@ -43,7 +43,7 @@ class service
      */
     public function setPort($port, $status = 'open')
     {
-        $this->ports[] = array('port' => $port, 'status' => $status);
+        $this->ports[$port] = array('port' => $port, 'status' => $status);
     }
 
     public function getArray()

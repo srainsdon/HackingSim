@@ -16,12 +16,20 @@ if ($auth->isLogged()) {
             $tempData[$row['NetworkID']] = $row['NetName'];
         }
         $smarty->assign("Networks", $tempData);
-        $smarty->assign('Services', $sql->getServices());
-        $smarty->debugging = true;
+
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
-
+        $services = array();
+        $service = new service();
+        $service->setName('ssh');
+        $service->setPort(22);
+        $service->setVersion('1.2.3');
+        $services[] = $service->getArray();
+        $firewall = new firewall($service->getJson());
+        $firewall->setinbound(22, '25.65.151.0/24');
+        $services[] = $firewall->getArray();
+        $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
         $smarty->display('home.tpl');
     }
 } else {
