@@ -16,7 +16,7 @@ Logger::configure($base . '/../log4php.xml');
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
-$smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on
+$smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
 $extras = new sns_Extras($smarty, $sql, $auth);
