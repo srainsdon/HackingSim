@@ -99,7 +99,7 @@
                 '</table>';
         }
         $(document).ready(function() {
-            $('#computers').DataTable( {
+            var table = $('#computers').DataTable( {
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
                     {
