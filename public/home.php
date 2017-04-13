@@ -20,12 +20,20 @@ if ($auth->isLogged()) {
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
+        $services = array();
         $service = new service();
         $service->setName('ssh');
         $service->setPort(22);
         $service->setPort(2222, 'stealth');
         $service->setVersion('1.2.3');
-        $smarty->assign('data', $service->getJson());
+        $services[] = $service->getArray();
+        $service = new service();
+        $service->setName('apache2');
+        $service->setPort(80);
+        $service->setPort(453);
+        $service->setVersion('2.2.6');
+        $services[] = $service->getArray();
+        $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
         $smarty->display('home.tpl');
     }
 } else {

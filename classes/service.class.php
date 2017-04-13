@@ -37,12 +37,22 @@ class service
     {
         $this->version = $version;
     }
+
     /**
      * @param mixed $ports
      */
     public function setPort($port, $status = 'open')
     {
         $this->ports[] = array('port' => $port, 'status' => $status);
+    }
+
+    public function getArray()
+    {
+        return array(
+            'name' => $this->name,
+            'version' => $this->version,
+            'ports' => $this->ports
+        );
     }
 
     public function getJson()
