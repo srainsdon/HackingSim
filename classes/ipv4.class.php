@@ -5,64 +5,46 @@
 class ipv4
 {
     var $address;
-    var $netbits;
+    var $cidr;
 
     //--------------
     // Create new class
-    function __construct($address, $netbits)
+    function __construct($address, $cidr = null)
     {
+        if (! $cidr) {
+            @list($address, $cidr) = explode('/', $address);
+        }
         $this->address = $address;
-        $this->netbits = $netbits;
+        $this->cidr = $cidr;
     }
 
-    //--------------
-    // Return the IP address
-    function address()
+    /**
+     * @return mixed
+     */
+    public function getAddress()
     {
-        return ($this->address);
+        return $this->address;
     }
 
-    //--------------
-    // Return the netbits
-    function netbits()
+    /**
+     * @return null
+     */
+    public function getCidr()
     {
-        return ($this->netbits);
+        return $this->cidr;
     }
 
-    //--------------
-    // Return the netmask
-
-    function broadcast()
+    function getAllAddress()
     {
-        return (long2ip(ip2long($this->network())
-            | (~(ip2long($this->netmask())))));
+        $addresses = array();
+
+        // @list($ip, $len) = explode('/', $range);
+
+        if (($min = ip2long($this->address)) !== false) {
+            $max = ($min | (1 << (32 - $this->cidr)) - 1);
+            for ($i = $min; $i < $max; $i++)
+                $addresses[] = long2ip($i);
+        }
+        return $addresses;
     }
-
-    //--------------
-    // Return the network that the address sits in
-
-    function network()
-    {
-        return (long2ip((ip2long($this->address))
-            & (ip2long($this->netmask()))));
-    }
-
-    //--------------
-    // Return the broadcast that the address sits in
-
-    function netmask()
-    {
-        return (long2ip(ip2long("255.255.255.255")
-            << (32 - $this->netbits)));
-    }
-
-    //--------------
-    // Return the inverse mask of the netmask
-
-    function inverse()
-    {
-        return (long2ip(~(ip2long("255.255.255.255")
-            << (32 - $this->netbits))));
-    }
-
 }
