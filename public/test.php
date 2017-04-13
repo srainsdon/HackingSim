@@ -18,10 +18,9 @@ echo "cidr2network: 28.237.245.45\24 " . $cidr->cidr2network('28.237.245.45', 24
 echo "netmask2cidr: $netMask " . $cidr->netmask2cidr($netMask) . "<br />\n";
 echo "cidr_match: 28.237.245.45/24 " . $cidr->cidr_match('28.237.245.45', '28.237.245.0', '24') . "<br />\n";
 
-$netList = $sql->getNetworkList();
+$netList = $sql->listNets();
 foreach ($netList as $row) {
-    $netData = explode(" - ", $row['NetName']);
-    $netIP = new ipv4($netData[1] . '/24');
+    $netIP = new ipv4($row['NetworkStart'] . '/' . $row['Subnet']);
     echo $netIP->getAddress() . ":<br />";
     $netAll = $netIP->getAllAddress();
     reset($netAll);

@@ -41,7 +41,7 @@ class sqlManager
 
     function listNets()
     {
-        $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) AS NetworkStart, inet_ntoa(`NetworkEnd`) AS NetworkEnd, `NetworkName` FROM Networks";
+        $sql = "SELECT `NetworkID`, inet_ntoa(`NetworkStart`) AS NetworkStart, `NetworkName`, `Subnet` FROM Networks";
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
