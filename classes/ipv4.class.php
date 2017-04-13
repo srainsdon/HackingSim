@@ -24,7 +24,7 @@ class ipv4
         // echo "ADDRESS:".$this->address,"|CIDR:".$this->cidr,"|STARTIP:".$startIP."<br />\n";
         if (($min = ip2long($this->subNetID)) !== false) {
             $max = ($min | (1 << (32 - $this->cidr)) - 1);
-            $this->broadcastIP = long2ip($max+1);
+            $this->broadcastIP = long2ip($max);
 //            for ($i = $min; $i < $max; $i++)
 //                $addresses[] = long2ip($i);
         }
