@@ -22,7 +22,7 @@ switch ($comand[0]) {
         $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
         break;
     default:
-        $_SESSION['CommandHistory'] .= $comand[0] . " is an un known command try help.\n";
+        $commands->addToHistory($comand[0] . " is an unknown command try help.");
 }
     }
     if (isset($computerip)) {

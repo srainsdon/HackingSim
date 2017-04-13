@@ -17,9 +17,12 @@ class commands
         $this->sql = $sql;
     }
 
+    function addToHistory($message){
+        $_SESSION['CommandHistory'] .= $message."\n";
+    }
     function ping($originatingIP, $destinationIP)
     {
-        $_SESSION['CommandHistory'] .= "PING: $destinationIP from $originatingIP\n";
+        $this->addToHistory("PING: $destinationIP from $originatingIP");
         $dest = $this->sql->getComputerByIP($destinationIP);
         $orig = $this->sql->getComputerByIP($originatingIP);
         foreach ($dest['ComputerServices'] as $service) {
@@ -29,7 +32,7 @@ class commands
                     if($this->calculator->cidr_match($originatingIP,$ip,$mask)) {
                         $this->pong();
                     } else {
-                        $_SESSION['CommandHistory'] .= "Humm...Not in FireWall\n";
+                        $this->addToHistory("Humm...Not in FireWall");
                     }
                 } else {
                     $this->pong();
@@ -40,6 +43,6 @@ class commands
 
     function pong()
     {
-        $_SESSION['CommandHistory'] .= "PONG!\n";
+        $this->addToHistory("PONG!");
     }
 }
