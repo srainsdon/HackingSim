@@ -29,11 +29,13 @@ class commands
                     if($this->calculator->cidr_match($originatingIP,$ip,$mask)) {
                         $this->pong();
                     } else {
-                        $_SESSION['CommandHistory'] .= "Humm...\n";
+                        $_SESSION['CommandHistory'] .= "Humm...Not in FireWall\n";
                     }
                 } else {
                     $this->pong();
                 }
+            } else {
+                $_SESSION['CommandHistory'] .= "Humm...No Ping\n";
             }
         }
     }
