@@ -9,7 +9,7 @@
 include_once '../config.php';
 
 $cidr = new cidr();
-$ip = new ipv4('28.237.245.45/24');
+$ip = new ipv4('28.237.245.45/26');
 echo "<h3>" . $ip->getAddress() . "/" . $ip->getCidr() . "</h3>";
 $cidrValue = $ip->getCidr();
 $netMask = $cidr->cidr2netmask($cidrValue);
