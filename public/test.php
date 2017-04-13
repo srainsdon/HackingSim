@@ -9,7 +9,12 @@
 include_once '../config.php';
 
 $cidr = new cidr();
-echo "<pre>".print_r($sql->getComputerByIP('28.237.245.45'),true)."</pre>";
+$computer = $sql->getComputerByIP('28.237.245.45');
+echo "<pre>".print_r($computer,true)."</pre>";
+$ip = new ipv4($computer['CIDR']);
+echo "Max: ". $ip->getAllAddress();
+
+/*
 $netList = $sql->listNets();
 foreach ($netList as $row) {
     // echo "<pre>" . print_r($row,true) . "</pre>";
@@ -20,6 +25,7 @@ foreach ($netList as $row) {
     echo count($netAll) . "<br />First: " . current($netAll) . " Last: " . end($netAll);
     echo "<br />";
 }
+*/
 /*
 $settings = new appSettings();
 $settings->setData('name', 'ssh');

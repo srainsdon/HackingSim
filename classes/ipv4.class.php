@@ -7,6 +7,7 @@ class ipv4
     var $address;
     var $cidr;
     private $classCidr;
+    private $max;
     //--------------
     // Create new class
     function __construct($address, $cidr = null)
@@ -45,10 +46,12 @@ class ipv4
     // echo "ADDRESS:".$this->address,"|CIDR:".$this->cidr,"|STARTIP:".$startIP."<br />\n";
         if (($min = ip2long($startIP)) !== false) {
             $max = ($min | (1 << (32 - $this->cidr)) - 1);
+            $this->max = long2ip($max);
             for ($i = $min; $i < $max; $i++)
                 $addresses[] = long2ip($i);
         }
         array_shift($addresses);
-        return $addresses;
+        // return $addresses;
+        return $this->max;
     }
 }
