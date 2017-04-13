@@ -47,7 +47,7 @@
                     <form method="post">
                         <div class="form-group">
                             <label for="cmd">Command:</label>
-                            <input type="text" class="form-control" id="cmd">
+                            <input type="text" class="form-control" id="cmd" name="cmd">
                         </div>
                     </form>
                 </div>
