@@ -36,6 +36,7 @@ INSERT INTO `attempts` (`id`, `ip`, `expiredate`) VALUES
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `computer` (
 	`ComputerID` INT(11) NOT NULL,
+	`ComputerName` TEXT NOT NULL COLLATE 'utf8_unicode_ci',
 	`ComputerHostName` VARCHAR(256) NOT NULL COLLATE 'utf8_unicode_ci',
 	`ComputerDomain` VARCHAR(256) NOT NULL COLLATE 'utf8_unicode_ci',
 	`ComputerIP` VARCHAR(31) NULL COLLATE 'utf8mb4_general_ci',
@@ -56,14 +57,14 @@ CREATE TABLE IF NOT EXISTS `Computers` (
   UNIQUE KEY `ComputerIP` (`ComputerIP`),
   KEY `fkNetwork` (`ComputerNetwork`),
   CONSTRAINT `fkNetwork` FOREIGN KEY (`ComputerNetwork`) REFERENCES `Networks` (`NetworkID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table HackingSim.Computers: ~14 rows (approximately)
+-- Dumping data for table HackingSim.Computers: ~15 rows (approximately)
 /*!40000 ALTER TABLE `Computers` DISABLE KEYS */;
 INSERT INTO `Computers` (`ComputerID`, `ComputerHostName`, `ComputerDomain`, `ComputerIP`, `ComputerNetwork`, `ComputerActive`) VALUES
 	(1, 'shopping', 'walmart.com', 55840155, 6, 1),
 	(2, 'dns1', 'walfart.com', 406579333, 1, 1),
-	(3, 'main', 'slayer1of1.player.com', 485356845, 3, 1),
+	(3, 'main', 'slayer1of1.players.net', 485356845, 3, 1),
 	(11, 'www', 'nunetnetworks.net', 423729111, 4, 1),
 	(12, 'db1', 'nunetnetworks.net', 423728927, 4, 1),
 	(13, 'db2', 'nunetnetworks.net', 423729016, 4, 1),
@@ -74,7 +75,8 @@ INSERT INTO `Computers` (`ComputerID`, `ComputerHostName`, `ComputerDomain`, `Co
 	(27, 'student-accounts', 'uoftech.edu', 1325886735, 5, 1),
 	(28, 'gateway', 'slayer1of1.players.net', 485356801, 3, 1),
 	(29, 'gateway', 'csc.net', 55840001, 6, 1),
-	(30, 'gateway', 'fbi.gov', 3886088961, 7, 1);
+	(30, 'gateway', 'fbi.gov', 3886088961, 7, 1),
+	(31, 'main', 'srainsdon.players.net', 485356875, 12, 1);
 /*!40000 ALTER TABLE `Computers` ENABLE KEYS */;
 
 -- Dumping structure for table HackingSim.config
@@ -221,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `log4php_log` (
   `line` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table HackingSim.log4php_log: ~30 rows (approximately)
+-- Dumping data for table HackingSim.log4php_log: ~106 rows (approximately)
 /*!40000 ALTER TABLE `log4php_log` DISABLE KEYS */;
 INSERT INTO `log4php_log` (`timestamp`, `logger`, `level`, `message`, `thread`, `file`, `line`) VALUES
 	('2017-04-07 02:37:12', 'Main', 'DEBUG', 'admin/logs/', 110, '/app/public/index.php', '14'),
@@ -300,7 +302,143 @@ INSERT INTO `log4php_log` (`timestamp`, `logger`, `level`, `message`, `thread`, 
 	('2017-04-12 23:01:50', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
 	('2017-04-12 23:01:50', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
 	('2017-04-12 23:01:50', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
-	('2017-04-12 23:01:51', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26');
+	('2017-04-12 23:01:51', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:15:33', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:15:33', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:15:33', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:15:33', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:15:33', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:15:34', 'sqlManager', 'DEBUG', 'addComputer sql query: INSERT INTO Computers (ComputerHostName,  ComputerDomain,  ComputerIP, ComputerNetwork) VALUES (\'main\', \'srainsdon.players.net\', INET_ATON(\'28.237.245.75\'), 12)', 110, '/app/classes/sqlManager.class.php', '85'),
+	('2017-04-12 23:15:34', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:15:34', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:16:40', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:16:40', 'Main', 'DEBUG', 'admin/computer/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:16:40', 'Main', 'DEBUG', 'cmd = /admin/', 111, '/app/public/index.php', '19'),
+	('2017-04-12 23:16:41', 'Main', 'DEBUG', 'cmd = /admin/computer/', 111, '/app/public/index.php', '24'),
+	('2017-04-12 23:16:41', 'Main', 'ERROR', 'Starting Computer.php', 111, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:16:41', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:16:41', 'root', 'ERROR', 'Trying to get property of non-object', 111, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:22:31', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:22:31', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:22:31', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:22:31', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:22:32', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:22:32', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Undefined index: ComputerName\n    [file] => /app/smarty/templates_c/15601c13229dabb5bbe138b9bf43ec50cb0ea5e0_0.file.list.tpl.php\n    [line] => 116\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:22:32', 'root', 'ERROR', 'Undefined index: ComputerName', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:26:44', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:26:44', 'Main', 'DEBUG', 'admin/computer/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:26:44', 'Main', 'DEBUG', 'cmd = /admin/', 111, '/app/public/index.php', '19'),
+	('2017-04-12 23:26:44', 'Main', 'DEBUG', 'cmd = /admin/computer/', 111, '/app/public/index.php', '24'),
+	('2017-04-12 23:26:44', 'Main', 'ERROR', 'Starting Computer.php', 111, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:26:45', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Undefined index: ComputerName\n    [file] => /app/smarty/templates_c/15601c13229dabb5bbe138b9bf43ec50cb0ea5e0_0.file.list.tpl.php\n    [line] => 116\n)\n', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:26:45', 'root', 'ERROR', 'Undefined index: ComputerName', 111, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:27:17', 'Main', 'DEBUG', 'cmd = /', 112, '/app/public/index.php', '12'),
+	('2017-04-12 23:27:17', 'Main', 'DEBUG', 'admin/computer/', 112, '/app/public/index.php', '14'),
+	('2017-04-12 23:27:17', 'Main', 'DEBUG', 'cmd = /admin/', 112, '/app/public/index.php', '19'),
+	('2017-04-12 23:27:17', 'Main', 'DEBUG', 'cmd = /admin/computer/', 112, '/app/public/index.php', '24'),
+	('2017-04-12 23:27:17', 'Main', 'ERROR', 'Starting Computer.php', 112, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:27:18', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 112, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:27:18', 'root', 'ERROR', 'Trying to get property of non-object', 112, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:32:55', 'Main', 'DEBUG', 'cmd = /', 113, '/app/public/index.php', '12'),
+	('2017-04-12 23:32:55', 'Main', 'DEBUG', 'api/v1/json/computers/', 113, '/app/public/index.php', '14'),
+	('2017-04-12 23:32:55', 'Main', 'DEBUG', 'cmd = /api/v1/', 113, '/app/public/api.php', '17'),
+	('2017-04-12 23:32:55', 'root', 'DEBUG', '', 113, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:32:55', 'root', 'DEBUG', 'Script ended normally', 113, '/app/classes/runtime.class.php', '24'),
+	('2017-04-12 23:32:59', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:32:59', 'Main', 'DEBUG', 'api/v1/json/computers/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:32:59', 'Main', 'DEBUG', 'cmd = /api/v1/', 110, '/app/public/api.php', '17'),
+	('2017-04-12 23:32:59', 'root', 'DEBUG', '', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:32:59', 'root', 'DEBUG', 'Script ended normally', 110, '/app/classes/runtime.class.php', '24'),
+	('2017-04-12 23:38:03', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:38:04', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:38:04', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:38:04', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:38:04', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:38:04', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:38:04', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:39:27', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:39:27', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:39:27', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:39:27', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:39:27', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:39:27', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:39:28', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:40:15', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:40:15', 'Main', 'DEBUG', 'admin/computer/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:40:15', 'Main', 'DEBUG', 'cmd = /admin/', 111, '/app/public/index.php', '19'),
+	('2017-04-12 23:40:15', 'Main', 'DEBUG', 'cmd = /admin/computer/', 111, '/app/public/index.php', '24'),
+	('2017-04-12 23:40:15', 'Main', 'ERROR', 'Starting Computer.php', 111, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:40:16', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:40:16', 'root', 'ERROR', 'Trying to get property of non-object', 111, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:43:04', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:43:04', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:43:04', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:43:04', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:43:04', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:43:05', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:43:05', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:43:28', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:43:28', 'Main', 'DEBUG', 'admin/computer/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:43:29', 'Main', 'DEBUG', 'cmd = /admin/', 111, '/app/public/index.php', '19'),
+	('2017-04-12 23:43:29', 'Main', 'DEBUG', 'cmd = /admin/computer/', 111, '/app/public/index.php', '24'),
+	('2017-04-12 23:43:29', 'Main', 'ERROR', 'Starting Computer.php', 111, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:43:29', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:43:29', 'root', 'ERROR', 'Trying to get property of non-object', 111, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:45:27', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:45:27', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:45:27', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:45:27', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:45:27', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:45:28', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:45:28', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:50:05', 'Main', 'DEBUG', 'cmd = /', 113, '/app/public/index.php', '12'),
+	('2017-04-12 23:50:05', 'Main', 'DEBUG', 'api/v1/json/computers/', 113, '/app/public/index.php', '14'),
+	('2017-04-12 23:50:05', 'Main', 'DEBUG', 'cmd = /api/v1/', 113, '/app/public/api.php', '17'),
+	('2017-04-12 23:50:05', 'root', 'DEBUG', '', 113, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:50:05', 'root', 'DEBUG', 'Script ended normally', 113, '/app/classes/runtime.class.php', '24'),
+	('2017-04-12 23:51:31', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:51:31', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:51:31', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:51:31', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:51:31', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:51:32', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:51:32', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:51:57', 'Main', 'DEBUG', 'cmd = /', 113, '/app/public/index.php', '12'),
+	('2017-04-12 23:51:57', 'Main', 'DEBUG', 'admin/computer/', 113, '/app/public/index.php', '14'),
+	('2017-04-12 23:51:57', 'Main', 'DEBUG', 'cmd = /admin/', 113, '/app/public/index.php', '19'),
+	('2017-04-12 23:51:57', 'Main', 'DEBUG', 'cmd = /admin/computer/', 113, '/app/public/index.php', '24'),
+	('2017-04-12 23:51:57', 'Main', 'ERROR', 'Starting Computer.php', 113, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:51:57', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 113, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:51:58', 'root', 'ERROR', 'Trying to get property of non-object', 113, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:55:41', 'Main', 'DEBUG', 'cmd = /', 110, '/app/public/index.php', '12'),
+	('2017-04-12 23:55:41', 'Main', 'DEBUG', 'admin/computer/', 110, '/app/public/index.php', '14'),
+	('2017-04-12 23:55:41', 'Main', 'DEBUG', 'cmd = /admin/', 110, '/app/public/index.php', '19'),
+	('2017-04-12 23:55:42', 'Main', 'DEBUG', 'cmd = /admin/computer/', 110, '/app/public/index.php', '24'),
+	('2017-04-12 23:55:42', 'Main', 'ERROR', 'Starting Computer.php', 110, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:55:42', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 110, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:55:42', 'root', 'ERROR', 'Trying to get property of non-object', 110, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:55:50', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:55:50', 'Main', 'DEBUG', 'api/v1/json/computers/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:55:50', 'Main', 'DEBUG', 'cmd = /api/v1/', 111, '/app/public/api.php', '17'),
+	('2017-04-12 23:55:51', 'root', 'DEBUG', '', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:55:51', 'root', 'DEBUG', 'Script ended normally', 111, '/app/classes/runtime.class.php', '24'),
+	('2017-04-12 23:56:24', 'Main', 'DEBUG', 'cmd = /', 112, '/app/public/index.php', '12'),
+	('2017-04-12 23:56:24', 'Main', 'DEBUG', 'api/v1/json/computers', 112, '/app/public/index.php', '14'),
+	('2017-04-12 23:56:24', 'Main', 'DEBUG', 'cmd = /api/v1/', 112, '/app/public/api.php', '17'),
+	('2017-04-12 23:56:24', 'root', 'DEBUG', '', 112, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:56:25', 'root', 'DEBUG', 'Script ended normally', 112, '/app/classes/runtime.class.php', '24'),
+	('2017-04-12 23:58:31', 'Main', 'DEBUG', 'cmd = /', 111, '/app/public/index.php', '12'),
+	('2017-04-12 23:58:31', 'Main', 'DEBUG', 'admin/computer/', 111, '/app/public/index.php', '14'),
+	('2017-04-12 23:58:31', 'Main', 'DEBUG', 'cmd = /admin/', 111, '/app/public/index.php', '19'),
+	('2017-04-12 23:58:31', 'Main', 'DEBUG', 'cmd = /admin/computer/', 111, '/app/public/index.php', '24'),
+	('2017-04-12 23:58:31', 'Main', 'ERROR', 'Starting Computer.php', 111, '/app/public/admin/computer.php', '8'),
+	('2017-04-12 23:58:32', 'root', 'DEBUG', 'Array\n(\n    [type] => 8\n    [message] => Trying to get property of non-object\n    [file] => /app/smarty/templates_c/424d0754a73d0dfbba1aa15b1631c43aaae7d541_0.file.main.tpl.php\n    [line] => 47\n)\n', 111, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:58:32', 'root', 'ERROR', 'Trying to get property of non-object', 111, '/app/classes/runtime.class.php', '26'),
+	('2017-04-12 23:58:37', 'Main', 'DEBUG', 'cmd = /', 113, '/app/public/index.php', '12'),
+	('2017-04-12 23:58:37', 'Main', 'DEBUG', 'api/v1/json/computers/', 113, '/app/public/index.php', '14'),
+	('2017-04-12 23:58:38', 'Main', 'DEBUG', 'cmd = /api/v1/', 113, '/app/public/api.php', '17'),
+	('2017-04-12 23:58:38', 'root', 'DEBUG', '', 113, '/app/classes/runtime.class.php', '22'),
+	('2017-04-12 23:58:38', 'root', 'DEBUG', 'Script ended normally', 113, '/app/classes/runtime.class.php', '24');
 /*!40000 ALTER TABLE `log4php_log` ENABLE KEYS */;
 
 -- Dumping structure for table HackingSim.Networks
@@ -407,7 +545,7 @@ CREATE TABLE IF NOT EXISTS `userComputers` (
   CONSTRAINT `userComputerfkUserID` FOREIGN KEY (`userID`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table HackingSim.userComputers: ~0 rows (approximately)
+-- Dumping data for table HackingSim.userComputers: ~1 rows (approximately)
 /*!40000 ALTER TABLE `userComputers` DISABLE KEYS */;
 INSERT INTO `userComputers` (`userComputerID`, `userID`, `computerID`) VALUES
 	(1, 1, 3);
@@ -453,7 +591,7 @@ INSERT INTO `users` (`id`, `email`, `name`, `password`, `isactive`, `dt`) VALUES
 -- Dumping structure for view HackingSim.computer
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `computer`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`srainsdon`@`%` SQL SECURITY DEFINER VIEW `computer` AS select `c`.`ComputerID` AS `ComputerID`,`c`.`ComputerHostName` AS `ComputerHostName`,`c`.`ComputerDomain` AS `ComputerDomain`,inet_ntoa(`c`.`ComputerIP`) AS `ComputerIP`,`n`.`Subnet` AS `Subnet`,concat(inet_ntoa(`c`.`ComputerIP`),'/',`n`.`Subnet`) AS `CIDR`,`n`.`NetworkName` AS `NetworkName` from (`Computers` `c` join `Networks` `n` on((`c`.`ComputerNetwork` = `n`.`NetworkID`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`srainsdon`@`%` SQL SECURITY DEFINER VIEW `computer` AS select `c`.`ComputerID` AS `ComputerID`,concat(`c`.`ComputerHostName`,'.',`c`.`ComputerDomain`) AS `ComputerName`,`c`.`ComputerHostName` AS `ComputerHostName`,`c`.`ComputerDomain` AS `ComputerDomain`,inet_ntoa(`c`.`ComputerIP`) AS `ComputerIP`,`n`.`Subnet` AS `Subnet`,concat(inet_ntoa(`c`.`ComputerIP`),'/',`n`.`Subnet`) AS `CIDR`,`n`.`NetworkName` AS `NetworkName` from (`Computers` `c` join `Networks` `n` on((`c`.`ComputerNetwork` = `n`.`NetworkID`)));
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

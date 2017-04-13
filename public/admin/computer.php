@@ -44,6 +44,5 @@ if (isset($computerId) && $computerId != '') {
     }
 } else {
     $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Computer List</span>");
-    $smarty->assign("computers", $sql->getAllComputers());
     $smarty->display('list.tpl');
 }
