@@ -89,9 +89,9 @@
                         "data":           null,
                         "defaultContent": ''
                     },
-                    { "data": "ComputerName" },
-                    { "data": "NetworkName" },
-                    { "data": "ComputerIP" }
+                    { "ComputerName" },
+                    { "NetworkName" },
+                    { "ComputerIP" }
                 ],
                 "order": [[1, 'asc']]
             } );
