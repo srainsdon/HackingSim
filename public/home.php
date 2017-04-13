@@ -50,7 +50,7 @@ if ($auth->isLogged()) {
         $service->setPort(80);
         $service->setVersion('2.3.3');
         $services[] = $service->getArray();
-
+    $smarty->debugging = true;
         $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
         $smarty->display('home.tpl');
     }
