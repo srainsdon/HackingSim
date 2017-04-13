@@ -21,6 +21,10 @@ switch ($comand[0]) {
     case 'ping':
         $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
         break;
+    case 'disconnect':
+    case 'dc':
+        $commands->addToHistory("Disconnected from ".$_SESSION['ConnectedTo']);
+        $_SESSION['ConnectedTo'] = null;
     default:
         $commands->addToHistory($comand[0] . " is an unknown command try help.");
 }
