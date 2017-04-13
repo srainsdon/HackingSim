@@ -34,8 +34,6 @@ class commands
                 } else {
                     $this->pong();
                 }
-            } else {
-                $_SESSION['CommandHistory'] .= "Humm...No Ping\n";
             }
         }
     }
