@@ -120,7 +120,11 @@
                         "data": null,
                         "defaultContent": ''
                     },
-                    { "data": "ComputerName" },
+                    {
+                        "data": "ComputerName" ,
+                        "target": 0,
+                        "orderData": [2, 1]
+                    },
                     { "data": "NetworkName" },
                     { "data": "ComputerIP" }
                 ]
