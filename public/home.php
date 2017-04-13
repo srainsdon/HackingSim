@@ -21,6 +21,13 @@ if ($auth->isLogged()) {
         $smarty->display('userComputer.tpl');
     } else {
         $services = array();
+        $service = new service();
+        $service->setName('ping');
+        $service->setVersion('1');
+        $service->setPort(1);
+        $firewall = new firewall($service->getJson());
+        $firewall->setinbound(1, '25.65.151.0/24');
+        $services[] = $firewall->getArray();
 
         $service = new service();
         $service->setName('ssh');
