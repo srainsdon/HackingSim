@@ -39,7 +39,7 @@ class sqlManager
         foreach ($this->pdo->query($sql)->fetchAll() as $computer) {
             $tmpData[$computer['NetworkID']]['Name'] = $computer['NetworkName'];
             $tmpData[$computer['NetworkID']]['SubNetID'] = $computer['NetWorkSubNetID'];
-            $tmpData[$computer['NetworkID']]['Computer'] = $computer;
+            $tmpData[$computer['NetworkID']]['Computer'][] = $computer;
         }
         return $tmpData;
     }
