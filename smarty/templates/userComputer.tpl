@@ -7,6 +7,7 @@
                         id="ComputerHostName" type="text"
                         name="ComputerHostName"
                         class="input-sm form-control"
+                        value="{$Computer.ComputerHostName}"
                         placeholder="Host Name">
             </div>
             <div class="form-group">
@@ -14,6 +15,7 @@
                         id="ComputerDomain" type="text"
                         name="ComputerDomain"
                         class="input-sm form-control"
+                        value="{$Computer.ComputerDomain}"
                         placeholder="Domain Name">
             </div>
             <div class="form-group">
@@ -21,6 +23,7 @@
                         id="ComputerIP" type="text"
                         name="ComputerIP"
                         class="input-sm form-control"
+                        value="{$Computer.ComputerIP}"
                         placeholder="IP Address">
             </div>
             <div class="form-group">
@@ -36,7 +39,7 @@
                 </select>
             </div>
             <button type=" submit" name="submit" value="Add" class="btn btn-default btn-small"><span
-                        class="glyphicon glyphicon-ok"/> Add
+                        class="glyphicon glyphicon-ok"/> Submit
             </button>
         </form>
     </div>
