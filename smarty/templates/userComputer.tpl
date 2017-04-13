@@ -38,19 +38,24 @@
                     {/if}
                 </select>
             </div>
-            {foreach $Computer.ComputerServices as $service}
-                <div class="panel panel-default col-sm-4">
-                    <div class="panel-heading">{$service.name}</div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label class="control-label input-sm col-sm-2"
-                                   for="Service-{$service.name}">Service:</label>
-                            <input type="text" name="Service-{$service.name}" id="Service-{$service.name}"
-                                   value="Service-{$service.name}">
+            <div class="panel panel-default">
+                <div class="panel-heading">Services:</div>
+                <div class="panel-body">
+                    {foreach $Computer.ComputerServices as $service}
+                        <div class="panel panel-default col-sm-6">
+                            <div class="panel-heading">{$service.name}</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="control-label input-sm col-sm-2"
+                                           for="Service-{$service.name}">Service:</label>
+                                    <input type="text" name="Service-{$service.name}" id="Service-{$service.name}"
+                                           value="{$service.name}">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {/foreach}
                 </div>
-            {/foreach}
+            </div>
             <button type=" submit" name="submit" value="Add" class="btn btn-default btn-small"><span
                         class="glyphicon glyphicon-ok"/> Submit
             </button>
