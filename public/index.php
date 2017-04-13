@@ -9,19 +9,19 @@
 include_once '../config.php';
 
 $extras->ACLblacklist();
-
+$log->debug("cmd = /");
 if (isset($_GET['data'])) {
     $log->debug($_GET['data']);
     $cmd = explode('/', $_GET['data']);
     $smarty->assign('Cmd:', $cmd);
     switch ($cmd[0]) {
         case "admin": { // cmd = /admin/
-            $log->debug("cmd = /admin/");
+            $log->debug("cmd = /{$cmd[0]}/");
             $extras->checkACL('ADMIN_DASHBOARD');
             $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/'>Admin</a>");
             switch ($cmd[1]) {
                 case "computer": // cmd = /admin/computer/
-                    $log->debug("cmd = /admin/computer/");
+                    $log->debug("cmd = /{$cmd[0]}/{$cmd[1]}/");
                     $computerId = $cmd[2]; // cmd = /admin/computer/{$compID}/
                     include_once 'admin/computer.php';
                     break;
