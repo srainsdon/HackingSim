@@ -81,7 +81,8 @@ class sqlManager
 
     function getComputerByIP($ip)
     {
-        return $this->pdo->query("select * from computer where computer.ComputerIP = '$ip'")->fetch();
+        $results = $this->pdo->query("select * from computer where computer.ComputerIP = '$ip'")->fetch();
+        $results['ComputerServices'] = json_decode($results);
     }
 
     function getNetworkList()
