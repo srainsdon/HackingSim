@@ -45,6 +45,12 @@ if ($auth->isLogged()) {
         $firewall->setinbound(21, '25.65.151.0/24');
         $services[] = $firewall->getArray();
 
+        $service = new service();
+        $service->setName('apache2');
+        $service->setPort(80);
+        $service->setVersion('2.3.3');
+        $services[] = $service->getArray();
+
         $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
         $smarty->display('home.tpl');
     }
