@@ -15,6 +15,7 @@ if ($auth->isLogged()) {
         $comand = explode(' ', $_POST['cmd']);
         switch ($comand[0]) {
             case 'connect':
+                $commands->addToHistory('Connected to ' . $comand[1]);
                 $_SESSION['ConnectedTo'] = $comand[1];
                 $comp = $sql->getComputerByIP($comand[1]);
                 $ip = new ipv4($comp['CIDR']);
