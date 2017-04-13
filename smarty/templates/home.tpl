@@ -19,16 +19,20 @@
             </div>
         </div>
         <div class="panel panel-default col-sm-8">
-            <div class="panel-heading"><h3>Command Console:</h3></div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <textarea class="form-control" rows="20">Disconnected...</textarea>
+            {block name=MainPanel}
+                <div class="panel-heading"><h3>Command Console:</h3></div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="20">Disconnected...</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cmd">Command:</label>
+                        <input type="text" class="form-control" id="cmd">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="cmd">Command:</label>
-                    <input type="text" class="form-control" id="cmd">
-                </div>
-            </div>
+            {/block}
         </div>
+    {else}
+        <h1>Please Log In.</h1>
     {/if}
 {/block}
