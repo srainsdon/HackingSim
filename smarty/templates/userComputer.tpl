@@ -43,13 +43,12 @@
                 <div class="panel-body">
                     {foreach $Computer.ComputerServices as $service}
                         <div class="panel panel-default col-sm-6">
-                            <div class="panel-heading">{$service.name}</div>
                             <div class="panel-body">
-                                <div class="form-group">
-                                    <label class="control-label input-sm"
-                                           for="Service-{$service.name}">Service:</label>
-                                    <input id="Service-{$service.name}" type="text" class="form-control-static"value="{$service.name}">
-                                </div>
+                                Service Name: {$service.name}<br />
+                                Service Version: {$service.version}<br />
+                                {foreach $service.ports as $port}
+                                    Port {$port.port}: is {$port.status}<br />
+                                {/foreach}
                             </div>
                         </div>
                     {/foreach}
