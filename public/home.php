@@ -25,6 +25,7 @@ switch ($comand[0]) {
     case 'dc':
         $commands->addToHistory("Disconnected from ".$_SESSION['ConnectedTo']);
         $_SESSION['ConnectedTo'] = null;
+        break;
     default:
         $commands->addToHistory($comand[0] . " is an unknown command try help.");
 }
