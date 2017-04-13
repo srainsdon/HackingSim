@@ -47,6 +47,7 @@ class ipv4
             for ($i = $min; $i < $max; $i++)
                 $addresses[] = long2ip($i);
         }
+        array_shift($addresses);
         return $addresses;
     }
 }
