@@ -64,7 +64,7 @@ class cidr
 
 $cidr = new cidr();
 echo "cidr2netmask: 24 " . $cidr->cidr2netmask(24) . "<br />\n";
-echo "cidr2network: 129.168.245.13\24 " . $cidr->cidr2netmask('129.168.245.13',24) . "<br />\n";
+echo "cidr2network: 192.168.0.1\24 " . $cidr->cidr2network('192.168.0.1',24) . "<br />\n";
 echo "netmask2cidr: 255.255.255.0 " . $cidr->netmask2cidr('255.255.255.0') . "<br />\n";
 echo "cidr_match: 10.0.0.1 " . $cidr->cidr_match('10.0.0.1','10.0.0.0','20') . "<br />\n";
 
