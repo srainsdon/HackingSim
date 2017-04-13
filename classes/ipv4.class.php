@@ -4,20 +4,30 @@
 // IPv4 class
 class ipv4
 {
-    var $address;
-    var $cidr;
-    private $classCidr;
-    private $max;
+    private $address;
+    private $cidr;
+    private $calculator;
+    private $subNetID;
+    private $broadcastIP;
     //--------------
     // Create new class
     function __construct($address, $cidr = null)
     {
-        $this->classCidr = new cidr();
+        $this->calculator = new calculator();
         if ($cidr == null) {
             @list($address, $cidr) = explode('/', $address);
         }
         $this->address = $address;
         $this->cidr = $cidr;
+
+        $this->subNetID = $this->calculator->cidr2network($this->address,$this->cidr);
+        // echo "ADDRESS:".$this->address,"|CIDR:".$this->cidr,"|STARTIP:".$startIP."<br />\n";
+        if (($min = ip2long($this->subNetID)) !== false) {
+            $max = ($min | (1 << (32 - $this->cidr)) - 1);
+            $this->broadcastIP = long2ip($max+1);
+//            for ($i = $min; $i < $max; $i++)
+//                $addresses[] = long2ip($i);
+        }
     }
 
     /**
@@ -36,22 +46,24 @@ class ipv4
         return $this->cidr;
     }
 
-    function getAllAddress()
+    /**
+     * @return string
+     */
+    public function getBroadcastIP()
     {
-        $addresses = array();
+        return $this->broadcastIP;
+    }
 
-        // @list($ip, $len) = explode('/', $range);
+    /**
+     * @return string
+     */
+    public function getSubNetID()
+    {
+        return $this->subNetID;
+    }
 
-    $startIP = $this->classCidr->cidr2network($this->address,$this->cidr);
-    // echo "ADDRESS:".$this->address,"|CIDR:".$this->cidr,"|STARTIP:".$startIP."<br />\n";
-        if (($min = ip2long($startIP)) !== false) {
-            $max = ($min | (1 << (32 - $this->cidr)) - 1);
-            $this->max = long2ip($max);
-            for ($i = $min; $i < $max; $i++)
-                $addresses[] = long2ip($i);
-        }
-        array_shift($addresses);
-        // return $addresses;
-        return $this->max;
+    function __debugInfo()
+    {
+        // TODO: Implement __debugInfo() method.
     }
 }

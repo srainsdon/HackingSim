@@ -8,11 +8,11 @@
 
 include_once '../config.php';
 
-$cidr = new cidr();
+$cidr = new calculator();
 $computer = $sql->getComputerByIP('28.237.245.45');
-echo "<pre>".print_r($computer,true)."</pre>";
+echo "<pre>" . print_r($computer, true) . "</pre>";
 $ip = new ipv4($computer['CIDR']);
-echo "Max: ". $ip->getAllAddress();
+echo "<pre>" . var_export($ip) . "</pre>";
 
 /*
 $netList = $sql->listNets();

@@ -6,7 +6,7 @@
  * Date: 4/12/2017
  * Time: 7:24 PM
  */
-class cidr
+class calculator
 {
     // convert cidr to netmask
     // e.g. 21 = 255.255.248.0
