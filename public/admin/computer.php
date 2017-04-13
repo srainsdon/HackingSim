@@ -6,7 +6,7 @@
  * Time: 5:52 AM
  */
 $log->error("Starting Computer.php");
-$extras->checkACL('ADMIN_COMPUTER');
+//$extras->checkACL('ADMIN_COMPUTER');
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == 'Edit') {
         if (!$sql->updateComputer($_POST)) {
