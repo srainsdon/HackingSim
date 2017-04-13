@@ -1,7 +1,7 @@
 {extends file="home.tpl"}
 {block name=MainPanel}
     <div class="form-group">
-        <form class="form-horizontal" method="POST">
+        <form method="POST">
             <div class="form-group">
                 <label class="control-label input-sm col-sm-2" for="ComputerHostName">Host Name:</label><input
                         id="ComputerHostName" type="text"

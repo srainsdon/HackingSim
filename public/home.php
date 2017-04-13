@@ -21,6 +21,6 @@ if ($auth->isLogged()) {
         $smarty->display('home.tpl');
     }
 } else {
-
+    $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Log In</span>");
     $smarty->display('home.tpl');
 }
