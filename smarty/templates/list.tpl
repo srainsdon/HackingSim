@@ -110,6 +110,10 @@
         }
         $(document).ready(function () {
             var table = $('#computers').DataTable({
+                columnDefs: [ {
+                    targets: [ 0 ],
+                    orderData: [ 2, 1 ]
+                } ],
                 "pageLength": 50,
 
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
@@ -120,11 +124,7 @@
                         "data": null,
                         "defaultContent": ''
                     },
-                    {
-                        "data": "ComputerName" ,
-                        "target": 1,
-                        "orderData": [2, 1]
-                    },
+                    { "data": "ComputerName" },
                     { "data": "NetworkName" },
                     { "data": "ComputerIP" }
                 ]
