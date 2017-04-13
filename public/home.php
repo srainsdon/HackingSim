@@ -21,10 +21,6 @@ if ($auth->isLogged()) {
         $smarty->display('userComputer.tpl');
     } else {
         $services = array();
-        $service = new service();
-        $service->setName('ping');
-        $service->setVersion('1');
-        $services[] = $service->getArray();
 
         $service = new service();
         $service->setName('ssh');
