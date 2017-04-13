@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <label class="control-label input-sm"
                                            for="Service-{$service.name}">Service:</label>
-                                    <p class="form-control-static">{$service.name}</p>
+                                    <input id="Service-{$service.name}" type="text" class="form-control-static"value="{$service.name}">
                                 </div>
                             </div>
                         </div>
