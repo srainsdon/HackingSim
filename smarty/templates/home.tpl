@@ -4,11 +4,11 @@
         <div class="panel panel-default col-sm-4">
             <div class="panel-heading"><h3>My Computers: <span class="badge">{count($computers)}</span></h3></div>
             <div class="panel-body">
-                {foreach $MyNetworks as $name => $Network}
+                {foreach $MyNetworks as $Network}
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>{$name}</h4></div>
+                        <div class="panel-heading"><h4>{$Network.Name} - {$Network.SubNetID}</h4></div>
                         <div class="panel-body">
-                            {foreach $Network as $computer}
+                            {foreach $Network.Computer as $computer}
                                 <a href="/computer/{$computer.ComputerIP}/">
                                     <table class="table table-striped table-bordered">
                                         <tr>

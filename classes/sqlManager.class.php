@@ -37,7 +37,9 @@ class sqlManager
         $tmpData = array();
         $sql = "select c.*, INET_NTOA(n.NetworkSubNetID) as NetWorkSubNetID from Networks as n join computer as c on n.NetworkID = c.NetworkID where n.owner = $uid";
         foreach ($this->pdo->query($sql)->fetchAll() as $computer) {
-            $tmpData[$computer['NetworkName']][] = $computer;
+            $tmpData[$computer['NetworkID']]['Name'] = $computer['NetworkName'];
+            $tmpData[$computer['NetworkID']]['SubNetID'] = $computer['NetWorkSubNetID'];
+            $tmpData[$computer['NetworkID']]['Computer'] = $computer;
         }
         return $tmpData;
     }
