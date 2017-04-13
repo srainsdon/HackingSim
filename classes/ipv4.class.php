@@ -6,11 +6,12 @@ class ipv4
 {
     var $address;
     var $cidr;
-
+    private $classCidr;
     //--------------
     // Create new class
     function __construct($address, $cidr = null)
     {
+        $this->classCidr = new cidr();
         if (! $cidr) {
             @list($address, $cidr) = explode('/', $address);
         }
@@ -39,10 +40,9 @@ class ipv4
         $addresses = array();
 
         // @list($ip, $len) = explode('/', $range);
-    $cidr = new cidr();
-    $ip = $cidr->cidr2network($this->address,$this->cidr);
-    echo "IP: $ip<br />";
-        if (($min = ip2long($ip)) !== false) {
+
+    $startIP = $this->classCidr->cidr2network($this->address,$this->cidr);
+        if (($min = ip2long($startIP)) !== false) {
             $max = ($min | (1 << (32 - $this->cidr)) - 1);
             for ($i = $min; $i < $max; $i++)
                 $addresses[] = long2ip($i);
