@@ -19,7 +19,7 @@ echo "netmask2cidr: $netMask " . $cidr->netmask2cidr($netMask) . "<br />\n";
 echo "cidr_match: 28.237.245.45/24 " . $cidr->cidr_match('28.237.245.45', '28.237.245.0', '24') . "<br />\n";
 
 $netList = $sql->getNetworkList();
-echo "NetList:" . nl2br(print_r($netList)) . "<br />";
+echo "NetList:" . nl2br(print_r($netList , 1)) . "<br />";
 $all = $ip->getAllAddress();
 reset($all);
 echo "First: " . current($all) . " Last: " . end($all);
