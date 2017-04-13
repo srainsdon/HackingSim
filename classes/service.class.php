@@ -14,7 +14,7 @@ class service
 
     function __construct($json = null)
     {
-        $data = json_decode($json);
+        $data = json_decode($json,true);
         if (is_array($data)) {
             $this->name = $data['name'];
             $this->version = $data['version'];
