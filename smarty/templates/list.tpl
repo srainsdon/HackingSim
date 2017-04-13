@@ -81,7 +81,12 @@
     <script>
         $(document).ready(function() {
             $('#computers').DataTable( {
-                "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/"
+                "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
+                "columns": [
+                    { "data": "ComputerName" },
+                    { "data": "NetworkName" },
+                    { "data": "ComputerIP" }
+                ]
             } );
         } );
     </script>
