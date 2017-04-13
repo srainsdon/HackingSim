@@ -55,7 +55,7 @@ class sqlManager
 
     function getAllComputers()
     {
-        $sql = "SELECT Computers.ComputerID, concat(Computers.ComputerHostName, '.', Computers.ComputerDomain) AS ComputerName, Computers.ComputerHostName, Computers.ComputerDomain, INET_NTOA(Computers.ComputerIP) AS ComputerIP, Networks.NetworkName FROM Computers , Networks WHERE Computers.ComputerNetwork = Networks.NetworkID";;
+        $sql = "SELECT * from computer";;
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
