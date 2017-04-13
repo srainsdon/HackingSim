@@ -9,7 +9,7 @@
         <param name="insertPattern" value="%date{Y-m-d H:i:s},%logger,%level,%message,%pid,%file,%line" />
     </appender>
     <root>
-        <level value="info" />
+        <level value="all" />
         <appender_ref ref="default"/>
     </root>
 </configuration>
