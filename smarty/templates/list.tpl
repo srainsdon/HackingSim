@@ -81,7 +81,7 @@
     <script>
         $(document).ready(function() {
             var table = $('#computers').DataTable( {
-                "ajax": "/api/v1/json/computers/",
+                "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
                     {
                         "className":      'details-control',
