@@ -48,12 +48,7 @@
                                 <div class="form-group">
                                     <label class="control-label input-sm"
                                            for="Service-{$service.name}">Service:</label>
-                                    <select
-                                            name="ComputerNetwork"
-                                            id="ComputerNetwork"
-                                            class="input-sm form-control">
-                                        {html_options options=$Services selected=$service.name}
-                                    </select>
+                                    <p class="form-control-static">{$service.name}</p>
                                 </div>
                             </div>
                         </div>
