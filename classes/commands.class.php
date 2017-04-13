@@ -31,6 +31,8 @@ class commands
                     } else {
                         $_SESSION['CommandHistory'] .= "Humm...\n";
                     }
+                } else {
+                    $this->pong();
                 }
             }
         }
