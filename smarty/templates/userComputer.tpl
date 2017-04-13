@@ -48,8 +48,12 @@
                                 <div class="form-group">
                                     <label class="control-label input-sm"
                                            for="Service-{$service.name}">Service:</label>
-                                    <input class="control-input input-sm" type="text" name="Service-{$service.name}" id="Service-{$service.name}"
-                                           value="{$service.name}">
+                                    <select
+                                            name="ComputerNetwork"
+                                            id="ComputerNetwork"
+                                            class="input-sm form-control">
+                                        {html_options options=$Services selected=$service.name}
+                                    </select>
                                 </div>
                             </div>
                         </div>
