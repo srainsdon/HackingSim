@@ -18,19 +18,8 @@ echo "cidr2network: 28.237.245.45\24 " . $cidr->cidr2network('28.237.245.45',24)
 echo "netmask2cidr: $netMask " . $cidr->netmask2cidr($netMask) . "<br />\n";
 echo "cidr_match: 28.237.245.45/24 " . $cidr->cidr_match('28.237.245.45','28.237.245.0','24') . "<br />\n";
 
-$range = "28.237.245.45/24";
-$addresses = array();
-
-@list($ip, $len) = explode('/', $range);
-
-if (($min = ip2long($ip)) !== false) {
-    $max = ($min | (1<<(32-$len))-1);
-    for ($i = $min; $i < $max; $i++)
-        $addresses[] = long2ip($i);
-}
-
-nl2br(var_dump($addresses));
-
+$all = $ip->getAllAddress();
+echo "First: " . $all[0] . " Last: " .end($all);
 /*
 $settings = new appSettings();
 $settings->setData('name', 'ssh');
