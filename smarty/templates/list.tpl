@@ -122,7 +122,7 @@
                     },
                     {
                         "data": "ComputerName" ,
-                        "target": 0,
+                        "target": 1,
                         "orderData": [2, 1]
                     },
                     { "data": "NetworkName" },
