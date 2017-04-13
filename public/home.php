@@ -22,6 +22,11 @@ if ($auth->isLogged()) {
     } else {
         $services = array();
         $service = new service();
+        $service->setName('ping');
+        $service->setVersion('1');
+        $services[] = $service->getArray();
+        $services = array();
+        $service = new service();
         $service->setName('ssh');
         $service->setPort(22);
         $service->setVersion('1.2.3');
