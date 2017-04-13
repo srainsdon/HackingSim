@@ -39,11 +39,11 @@
         </div>
         <div class="panel panel-default col-sm-8">
             {block name=MainPanel}
-                {if isset($DisplayData.ConnectedTo)}
-                    <div>Connected to: {$DisplayData.ConnectedTo}</div>
-                {/if}
                 <div class="panel-heading"><h3>Command Console:</h3></div>
                 <div class="panel-body">
+                    {if isset($DisplayData.ConnectedTo)}
+                        <div class="alert alert-success">Connected to: {$DisplayData.ConnectedTo}</div>
+                    {/if}
                     <div class="form-group">
                         <textarea class="form-control" rows="20">{$CommandHistory}</textarea>
                     </div>
