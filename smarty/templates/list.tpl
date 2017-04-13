@@ -92,7 +92,7 @@
     <script>
         function format(d) {
             // `d` is the original data object for the row
-            return '<table class="table table-striped table-hover table-bordered">' +
+            return '<table class="table table-condensed">' +
                 '<tr>' +
                 '<td>Computer Name:</td>' +
                 '<td>' + d.ComputerName + ' - ' + d.NetworkName + '</td>' +
