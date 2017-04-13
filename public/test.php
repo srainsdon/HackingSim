@@ -21,10 +21,10 @@ echo "cidr_match: 28.237.245.45/24 " . $cidr->cidr_match('28.237.245.45', '28.23
 $netList = $sql->listNets();
 foreach ($netList as $row) {
     $netIP = new ipv4($row['NetworkStart'] . '/' . $row['Subnet']);
-    echo $netIP->getAddress() . ":<br />";
+    echo $netIP->getAddress() . ":";
     $netAll = $netIP->getAllAddress();
     reset($netAll);
-    echo "First: " . current($netAll) . " Last: " . end($netAll);
+    echo count($netAll) . "<br />First: " . current($netAll) . " Last: " . end($netAll);
     echo "<br />";
 }
 
