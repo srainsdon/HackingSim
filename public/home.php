@@ -16,7 +16,6 @@ if ($auth->isLogged()) {
             $tempData[$row['NetworkID']] = $row['NetName'];
         }
         $smarty->assign("Networks", $tempData);
-        $smarty->debugging = true;
         $commands->ping('28.237.245.45', $computerip);
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
