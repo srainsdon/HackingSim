@@ -16,7 +16,9 @@ if ($auth->isLogged()) {
 switch ($comand[0]) {
     case 'connect':
         $_SESSION['ConnectedTo'] = $comand[1];
-        $_SESSION['DisplayData']['ConnectedTo'] = &$_SESSION['ConnectedTo'];
+        $comp = $sql->getComputerByIP($comand[1]);
+        $ip = new ipv4($comp['CIDR']);
+        $_SESSION['DisplayData']['ConnectedTo'] = $_SESSION['ConnectedTo'] . " - " . $comp['ComputerName'];
         break;
     case 'ping':
         $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
