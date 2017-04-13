@@ -20,7 +20,7 @@ class commands
         $_SESSION['CommandHistory'] .= "PING: $destinationIP from $originatingIP\n";
         $dest = $this->sql->getComputerByIP($destinationIP);
         $orig = $this->sql->getComputerByIP($originatingIP);
-        $_SESSION['CommandHistory'] .= print_r($dest);
+        $_SESSION['CommandHistory'] .= print_r($dest,true);
     }
 
     function pong()
