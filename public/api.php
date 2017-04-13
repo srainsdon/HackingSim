@@ -31,7 +31,7 @@ switch ($cmd[1]) {
                         echo json_encode($list);
                 break;
                     case "computers": // cmd = /api/v1/json/computers/
-                        $tmpList = $sql->getAllComputers();
+                        $tmpList = array('computer' => $sql->getAllComputers());
                         echo json_encode($tmpList);
                         break;
                 }
