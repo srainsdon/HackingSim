@@ -19,7 +19,7 @@ $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), 
 $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
-$cmd = new commands($sql);
+$commands = new commands($sql);
 if(! isset($_SESSION['CommandHistory'])) {
     $_SESSION['CommandHistory'] = '';
 }
