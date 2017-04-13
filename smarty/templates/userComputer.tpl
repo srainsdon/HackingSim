@@ -38,7 +38,7 @@
                     {/if}
                 </select>
             </div>
-            {foreach $Service.ComputerServices as $service}
+            {foreach $Computer.ComputerServices as $service}
             <div class="form-group">
                 <label class="control-label input-sm col-sm-2" for="Service-{$service.name}"
             </div>
