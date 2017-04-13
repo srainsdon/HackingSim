@@ -50,7 +50,7 @@ class userManager extends PHPAuth\Auth
      */
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
-        $this->log->debug($email, $password, $remember = 0, $captcha = NULL);
+        $this->log->debug($email . $password . $remember . $captcha);
         $this->userEmail = $email;
         $data = parent::login($email, $password, $remember, $captcha);
         $this->userID = $this->getUID($email);
@@ -64,7 +64,7 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
-        $this->log->debug($this->userID . $level);
+        $this->log->debug("userID: ".$this->userID . " Level:" . $level);
         $this->isAuthed = userManager::GUEST;
 
         if ((empty($this->userEmail)) || (empty($this->userID))) {
