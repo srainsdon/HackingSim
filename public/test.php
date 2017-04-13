@@ -14,6 +14,7 @@ class cidr
     // e.g. 21 = 255.255.248.0
     public function cidr2netmask($cidr)
     {
+        $bin = null;
         for( $i = 1; $i <= 32; $i++ )
             $bin .= $cidr >= $i ? '1' : '0';
 
