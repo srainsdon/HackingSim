@@ -39,8 +39,10 @@ class ipv4
         $addresses = array();
 
         // @list($ip, $len) = explode('/', $range);
-
-        if (($min = ip2long($this->address)) !== false) {
+    $cidr = new cidr();
+    $ip = $cidr->cidr2network($this->address,$this->cidr);
+    echo "IP: $ip<br />";
+        if (($min = ip2long($ip)) !== false) {
             $max = ($min | (1 << (32 - $this->cidr)) - 1);
             for ($i = $min; $i < $max; $i++)
                 $addresses[] = long2ip($i);
