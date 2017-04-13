@@ -39,6 +39,9 @@
         </div>
         <div class="panel panel-default col-sm-8">
             {block name=MainPanel}
+                {if isset($DisplayData.connectedTo)}
+                    <div>Connected to: {$DisplayData.connectedTo}</div>
+                {/if}
                 <div class="panel-heading"><h3>Command Console:</h3></div>
                 <div class="panel-body">
                     <div class="form-group">

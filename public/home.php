@@ -13,7 +13,11 @@ if ($auth->isLogged()) {
     if (isset($_POST['cmd'])) {
         $_SESSION['CommandHistory'] .= $_POST['cmd'] . "\n";
         $comand = explode(' ', $_POST['cmd']);
-
+switch ($comand[0]) {
+    case 'connect':
+        $_SESSION['DisplayData']['ConnectedTo'] = $comand[1];
+        break;
+}
     }
     if (isset($computerip)) {
         $tempData = array();

@@ -23,6 +23,10 @@ $commands = new commands($sql);
 if(! isset($_SESSION['CommandHistory'])) {
     $_SESSION['CommandHistory'] = '';
 }
+if(! isset($_SESSION['DisplayData'])) {
+    $_SESSION['DisplayData'] = array();
+}
+$smarty->assignByRef('DisplayData', $_SESSION['DisplayData']);
 $extras = new sns_Extras($smarty, $sql, $auth);
 $loggedIN = $auth->isLogged();
 $smarty->assign('LoggedIn', $loggedIN);
