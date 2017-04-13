@@ -1,22 +1,22 @@
 {extends file="main.tpl"}
 {block name=body}
-{if $LoggedIn}
-    {foreach $computers as $computer}
+    {if $LoggedIn}
         <div class="panel panel-default col-sm-4">
             <div class="panel-heading">My Computers</div>
             <div class="panel-body">
-                <table class="table table-striped table-hover table-bordered">
-                    <tr>
-                        <td>Computer Name:</td>
-                        <td>{$computer.ComputerName}</td>
-                    </tr><tr>
-                        <td>Computer IP:</td>
-                        <td>{$computer.ComputerIP}</td>
-                    </tr>
-                </table>
+                {foreach $computers as $computer}
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <td>Computer Name:</td>
+                            <td>{$computer.ComputerName}</td>
+                        </tr>
+                        <tr>
+                            <td>Computer IP:</td>
+                            <td>{$computer.ComputerIP}</td>
+                        </tr>
+                    </table>
+                {/foreach}
             </div>
         </div>
-
-    {/foreach}
-{/if}
+    {/if}
 {/block}
