@@ -62,8 +62,4 @@ class ipv4
         return $this->subNetID;
     }
 
-    function __debugInfo()
-    {
-        // TODO: Implement __debugInfo() method.
-    }
 }
