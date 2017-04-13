@@ -12,7 +12,7 @@ $cidr = new calculator();
 $computer = $sql->getComputerByIP('28.237.245.45');
 echo "<pre>" . print_r($computer, true) . "</pre>";
 $ip = new ipv4($computer['CIDR']);
-echo "<pre>" . var_export($ip) . "</pre>";
+echo "<pre>" . var_export($ip,true) . "</pre>";
 
 /*
 $netList = $sql->listNets();
