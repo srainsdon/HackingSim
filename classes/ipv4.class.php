@@ -12,7 +12,7 @@ class ipv4
     function __construct($address, $cidr = null)
     {
         $this->classCidr = new cidr();
-        if (! $cidr) {
+        if ($cidr == null) {
             @list($address, $cidr) = explode('/', $address);
         }
         $this->address = $address;
