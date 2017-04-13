@@ -4,30 +4,33 @@
         <div class="panel panel-default col-sm-4">
             <div class="panel-heading"><h3>My Computers: <span class="badge">{count($computers)}</span></h3></div>
             <div class="panel-body">
-                {foreach $MyNetworks as $Network}
+                {foreach $MyNetworks as $id => $Network}
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>{$Network.Name}</h4></div>
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>NetID:</td>
-                                    <td >{$Network.SubNetID}</td>
-                                </tr>
-                            </table>
-                            {foreach $Network.Computer as $computer}
-                                <a href="/computer/{$computer.ComputerIP}/">
-                                    <table class="table table-striped table-bordered">
-                                        <tr>
-                                            <td>Name:</td>
-                                            <td>{$computer.ComputerName}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>IP:</td>
-                                            <td>{$computer.ComputerIP}</td>
-                                        </tr>
-                                    </table>
-                                </a>
-                            {/foreach}
+                        <div class="panel-heading"><a data-toggle="collapse" href="#collapse{$id}">
+                                <h4>{$Network.Name}</h4></a></div>
+                        <div id="collapse{$id}" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>NetID:</td>
+                                        <td>{$Network.SubNetID}</td>
+                                    </tr>
+                                </table>
+                                {foreach $Network.Computer as $computer}
+                                    <a href="/computer/{$computer.ComputerIP}/">
+                                        <table class="table table-striped table-bordered">
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td>{$computer.ComputerName}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>IP:</td>
+                                                <td>{$computer.ComputerIP}</td>
+                                            </tr>
+                                        </table>
+                                    </a>
+                                {/foreach}
+                            </div>
                         </div>
                     </div>
                 {/foreach}
