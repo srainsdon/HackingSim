@@ -9,13 +9,14 @@
 if ($auth->isLogged()) {
     $comps = $sql->getUsersComputers('1');
     $smarty->assign('computers', $comps);
+    $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
     if (isset($computerip)) {
         $tempData = array();
         foreach ($sql->getNetworkList() as $row) {
             $tempData[$row['NetworkID']] = $row['NetName'];
         }
         $smarty->assign("Networks", $tempData);
-        $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
+
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
