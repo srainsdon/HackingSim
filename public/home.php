@@ -17,8 +17,6 @@ if ($auth->isLogged()) {
         }
         $smarty->assign("Networks", $tempData);
         $smarty->debugging = true;
-        $cmd = new commands();
-        $cmd->ping('28.237.245.45', $computerip);
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
