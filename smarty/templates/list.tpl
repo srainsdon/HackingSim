@@ -53,6 +53,7 @@
     <table id='computers' class="table table-striped table-hover table-bordered">
         <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Network</th>
             <th>IP</th>
