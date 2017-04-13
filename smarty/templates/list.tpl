@@ -97,8 +97,14 @@
                 '<td>Computer Name:</td>' +
                 '<td>' + d.ComputerName + '</td>' +
                 '</tr><tr>' +
-                '<td>IP With CIDR:</td>' +
-                '<td>' + d.CIDR + '</td>' +
+                '<td>IP:</td>' +
+                '<td>' + d.ComputerIP + '</td>' +
+                '</tr><tr>' +
+                '<td>SubNet ID:</td>' +
+                '<td>' + d.SubNetID + '</td>' +
+                '</tr><tr>' +
+                '<td>Broadcast IP:</td>' +
+                '<td>' + d.BrodCastIP + '</td>' +
                 '</tr>' +
                 '</table>';
         }
