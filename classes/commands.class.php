@@ -34,7 +34,6 @@ class commands
                 }
             }
         }
-        $_SESSION['CommandHistory'] .= print_r($dest,true);
     }
 
     function pong()
