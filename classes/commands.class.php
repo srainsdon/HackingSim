@@ -22,8 +22,9 @@ class commands
     }
     function ping($originatingIP, $destinationIP)
     {
-        $this->addToHistory("PING: $destinationIP from $originatingIP");
+
         $dest = $this->sql->getComputerByIP($destinationIP);
+        $this->addToHistory("PING: $destinationIP - " . $dest['ComputerName'] . " from $originatingIP");
         $orig = $this->sql->getComputerByIP($originatingIP);
         foreach ($dest['ComputerServices'] as $service) {
             if ($service['name'] == 'ping'){
