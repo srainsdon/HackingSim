@@ -80,6 +80,11 @@ if (isset($_GET['data'])) {
             include_once 'api.php';
             break;
         }
+        case "computer": { // cmd = /computer/
+            $computerip = $cmd[1];
+            include_once 'home.php';
+            break;
+        }
         default:
             $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Home</span><!-- Default of First Folder -->");
             include_once 'home.php';

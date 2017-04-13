@@ -7,8 +7,8 @@
  */
 
 if ($auth->isLogged()) {
-    if (isset($_GET['compIP'])) {
-        $smarty->assign('computer',$sql->getComputerByIP($_GET['compIP']));
+    if (isset($computerip)) {
+        $smarty->assign('computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
         $comps = $sql->getUsersComputers('1');

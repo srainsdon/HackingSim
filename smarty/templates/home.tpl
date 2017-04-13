@@ -5,16 +5,18 @@
             <div class="panel-heading"><h3>My Computers: <span class="badge">{count($computers)}</span></h3></div>
             <div class="panel-body">
                 {foreach $computers as $computer}
-                    <table class="table table-striped table-hover table-bordered">
-                        <tr>
-                            <td>Name:</td>
-                            <td>{$computer.ComputerName}</td>
-                        </tr>
-                        <tr>
-                            <td>IP:</td>
-                            <td>{$computer.ComputerIP}</td>
-                        </tr>
-                    </table>
+                    <a href="/computer/{$computer.ComputerIP}/">
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <td>Name:</td>
+                                <td>{$computer.ComputerName}</td>
+                            </tr>
+                            <tr>
+                                <td>IP:</td>
+                                <td>{$computer.ComputerIP}</td>
+                            </tr>
+                        </table>
+                    </a>
                 {/foreach}
             </div>
         </div>
