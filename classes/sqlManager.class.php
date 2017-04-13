@@ -88,7 +88,7 @@ class sqlManager
 
     function getServices() {
         $sql = "SELECT ServiceName FROM `HackingSim`.`Services`";
-        return $this->pdo->query($sql)->fetchAll();
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     function getNetworkList()
