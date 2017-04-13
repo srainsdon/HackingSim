@@ -145,4 +145,8 @@ class sqlManager
         $this->logger->debug("getPermissions sql query: $sql");
         return $this->pdo->query($sql)->fetchAll();
     }
+    function getUsersComputers($userid) {
+        $sql = "SELECT c.* FROM userComputers AS uc left join computer as c on uc.computerID = c.ComputerID WHERE uc.userID = $userid";
+        return $this->pdo->query($sql)->fetchAll();
+    }
 }

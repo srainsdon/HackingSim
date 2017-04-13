@@ -7,8 +7,10 @@
  */
 
 if($auth->isLogged()) {
+    $comps = $sql->getUsersComputers('1');
+    $message = var_export($comps,true);
     $ip = new ipv4("192.168.2.1", 24);
-    $message = "Address: {$ip->getAddress()}\n";
+    $message .= "Address: {$ip->getAddress()}\n";
     $message .= "Netbits: {$ip->getCidr()}\n";
     $message .= "BroadcastIP: {$ip->getBroadcastIP()}\n";
     $message .= "Network: {$ip->getSubNetID()}\n";
