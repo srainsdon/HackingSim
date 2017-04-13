@@ -12,6 +12,8 @@ if ($auth->isLogged()) {
     $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
     if (isset($_POST['cmd'])) {
         $_SESSION['CommandHistory'] .= $_POST['cmd'] . "\n";
+        $comand = explode(' ', $_POST['cmd']);
+
     }
     if (isset($computerip)) {
         $tempData = array();
@@ -56,7 +58,7 @@ if ($auth->isLogged()) {
 
         $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
 
-        $smarty->assign('CommandHistory', $_SESSION['CommandHistory']);
+        $smarty->assignByRef('CommandHistory', $_SESSION['CommandHistory']);
 
         $smarty->display('home.tpl');
     }
