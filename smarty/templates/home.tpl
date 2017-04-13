@@ -2,7 +2,7 @@
 {block name=body}
     {if $LoggedIn}
         <div class="panel panel-default col-sm-4">
-            <div class="panel-heading">My Computers</div>
+            <div class="panel-heading">My Computers<span class="badge">{count($computers)}</span></div>
             <div class="panel-body">
                 {foreach $computers as $computer}
                     <table class="table table-striped table-hover table-bordered">
