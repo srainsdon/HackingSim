@@ -96,13 +96,14 @@
                 '<tr>' +
                 '<td>Computer Name:</td>' +
                 '<td>' + d.ComputerName + '</td>' +
+                '</tr><tr>' +
                 '<td>IP With CIDR:</td>' +
                 '<td>' + d.CIDR + '</td>' +
                 '</tr>' +
                 '</table>';
         }
         $(document).ready(function () {
-            var table = $('#computers').DataTable({
+            var table = $('#computers').DataTable( {
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
                     {
@@ -111,9 +112,9 @@
                         "data": null,
                         "defaultContent": ''
                     },
-                    {"data": "ComputerName"},
-                    {"data": "NetworkName"},
-                    {"data": "ComputerIP"}
+                    { "data": "ComputerName" },
+                    { "data": "NetworkName" },
+                    { "data": "ComputerIP" }
                 ]
             });
             $('#computers tbody').on('click', 'td.details-control', function () {
