@@ -47,7 +47,7 @@
                                 Service Name: {$service.name}<br />
                                 Service Version: {$service.version}<br />
                                 {foreach $service.ports as $port}
-                                    Port {$port.port}: is {$port.status}<br />
+                                    Port {$port.port}: is {$port.status}{if isset($port.inbound)} to {$port.inbound}{/if}<br />
                                 {/foreach}
                             </div>
                         </div>
