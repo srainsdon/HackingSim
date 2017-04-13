@@ -31,8 +31,13 @@ switch ($cmd[1]) {
                         echo json_encode($list);
                 break;
                     case "computers": // cmd = /api/v1/json/computers/
-                        $tmpList = array('data' => $sql->getAllComputers());
-                        echo json_encode($tmpList);
+                        $tmpList = $sql->getAllComputers();
+                        foreach ($tmpList as $k => $row) {
+                            $ip = new ipv4($row['CIDR']);
+                            $tmpList[$k]['SubNetID'] = $ip->getSubNetID();
+                            $tmpList[$k]['BrodCastIP'] = $ip->getBroadcastIP();
+                        }
+                        echo json_encode(array('data' => $tmpList));
                         break;
                 }
             } // TODO[Seth Rainsdon] - Add needed code for xml output as well

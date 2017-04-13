@@ -5,6 +5,7 @@
             background: url('/images/details_open.png') no-repeat center center;
             cursor: pointer;
         }
+
         tr.shown td.details-control {
             background: url('/images/details_close.png') no-repeat center center;
         }
@@ -89,46 +90,48 @@
         });
     </script> -->
     <script>
-        function format ( d ) {
+        function format(d) {
             // `d` is the original data object for the row
-            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-                '<tr>'+
-                '<td>Full IP:</td>'+
-                '<td>'+d.CIDR+'</td>'+
-                '</tr>'+
+            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+                '<tr>' +
+                '<td>Computer Name:</td>' +
+                '<td>' + d.ComputerName + '</td>' +
+                '<td>IP With CIDR:</td>' +
+                '<td>' + d.CIDR + '</td>' +
+                '</tr>' +
                 '</table>';
         }
-        $(document).ready(function() {
-            var table = $('#computers').DataTable( {
+        $(document).ready(function () {
+            var table = $('#computers').DataTable({
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
                     {
-                        "className":      'details-control',
-                        "orderable":      false,
-                        "data":           null,
+                        "className": 'details-control',
+                        "orderable": false,
+                        "data": null,
                         "defaultContent": ''
                     },
-                    { "data": "ComputerName" },
-                    { "data": "NetworkName" },
-                    { "data": "ComputerIP" }
+                    {"data": "ComputerName"},
+                    {"data": "NetworkName"},
+                    {"data": "ComputerIP"}
                 ]
-            } );
+            });
             $('#computers tbody').on('click', 'td.details-control', function () {
                 var tr = $(this).closest('tr');
-                var row = table.row( tr );
+                var row = table.row(tr);
 
-                if ( row.child.isShown() ) {
+                if (row.child.isShown()) {
                     // This row is already open - close it
                     row.child.hide();
                     tr.removeClass('shown');
                 }
                 else {
                     // Open this row
-                    row.child( format(row.data()) ).show();
+                    row.child(format(row.data())).show();
                     tr.addClass('shown');
                 }
-            } );
-        } );
+            });
+        });
     </script>
     <!-- <script>
         $(document).ready(function() {
