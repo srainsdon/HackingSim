@@ -66,6 +66,9 @@ class sqlManager
         $computer = $stmt->fetch();
         return $computer;
     }
+    function getComputerByIP($ip) {
+        return $this->pdo->query("select * from computer where computer.ComputerIP = '$ip'")->fetch();
+    }
 
     function getNetworkList()
     {

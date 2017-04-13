@@ -9,7 +9,7 @@
 include_once '../config.php';
 
 $cidr = new cidr();
-$ip = new ipv4('28.237.245.45/26');
+echo "<pre>".print_r($sql->getComputerByIP('28.237.245.45'),true)."</pre>";
 $netList = $sql->listNets();
 foreach ($netList as $row) {
     // echo "<pre>" . print_r($row,true) . "</pre>";
