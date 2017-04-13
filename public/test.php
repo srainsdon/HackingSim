@@ -64,9 +64,22 @@ class cidr
 
 $cidr = new cidr();
 echo "cidr2netmask: 24 " . $cidr->cidr2netmask(24) . "<br />\n";
-echo "cidr2network: 24.59.232.0\24 " . $cidr->cidr2network('24.59.232.0',24) . "<br />\n";
+echo "cidr2network: 24.59.232.254\24 " . $cidr->cidr2network('24.59.232.254',24) . "<br />\n";
 echo "netmask2cidr: 255.255.255.0 " . $cidr->netmask2cidr('255.255.255.0') . "<br />\n";
 echo "cidr_match: 10.0.0.1 " . $cidr->cidr_match('10.0.0.1','10.0.0.0','20') . "<br />\n";
+
+$range = "8.8.8.0/24";
+$addresses = array();
+
+@list($ip, $len) = explode('/', $range);
+
+if (($min = ip2long($ip)) !== false) {
+    $max = ($min | (1<<(32-$len))-1);
+    for ($i = $min; $i < $max; $i++)
+        $addresses[] = long2ip($i);
+}
+
+var_dump($addresses);
 
 /*
 $settings = new appSettings();
