@@ -19,7 +19,7 @@ switch ($comand[0]) {
         $_SESSION['DisplayData']['ConnectedTo'] = &$_SESSION['ConnectedTo'];
         break;
     case 'ping':
-        $commands->ping($_SESSION['ConnectedTo']['ConnectedTo'], $comand[1]);
+        $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
         break;
     default:
         $_SESSION['CommandHistory'] .= $comand[0] . " is an un known command try help.\n";
