@@ -9,7 +9,7 @@
 class firewall extends service
 {
     function setinbound($port,$network) {
-        $this->ports['$port']['inbound'] = $network;
+        $this->ports[$port]['inbound'] = $network;
     }
 
 }
