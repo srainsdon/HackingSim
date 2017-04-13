@@ -10,7 +10,6 @@ if ($auth->isLogged()) {
     $comps = $sql->getUsersComputers('1');
     $smarty->assign('computers', $comps);
     $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
-    $smarty->debugging = true;
     if (isset($computerip)) {
         $tempData = array();
         foreach ($sql->getNetworkList() as $row) {
@@ -21,6 +20,12 @@ if ($auth->isLogged()) {
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
+        $service = new service();
+        $service->setName('ssh');
+        $service->setPort(22);
+        $service->setPort(2222, 'stealth');
+        $service->setVersion('1.2.3');
+        $smarty->assign('data', $service->getJson());
         $smarty->display('home.tpl');
     }
 } else {
