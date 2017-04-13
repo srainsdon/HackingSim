@@ -7,11 +7,11 @@
                 {foreach $computers as $computer}
                     <table class="table table-striped table-hover table-bordered">
                         <tr>
-                            <td>Computer Name:</td>
+                            <td>Name:</td>
                             <td>{$computer.ComputerName}</td>
                         </tr>
                         <tr>
-                            <td>Computer IP:</td>
+                            <td>IP:</td>
                             <td>{$computer.ComputerIP}</td>
                         </tr>
                     </table>
@@ -22,7 +22,7 @@
             <div class="panel-heading"><h3>Command Console:</h3></div>
             <div class="panel-body">
                 <div class="form-group">
-                    <textarea class="form-control" rows="20">...</textarea>
+                    <textarea class="form-control" rows="20">Disconnected...</textarea>
                 </div>
                 <div class="form-group">
                     <label for="cmd">Command:</label>
