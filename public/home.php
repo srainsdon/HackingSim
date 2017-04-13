@@ -10,6 +10,9 @@ if ($auth->isLogged()) {
     $comps = $sql->getUsersComputers('1');
     $smarty->assign('computers', $comps);
     $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
+    if (isset($_POST['cmd'])) {
+        $_SESSION['CommandHistory'] .= $_POST['cmd'] . "\n";
+    }
     if (isset($computerip)) {
         $tempData = array();
         foreach ($sql->getNetworkList() as $row) {

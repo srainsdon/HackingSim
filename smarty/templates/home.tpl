@@ -7,7 +7,8 @@
                 {foreach $MyNetworks as $id => $Network}
                     <div class="panel panel-default">
                         <div class="panel-heading"><a data-toggle="collapse" href="#collapse{$id}">
-                                <h4>{$Network.Name}: <span class="badge">{count($Network.Computer)}</span></h4></a></div>
+                                <h4>{$Network.Name}: <span class="badge">{count($Network.Computer)}</span></h4></a>
+                        </div>
                         <div id="collapse{$id}" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <table class="table">
@@ -43,10 +44,12 @@
                     <div class="form-group">
                         <textarea class="form-control" rows="20">{$CommandHistory}</textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="cmd">Command:</label>
-                        <input type="text" class="form-control" id="cmd">
-                    </div>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="cmd">Command:</label>
+                            <input type="text" class="form-control" id="cmd">
+                        </div>
+                    </form>
                 </div>
             {/block}
         </div>
