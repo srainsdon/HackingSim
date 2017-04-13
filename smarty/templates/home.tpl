@@ -2,16 +2,13 @@
 {block name=body}
 {if $LoggedIn}
     {foreach $computers as $computer}
-        <table>
+        <table class="table table-striped table-hover table-bordered">
             <tr>
                 <td>Computer Name:</td>
                 <td>{$computer.ComputerName}</td>
             </tr><tr>
                 <td>Computer IP:</td>
-                <td>{$computer.CIDR}</td>
-            </tr><tr>
-                <td>Network Name:</td>
-                <td>{$computer.NetworkName}</td>
+                <td>{$computer.ComputerIP}</td>
             </tr>
         </table>
     {/foreach}
