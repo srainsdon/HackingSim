@@ -6,8 +6,14 @@
             <div class="panel-body">
                 {foreach $MyNetworks as $Network}
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h4>{$Network.Name} - {$Network.SubNetID}</h4></div>
+                        <div class="panel-heading"><h4>{$Network.Name}</h4></div>
                         <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>NetID:</td>
+                                    <td >{$Network.SubNetID}</td>
+                                </tr>
+                            </table>
                             {foreach $Network.Computer as $computer}
                                 <a href="/computer/{$computer.ComputerIP}/">
                                     <table class="table table-striped table-bordered">
