@@ -82,6 +82,7 @@ if (isset($_GET['data'])) {
         }
         case "computer": { // cmd = /computer/
             $computerip = $cmd[1];
+            $smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">$computerip</span>");
             include_once 'home.php';
             break;
         }

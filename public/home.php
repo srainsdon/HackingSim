@@ -7,12 +7,12 @@
  */
 
 if ($auth->isLogged()) {
+    $comps = $sql->getUsersComputers('1');
+    $smarty->assign('computers', $comps);
     if (isset($computerip)) {
         $smarty->assign('computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
-        $comps = $sql->getUsersComputers('1');
-        $smarty->assign('computers', $comps);
         $smarty->display('home.tpl');
     }
 } else {
