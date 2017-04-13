@@ -32,6 +32,16 @@ class sqlManager
         return $this->pdo;
     }
 
+    function getUsersNetworks($uid)
+    {
+        $tmpData = array();
+        $sql = "select c.*, INET_NTOA(n.NetworkSubNetID) as NetWorkSubNetID from Networks as n join computer as c on n.NetworkID = c.NetworkID where n.owner = $uid";
+        foreach ($this->pdo->query($sql)->fetchAll() as $computer) {
+            $tmpData[$computer['NetworkName']][] = $computer;
+        }
+        return $tmpData;
+    }
+
     function addNetwork($net_start, $net_end, $name)
     {
         $sql = "INSERT INTO `HackingSim`.`Networks` (`NetworkStart`, `NetworkEnd`, `NetworkName`) VALUES (INET_NTOA('$net_start'), INET_NTOA('$net_end'), '$name');";
@@ -55,7 +65,7 @@ class sqlManager
 
     function getAllComputers()
     {
-        $sql = "SELECT * from computer";;
+        $sql = "SELECT * FROM computer";;
         $result = $this->pdo->query($sql)->fetchAll();
         return $result;
     }
@@ -66,7 +76,9 @@ class sqlManager
         $computer = $stmt->fetch();
         return $computer;
     }
-    function getComputerByIP($ip) {
+
+    function getComputerByIP($ip)
+    {
         return $this->pdo->query("select * from computer where computer.ComputerIP = '$ip'")->fetch();
     }
 
@@ -145,7 +157,9 @@ class sqlManager
         $this->logger->debug("getPermissions sql query: $sql");
         return $this->pdo->query($sql)->fetchAll();
     }
-    function getUsersComputers($userid) {
+
+    function getUsersComputers($userid)
+    {
         $sql = "SELECT c.* FROM userComputers AS uc left join computer as c on uc.computerID = c.ComputerID WHERE uc.userID = $userid";
         return $this->pdo->query($sql)->fetchAll();
     }

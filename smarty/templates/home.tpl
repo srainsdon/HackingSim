@@ -4,19 +4,26 @@
         <div class="panel panel-default col-sm-4">
             <div class="panel-heading"><h3>My Computers: <span class="badge">{count($computers)}</span></h3></div>
             <div class="panel-body">
-                {foreach $computers as $computer}
-                    <a href="/computer/{$computer.ComputerIP}/">
-                        <table class="table table-striped table-bordered">
-                            <tr>
-                                <td>Name:</td>
-                                <td>{$computer.ComputerName}</td>
-                            </tr>
-                            <tr>
-                                <td>IP:</td>
-                                <td>{$computer.ComputerIP}</td>
-                            </tr>
-                        </table>
-                    </a>
+                {foreach $MyNetworks as $name => $Network}
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h4>{$name}</h4></div>
+                        <div class="panel-body">
+                            {foreach $Network.computer}
+                                <a href="/computer/{$computer.ComputerIP}/">
+                                    <table class="table table-striped table-bordered">
+                                        <tr>
+                                            <td>Name:</td>
+                                            <td>{$computer.ComputerName}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>IP:</td>
+                                            <td>{$computer.ComputerIP}</td>
+                                        </tr>
+                                    </table>
+                                </a>
+                            {/foreach}
+                        </div>
+                    </div>
                 {/foreach}
             </div>
         </div>
