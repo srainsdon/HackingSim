@@ -8,7 +8,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><a data-toggle="collapse" href="#collapse{$id}">
                                 <h4>{$Network.Name}: <span class="badge">{count($Network.Computer)}</span></h4></a></div>
-                        <div id="collapse{$id}" class="panel-collapse collapse in">
+                        <div id="collapse{$id}" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
