@@ -21,7 +21,7 @@ class userManager extends PHPAuth\Auth
 
     public function __construct(\PDO $dbh, $config, $language = "en_GB")
     {
-        $log = new Logger(__CLASS__);
+        $this->log = new Logger(__CLASS__);
         parent::__construct($dbh, $config, $language);
     }
 
