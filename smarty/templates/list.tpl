@@ -80,6 +80,13 @@
     </script> -->
     <script>
         $(document).ready(function() {
+            $('#computers').DataTable( {
+                "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/"
+            } );
+        } );
+    </script>
+    <!-- <script>
+        $(document).ready(function() {
             var table = $('#computers').DataTable( {
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
@@ -113,5 +120,5 @@
                 }
             } );
         } );
-    </script>
+    </script> -->
 {/block}
