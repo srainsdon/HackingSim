@@ -8,7 +8,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4>{$name}</h4></div>
                         <div class="panel-body">
-                            {foreach $Network.computer}
+                            {foreach $Network.computer as $computer}
                                 <a href="/computer/{$computer.ComputerIP}/">
                                     <table class="table table-striped table-bordered">
                                         <tr>
