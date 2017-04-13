@@ -11,7 +11,7 @@ if ($auth->isLogged()) {
     $smarty->assign('computers', $comps);
     $smarty->assign("MyNetworks", $sql->getUsersNetworks(1));
     if (isset($_POST['cmd'])) {
-        $_SESSION['CommandHistory'] .= $_POST['cmd'] . "\n";
+        $commands->addToHistory("#>" . $_POST['cmd']);
         $comand = explode(' ', $_POST['cmd']);
         switch ($comand[0]) {
             case 'connect':
