@@ -64,7 +64,7 @@ class userManager extends PHPAuth\Auth
 
     public function isAuthorised($level = null)
     {
-        $this->log->debug("userID: ".$this->userID . " Level:" . $level);
+
         $this->isAuthed = userManager::GUEST;
 
         if ((empty($this->userEmail)) || (empty($this->userID))) {

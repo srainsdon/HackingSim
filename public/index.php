@@ -17,7 +17,7 @@ if (isset($_GET['data'])) {
     switch ($cmd[0]) {
         case "admin": { // cmd = /admin/
             $log->debug("cmd = /{$cmd[0]}/");
-            $extras->checkACL('ADMIN_DASHBOARD');
+            // $extras->checkACL('ADMIN_DASHBOARD');
             $smarty->append('bCrumbs', "<a class=\"breadcrumb-item\" href='/admin/'>Admin</a>");
             switch ($cmd[1]) {
                 case "computer": // cmd = /admin/computer/
