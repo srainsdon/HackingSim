@@ -13,24 +13,25 @@ if ($auth->isLogged()) {
     if (isset($_POST['cmd'])) {
         $_SESSION['CommandHistory'] .= $_POST['cmd'] . "\n";
         $comand = explode(' ', $_POST['cmd']);
-switch ($comand[0]) {
-    case 'connect':
-        $_SESSION['ConnectedTo'] = $comand[1];
-        $comp = $sql->getComputerByIP($comand[1]);
-        $ip = new ipv4($comp['CIDR']);
-        $_SESSION['DisplayData']['ConnectedTo'] = $_SESSION['ConnectedTo'] . " - " . $comp['ComputerName'];
-        break;
-    case 'ping':
-        $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
-        break;
-    case 'disconnect':
-    case 'dc':
-        $commands->addToHistory("Disconnected from ".$_SESSION['ConnectedTo']);
-        $_SESSION['ConnectedTo'] = null;
-        break;
-    default:
-        $commands->addToHistory($comand[0] . " is an unknown command try help.");
-}
+        switch ($comand[0]) {
+            case 'connect':
+                $_SESSION['ConnectedTo'] = $comand[1];
+                $comp = $sql->getComputerByIP($comand[1]);
+                $ip = new ipv4($comp['CIDR']);
+                $_SESSION['DisplayData']['ConnectedTo'] = $_SESSION['ConnectedTo'] . " - " . $comp['ComputerName'];
+                break;
+            case 'ping':
+                $commands->ping($_SESSION['ConnectedTo'], $comand[1]);
+                break;
+            case 'disconnect':
+            case 'dc':
+                $commands->addToHistory("Disconnected from " . $_SESSION['ConnectedTo']);
+                $_SESSION['ConnectedTo'] = null;
+                $_SESSION['DisplayData']['ConnectedTo'] = null;
+                break;
+            default:
+                $commands->addToHistory($comand[0] . " is an unknown command try help.");
+        }
     }
     if (isset($computerip)) {
         $tempData = array();
@@ -39,7 +40,7 @@ switch ($comand[0]) {
         }
         $smarty->assign("Networks", $tempData);
         $commands->ping('28.237.245.45', $computerip);
-        $smarty->assign('Computer',$sql->getComputerByIP($computerip));
+        $smarty->assign('Computer', $sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
         $services = array();
@@ -73,7 +74,7 @@ switch ($comand[0]) {
         $service->setVersion('2.3.3');
         $services[] = $service->getArray();
 
-        $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
+        $smarty->assign('data', "<pre>" . print_r($services, true) . "</pre>" . json_encode($services));
 
         $smarty->assignByRef('CommandHistory', $_SESSION['CommandHistory']);
 
