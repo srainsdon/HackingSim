@@ -17,6 +17,8 @@ if ($auth->isLogged()) {
         }
         $smarty->assign("Networks", $tempData);
         $smarty->debugging = true;
+        $cmd = new commands();
+        $cmd->ping('28.237.245.45', $computerip);
         $smarty->assign('Computer',$sql->getComputerByIP($computerip));
         $smarty->display('userComputer.tpl');
     } else {
@@ -52,6 +54,9 @@ if ($auth->isLogged()) {
         $services[] = $service->getArray();
 
         $smarty->assign('data', "<pre>" . print_r($services,true) . "</pre>" . json_encode($services));
+
+        $smarty->assign('CommandHistory', $_SESSION['CommandHistory']);
+
         $smarty->display('home.tpl');
     }
 } else {

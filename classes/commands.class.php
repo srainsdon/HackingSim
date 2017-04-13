@@ -9,6 +9,9 @@
 class commands
 {
     function ping($originatingIP, $destinationIP) {
-
+        $_SESSION['CommandHistory'] .= "PING: $destinationIP from $originatingIP\n";
+    }
+    function pong() {
+        $_SESSION['CommandHistory'] .= "PONG!\n";
     }
 }
