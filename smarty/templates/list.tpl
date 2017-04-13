@@ -95,7 +95,7 @@
             return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
                 '<td>Computer Name:</td>' +
-                '<td>' + d.ComputerName + '</td>' +
+                '<td>' + d.ComputerName + ' - ' + d.NetworkName + '</td>' +
                 '</tr><tr>' +
                 '<td>IP:</td>' +
                 '<td>' + d.ComputerIP + '</td>' +
@@ -109,8 +109,9 @@
                 '</table>';
         }
         $(document).ready(function () {
-            var table = $('#computers').DataTable( {
+            var table = $('#computers').DataTable({
                 "pageLength": 50,
+
                 "ajax": "https://gamesim.herokuapp.com/api/v1/json/computers/",
                 "columns": [
                     {
