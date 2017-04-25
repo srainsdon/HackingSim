@@ -11,7 +11,7 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
     if ($error > 0) {
         $smarty->assign('alert', $message);
     } else {
-        setcookie('authID', $hash, time() + 600, '/');
+        setcookie('authID', $hash, time() + 3600, '/');
         $smarty->assign('LoggedIn', True);
         $smarty->assign('message', $message);
     }

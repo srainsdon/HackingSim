@@ -50,7 +50,7 @@ class userManager extends PHPAuth\Auth
      */
     public function login($email, $password, $remember = 0, $captcha = NULL)
     {
-        $this->log->debug($email . $password . $remember . $captcha);
+        $this->log->debug($email . $password . $remember);
         $this->userEmail = $email;
         $data = parent::login($email, $password, $remember, $captcha);
         $this->userID = $this->getUID($email);
