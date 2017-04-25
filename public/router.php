@@ -1,4 +1,5 @@
 <?php
+require '../vendor/autoload.php';
 $router = new AltoRouter();
 $router->map('GET|POST','/', 'home#index', 'home');
 $router->map('GET','/users/', array('c' => 'UserController', 'a' => 'ListAction'));
