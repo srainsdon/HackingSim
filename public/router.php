@@ -11,9 +11,9 @@ $log->debug("Router.php - File");
 $router = new AltoRouter();
 
 $router->map( 'GET', '/', function() {
-    phpinfo();
+    echo "root";
 });
 
-$router->map( 'GET', '/[:action]/', function() {
-    phpinfo();
+$router->map( 'GET', '/[:action]/', function($action) {
+    echo $action;
 } );
