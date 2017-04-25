@@ -14,6 +14,4 @@ $router->map( 'GET', '/', function() {
     echo "root";
 });
 
-$router->map( 'GET', '/[:action]/', function($action) {
-    echo $action;
-} );
+$router->map( 'GET', '/[:action]/', "phpinfo" );
