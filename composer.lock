@@ -110,7 +110,7 @@
             "license": [
                 "MIT"
             ],
-            "description": "A secure auth authentication class for PHP websites, using a powerful password hashing system and attack blocking to keep your website and users secure.",
+            "description": "A secure user authentication class for PHP websites, using a powerful password hashing system and attack blocking to keep your website and users secure.",
             "homepage": "http://phpauth.github.io/PHPAuth/",
             "keywords": [
                 "Authentication",
@@ -201,12 +201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "c7d42e4a327c402897dd587871434888fde1e7a9"
+                "reference": "e3eda8a5f5653d8abb960eb1bc47e3eca679b1b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c7d42e4a327c402897dd587871434888fde1e7a9",
-                "reference": "c7d42e4a327c402897dd587871434888fde1e7a9",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e3eda8a5f5653d8abb960eb1bc47e3eca679b1b4",
+                "reference": "e3eda8a5f5653d8abb960eb1bc47e3eca679b1b4",
                 "shasum": ""
             },
             "require": {
@@ -246,7 +246,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-12-14T21:57:25+00:00"
+            "time": "2017-04-17 03:32:24"
         }
     ],
     "packages-dev": [
@@ -293,52 +293,6 @@
                 "php"
             ],
             "time": "2016-03-23T17:39:59+00:00"
-        },
-        {
-            "name": "pfbc/pfbc",
-            "version": "3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lkorth/php-form-builder-class.git",
-                "reference": "e1f9c25b71ee82c60a62a61de63a5926f9d8fc17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lkorth/php-form-builder-class/zipball/e1f9c25b71ee82c60a62a61de63a5926f9d8fc17",
-                "reference": "e1f9c25b71ee82c60a62a61de63a5926f9d8fc17",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "PFBC": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU GPL v3"
-            ],
-            "authors": [
-                {
-                    "email": "ajporterfield@gmail.com",
-                    "role": "Owner"
-                },
-                {
-                    "email": "moncojhr@gmail.com",
-                    "role": "Committer"
-                }
-            ],
-            "description": "Rapid form bulding in PHP",
-            "homepage": "http://code.google.com/p/php-form-builder-class/",
-            "keywords": [
-                "form",
-                "html",
-                "php"
-            ],
-            "time": "2014-03-14T04:14:24+00:00"
         }
     ],
     "aliases": [],
