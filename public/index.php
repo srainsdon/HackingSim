@@ -1,9 +1,7 @@
 <?php
 require '../config.php';
 $router = new AltoRouter();
-$router->map('GET|POST', '/', function () {
-    require_once "home.php";
-});
+$router->map('GET|POST', '/', 'home.php','Home');
 $router->map('GET', '/user/[:action]/', function ($action) {
     echo "Action: $action<br />\n";
 });
@@ -16,6 +14,8 @@ if ($match) {
 }
 if ($match && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
+} elseif ($match && is_file($match['target'])) {
+    require_once $match['target'];
 } else {
     echo "No Match!<br />\n";
 }
