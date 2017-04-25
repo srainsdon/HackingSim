@@ -13,7 +13,8 @@
     "php": "^7.0.0",
     "smarty/smarty": "3.1.x-dev",
     "apache/log4php": "^2.3",
-    "phpauth/phpauth": "1.1.1"
+    "phpauth/phpauth": "1.1.1",
+    "altorouter/altorouter": "v1.2.0"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "v99"

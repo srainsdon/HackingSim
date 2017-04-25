@@ -10,6 +10,10 @@ include_once '../config.php';
 
 $extras->ACLblacklist();
 $log->debug("cmd = /");
+
+$router = new AltoRouter();
+
+
 if (isset($_GET['data'])) {
     $log->debug($_GET['data']);
     $cmd = explode('/', $_GET['data']);

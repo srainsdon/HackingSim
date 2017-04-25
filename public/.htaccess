@@ -1,6 +1,4 @@
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^(css|js|images)($|/) - [L]
-RewriteRule ^((?!index\.php).+)$ /index.php?data=$1 [L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . router.php [L]
 </IfModule>
