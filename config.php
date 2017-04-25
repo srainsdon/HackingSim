@@ -15,6 +15,7 @@ require 'vendor/autoload.php';
 Logger::configure($base . '/../log4php.xml');
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
+
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
 $config = new PHPAuth\Config($sql->getPdo());
@@ -31,6 +32,7 @@ $extras = new sns_Extras($smarty, $sql, $auth);
 $loggedIN = $auth->isLogged();
 $smarty->assign('LoggedIn', $loggedIN);
 $location = $_SERVER['REQUEST_URI'];
+$log->debug($location);
 $smarty->assign('location', $location);
 $userIP = $extras->getIp();
 $smarty->assign('userIP', $userIP);
