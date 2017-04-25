@@ -2,7 +2,7 @@
 require '../vendor/autoload.php';
 $router = new AltoRouter();
 $router->map('GET|POST','/', 'home', 'home');
-$router->map( 'GET', '/[:action]/', function( $action ) {
+$router->map( 'GET', '/user/[:action]/', function( $action ) {
     echo "Action: $action<br />\n";
 });
 // match current request
@@ -15,7 +15,9 @@ if ($match) {
 
 <h3>Current request: </h3>
 <pre>
-	<?php var_dump($match); ?>
+<?php var_dump($match); ?>
 </pre>
 
-<?php }
+<?php } else {
+    echo "No Match!<br />\n";
+}
