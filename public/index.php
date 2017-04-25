@@ -1,7 +1,7 @@
 <?php
 require '../config.php';
 $router = new AltoRouter();
-$router->map('GET|POST', '/', function ($action) {
+$router->map('GET|POST', '/', function () {
     require_once "home.php";
 });
 $router->map('GET', '/user/[:action]/', function ($action) {
