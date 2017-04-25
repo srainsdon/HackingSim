@@ -1,10 +1,11 @@
 <?php
 require '../vendor/autoload.php';
 $router = new AltoRouter();
-$router->map('GET|POST', '/', 'home', 'home');
+$router->map('GET|POST', '/', function ($action) {
+    require_once "home.php";
+});
 $router->map('GET', '/user/[:action]/', function ($action) {
     echo "Action: $action<br />\n";
-    echo "<pre>" . var_dump($match, true) . "</pre>";
 });
 // match current request
 $match = $router->match();
