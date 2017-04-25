@@ -7,7 +7,7 @@
  */
 
 include_once '../config.php';
-
+$log->debug("Router.php - File");
 $router = new AltoRouter();
 
 $router->map( 'GET', '/', function() {
