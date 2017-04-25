@@ -9,17 +9,13 @@ $router->map('GET', '/user/[:action]/', function ($action) {
 });
 // match current request
 $match = $router->match();
+if ($match) {
+    echo "<h1>AltoRouter</h1>"
+        . "<h3>Current request: </h3>"
+        . "<pre>" . print_r($match, true) . "</pre>";
+}
 if ($match && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
-} elseif ($match) {
-    ?>
-    <h1>AltoRouter</h1>
-
-    <h3>Current request: </h3>
-    <pre>
-<?php var_dump($match); ?>
-</pre>
-
-<?php } else {
+} else {
     echo "No Match!<br />\n";
 }
