@@ -10,6 +10,10 @@ include_once '../config.php';
 
 $router = new AltoRouter();
 
+$router->map( 'GET', '/', function() {
+    phpinfo();
+});
+
 $router->map( 'GET', '/[:action]/', function() {
     phpinfo();
 } );
