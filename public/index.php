@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require '../config.php';
 $router = new AltoRouter();
 $router->map('GET|POST', '/', function ($action) {
     require_once "home.php";
