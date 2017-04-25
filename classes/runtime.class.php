@@ -19,7 +19,6 @@ class Runtime
         $logger = Logger::getLogger('root');
 
         $e = error_get_last();
-        $logger->debug($e);
         if(is_null($e)) {
             $logger->debug('Script ended normally');
         } else {
