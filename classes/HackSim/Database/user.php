@@ -14,10 +14,10 @@ class User
     private $log;
     private $corePDO;
 
-    public function __construct($host, $db, $user, $pass, $charset = 'utf8')
+    public function __construct()
     {
         $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
-
+        $this->corePDO = core::getInstance();
     }
 
     public function getUserData($userEmail)
