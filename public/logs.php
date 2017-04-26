@@ -6,7 +6,7 @@
 <body>
 <div class="excontainer">
     <button id="loadbasic">basic load</button>
-    <div id="result"></div>
+    <pre id="result"></pre>
 
 </div>
 <script>
