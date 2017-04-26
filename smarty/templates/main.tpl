@@ -10,7 +10,6 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-    //cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css
     <title>{$title|default:'Welcome'} - {$app_name}</title>
 </head>
 <body>
