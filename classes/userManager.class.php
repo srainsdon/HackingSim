@@ -49,7 +49,7 @@ class userManager
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         setcookie('authToken', $hashed, time() + 3600, '/');
         //$string = $this->uid . (time() + 3600) . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'];
-        $this->sql->setSession($this->uid, $bytes, time() + 3600, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'],$hashed);
+        $this->sql->setSession($this->uid, $bytes, date ("Y-m-d H:i:s", time() + 3600), $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'],$hashed);
     }
 
     public function isLogged()
