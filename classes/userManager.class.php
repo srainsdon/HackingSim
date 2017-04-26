@@ -18,32 +18,38 @@ class userManager
     {
         $this->sql = $sql;
         $this->log = new Logger(__CLASS__);
-        if (isset($_COOKIE["authToken"])){
+        if (isset($_COOKIE["authToken"])) {
             $this->checkSession($_COOKIE["authToken"]);
         }
     }
-    private function checkSession($crc) {
+
+    private function checkSession($crc)
+    {
 
     }
-    private function createSession($crc) {
 
-        $hashed = password_hash($crc, PASSWORD_BCRYPT);
-        setcookie('authToken', $hashed, time() + 3600, '/');
-
-    }
     public function login($username, $password, $remember = 0)
     {
         $userData = $this->sql->getUserData($username);
-        $bytes = bin2hex(random_bytes(40));
+
         if (password_verify($password, $userData[0]['password'])) {
             $this->loggedin = true;
             $this->uid = $userData[0]['id'];
             $this->userName = $userData[0]['email'];
-            $this->createSession($bytes);
+            $this->createSession();
             return array(0, "Logged In");
         } else {
             return array(1, "Incorrect Username or Password");
         }
+    }
+
+    private function createSession()
+    {
+        $bytes = bin2hex(random_bytes(40));
+        $hashed = password_hash($bytes, PASSWORD_BCRYPT);
+        setcookie('authToken', $hashed, time() + 3600, '/');
+        //$string = $this->uid . (time() + 3600) . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'];
+        $this->sql->setSession($this->uid, $bytes, time() + 3600, $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'],$hashed);
     }
 
     public function isLogged()
