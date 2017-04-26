@@ -28,11 +28,10 @@
 
 {block name=bottomScripts}
     <script>
-        $('#appLog').DataTable({
-            "ajax": {
-                "url": "LogAjax.php",
-                "type": "POST"
-            }
+        $(document).ready(function () {
+            $('#appLog').DataTable({
+                "ajax": 'https://working-namespaces.herokuapp.com/LogAjax.php'
+            });
         });
     </script>
 {/block}
