@@ -16,12 +16,13 @@
 <div class="container">
 
     {include 'nav_menu.tpl'}
-
+    {if isset($bCrumbs)}
     <nav class="breadcrumb well-sm">
         {foreach $bCrumbs as $link}
             {$link}
         {/foreach}
     </nav>
+    {/if}
     {if isset($message)}
         <br/>
         <div class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert"
