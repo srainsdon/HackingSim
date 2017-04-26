@@ -23,16 +23,20 @@ class Development
         $this->DBCore = \HackSim\Database\DBCore::getInstance();
     }
 
-    public function getLogTail($rows = 25)
+    public function getLogTail($rows = 25, $table = false)
     {
         $sql = "SELECT * from tailLog LIMIT $rows";
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
-        $message = null;
+        $message = array();
         while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
-            $message .= "<tr><td>";
-            $message .= implode("</td><td>", $row);
-            $message .= "</td></tr>";
+            if ($table) {
+                $message .= "<tr><td>";
+                $message .= implode("</td><td>", $row);
+                $message .= "</td></tr>";
+            } else {
+                $message[] = $row;
+            }
         }
         return $message;
     }
