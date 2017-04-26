@@ -9,11 +9,13 @@
 namespace HackSim\Database;
 
 
-class DBCore
+use HackSim\Core\Singleton;
+
+class DBCore extends Singleton
 {
     protected $pdo;
     protected $dsn;
-    protected $log;
+    private $log;
 
     function __construct()
     {

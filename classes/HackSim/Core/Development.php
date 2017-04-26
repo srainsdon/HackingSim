@@ -20,7 +20,7 @@ class Development
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->DBCore = new DBCore();
+        $this->DBCore = \HackSim\Database\DBCore::getInstance();
     }
 
     public function getLogTail($rows = 25)

@@ -17,7 +17,7 @@ class User
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->DBCore = new DBCore();
+        $this->DBCore = DBCore::getInstance();
     }
 
     public function getUserData($userEmail)
