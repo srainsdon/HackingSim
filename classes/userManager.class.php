@@ -27,7 +27,6 @@ class userManager
         if (password_verify($password, $userData[0]['password'])) {
             setcookie('authToken', $hashed, time() + 3600, '/');
         }
-        exit();
     }
 
     public function isLogged()
