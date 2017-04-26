@@ -20,6 +20,9 @@
     "heroku/heroku-buildpack-php": "v99"
   },
   "autoload": {
+    "psr-4": {
+      "HackSim":        "classes/"
+    },
     "classmap": [
       "classes/"
     ]
