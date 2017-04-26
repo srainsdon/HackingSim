@@ -14,4 +14,5 @@ require_once('../vendor/autoload.php');
 Logger::configure($_SERVER["DOCUMENT_ROOT"] . '/../log4php.xml');
 $dev = new \HackSim\Core\Development();
 $data = $dev->getLogTail($rows);
+header("content-type: application/json");
 echo json_encode(array('data' => $data));
