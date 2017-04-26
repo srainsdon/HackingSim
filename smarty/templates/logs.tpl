@@ -40,5 +40,12 @@
                 "pageLength": 50
             })
         });
+        var table = $('#appLog').DataTable({
+            ajax: "/LogAjax.php"
+        });
+
+        setInterval(function () {
+            table.ajax.reload();
+        }, 30000);
     </script>
 {/block}
