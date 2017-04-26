@@ -3,9 +3,9 @@ require '../config.php';
 $router = new AltoRouter();
 $router->map('GET|POST', '/', 'home.php','home');
 $router->map('GET', '/user/', 'user', 'profile');
-$router->map('GET|POST', '/user/logout/', function (){
+$router->map('GET|POST', '/user/logout/', function ($router){
     setcookie($_COOKIE['authID'], "", time() - 3600, '/');
-    header('Location: /login/');
+    header('Location: '. $router->generate('login'));
 }, 'logout');
 $router->map('GET|POST', '/user/login/', 'login.php', 'login');
 $router->map('GET|POST', '/user/register/', 'login.php', 'register');
