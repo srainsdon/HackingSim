@@ -30,7 +30,7 @@ class Development
         $sth = $this->DBCore->query($sql);
         $message = array();
         while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
-            if ($table) {
+            if (false) {
                 $message .= "<tr><td>";
                 $message .= implode("</td><td>", $row);
                 $message .= "</td></tr>";
