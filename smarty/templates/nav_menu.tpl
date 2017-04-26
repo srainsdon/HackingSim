@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav navbar-right">
             {if ($LoggedIn)}
                 <li><a href="/user/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                <li><a href="/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="/user/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             {else}
                 <li><a href="/user/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li><a href="/user/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
