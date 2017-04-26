@@ -13,12 +13,14 @@ use HackSim\Database\DBCore;
 
 class Development
 {
+
     protected $DBCore;
     protected $log;
+
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->DBCore = \HackSim\Database\DBCore::getInstance();
+        $this->DBCore = DBCore::getInstance();
     }
 
     public function getLogTail($rows = 25)
