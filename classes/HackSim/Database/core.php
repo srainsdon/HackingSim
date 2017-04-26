@@ -22,6 +22,7 @@ class core extends Singleton
         //$this->log = Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
         //$this->log->debug("Core: Loading...");
         $this->dsn = "mysql:host=".getenv('dbHost').";dbname=".getenv('dbDatabase').";charset=utf8";
+        echo $this->dsn;
         $opt = [
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
