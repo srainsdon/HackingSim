@@ -3,6 +3,9 @@ require '../config.php';
 $router = new AltoRouter();
 $router->map('GET|POST', '/', 'home.php','home');
 $router->map('GET', '/user/', 'user', 'profile');
+$router->map('GET|POST', '/user/logout/', 'login.php', 'logout');
+$router->map('GET|POST', '/user/login/', 'login.php', 'login');
+$router->map('GET', '/user/register/', 'login.php', 'register');
 // match current request
 $match = $router->match();
 if ($match) {
@@ -13,5 +16,7 @@ if ($match && is_callable($match['target'])) {
 } elseif ($match && is_file($match['target'])) {
     require_once $match['target'];
 } else {
-    echo "No Match!<br />\n";
+    header("HTTP/1.0 404 Not Found");
+    $smarty->assign('bCrumbs', "<span class=\"breadcrumb-item active\">File Not Found</span>");
+    $smarty->display('404.tpl');
 }
