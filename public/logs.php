@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript">
 
         function loaddata() {
