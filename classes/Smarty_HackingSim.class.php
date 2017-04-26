@@ -16,6 +16,7 @@ class Smarty_HackingSim extends Smarty
         $this->setDebugTemplate('/app/smarty/templates/debug.tpl');
         if ($debug) {
             $this->setDebugging(true);
+            $this->assign("_smarty_debug_output", 'firebug');
         }
         $this->assign('app_name', 'Game Simulator');
     }

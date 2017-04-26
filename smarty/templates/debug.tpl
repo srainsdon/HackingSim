@@ -1,4 +1,4 @@
-* Smarty *}
+{* Smarty *}
 {* debug.tpl, firebug version by Hipska, tweaked by GarrickCheung *}
 {assign_debug_info}
 {if isset($_smarty_debug_output) and $_smarty_debug_output eq "html"}
