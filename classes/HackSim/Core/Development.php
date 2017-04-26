@@ -24,6 +24,7 @@ class Development
     public function getLogTail($rows = 25)
     {
         $sql = "SELECT * from tailLog LIMIT $rows";
-        return implode("<br />\n", $this->DBCore->query($sql)->fetchAll());
+        $logs = $this->DBCore->query($sql)->fetchAll();
+        return implode("<br />\n", $logs);
     }
 }
