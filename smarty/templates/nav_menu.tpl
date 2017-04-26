@@ -3,35 +3,6 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">{$app_name}</a>
         </div>
-        <ul class="nav navbar-nav">
-            <!-- <li><a {if $location == '/store/'}class="active"{/if} href="#">Store</a></li> -->
-            {if ($LoggedIn)}
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Network
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">main.slayer1of1.players.net</a></li>
-                        <li><a href="#">...</a></li>
-                    </ul>
-                </li>
-                <li {if $location == '/admin/network/' || $location == '/admin/computer/'}class="active"{/if}
-                    class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li {if $location == '/admin/network/'} class="active"{/if} ><a
-                                    href="/admin/network/">Networks</a></li>
-                        <li {if $location == '/admin/computer/'} class="active"{/if} ><a
-                                    href="/admin/computer/">Computers</a></li>
-                        <hr/>
-                        <li {if $location == '/admin/log/'} class="active"{/if} ><a
-                                    href="/admin/log/">Log Viwer</a></li>
-                        <li><a {if $location == '/admin/dash/'}class="active"{/if} href="/admin/dash/">Random
-                                Strings</a></li>
-                    </ul>
-                </li>
-            {/if}
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             {if ($LoggedIn)}
                 <li><a href="/user/"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
