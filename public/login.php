@@ -20,5 +20,5 @@ if (!isset($_COOKIE['authID']) && isset($_POST['email'])) {
         setcookie('authID', "", time() - 3600, '/');
     }
 }
-$smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">Login</span>");
+$smarty->append('bCrumbs', "<span class=\"breadcrumb-item active\">{$match['name']}</span>");
 $smarty->display('login.tpl');
