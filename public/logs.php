@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<table id="LogTable" class="table table-bordered">
+<table id="LogTable" class="table">
     <tbody>
     </tbody>
 </table>
