@@ -9,6 +9,8 @@
 class userManager
 {
     private $loggedin;
+    private $uid;
+    private $userName;
     private $sql;
     private $log;
 
@@ -16,18 +18,31 @@ class userManager
     {
         $this->sql = $sql;
         $this->log = new Logger(__CLASS__);
+        if (isset($_COOKIE["authToken"])){
+            $this->checkSession($_COOKIE["authToken"]);
+        }
     }
+    private function checkSession($crc) {
 
+    }
+    private function createSession($crc) {
+
+        $hashed = password_hash($crc, PASSWORD_BCRYPT);
+        setcookie('authToken', $hashed, time() + 3600, '/');
+
+    }
     public function login($username, $password, $remember = 0)
     {
         $userData = $this->sql->getUserData($username);
         $bytes = bin2hex(random_bytes(40));
-        $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         if (password_verify($password, $userData[0]['password'])) {
-            setcookie('authToken', $hashed, time() + 3600, '/');
+            $this->loggedin = true;
+            $this->uid = $userData[0]['id'];
+            $this->userName = $userData[0]['email'];
+            $this->createSession($bytes);
             return array(0, "Logged In");
         } else {
-            return array(1, "Incorrect User or Pass");
+            return array(1, "Incorrect Username or Password");
         }
     }
 

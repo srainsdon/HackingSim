@@ -151,7 +151,17 @@ class sqlManager
         $this->logger->debug("getUserData sql query: $sql");
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    public function setSession($uid, $hash, $exp, $ip, $agent, $cookie_crc){
+        $sql = "INSERT INTO `HackingSim`.`sessions` (`uid`, `hash`, `expiredate`, `ip`, `agent`,`cookie_crc`) VALUES ($uid, $hash, $exp, $ip, $agent, $cookie_crc);";
+        $this->logger->debug("setSession sql query: $sql");
+        if ($this->pdo->query($sql) != TRUE) {
+            $ec = $this->pdo->errorCode();
+            $this->logger->error("Error: $sql\n$ec");
+            return "Error: $sql<br />\n$ec";
+        } else {
+            return TRUE;
+        }
+    }
     /**
      * getLogLines
      * Gives you the logs that have been collected
