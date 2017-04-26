@@ -4,7 +4,7 @@ $router = new AltoRouter();
 $router->map('GET|POST', '/', 'home.php','home');
 $router->map('GET', '/user/', 'user', 'profile');
 $router->map('GET|POST', '/user/logout/', function (){
-    setcookie($_COOKIE['authID'], "", time() - 3600, '/');
+    setcookie($_COOKIE['authToken'], "", time() - 3600, '/');
     header('Location: /user/login/');
 }, 'logout');
 $router->map('GET|POST', '/user/login/', 'login.php', 'login');
