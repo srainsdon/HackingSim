@@ -4,9 +4,6 @@
     <script type="text/javascript">
 
         function loaddata() {
-            var name = document.getElementById("username");
-
-            if (name) {
                 $.ajax({
                     type: 'post',
                     url: 'LogAjax.php',
@@ -19,11 +16,6 @@
                     }
                 });
             }
-
-            else {
-                $('#display_info').html("Please Enter Some Words");
-            }
-        }
 
     </script>
 
