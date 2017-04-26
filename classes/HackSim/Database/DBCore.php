@@ -19,7 +19,7 @@ class DBCore extends Singleton
 
     function __construct()
     {
-        $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
+        $this->log = \Logger::getLogger(__CLASS__);
         $this->log->debug("Core: Loading...");
         $this->dsn = "mysql:host=" . getenv('dbHost') . ";dbname=" . getenv('dbDatabase') . ";charset=utf8";
         $opt = [
@@ -30,7 +30,7 @@ class DBCore extends Singleton
         $this->pdo = new \PDO($this->dsn, getenv('dbUser'), getenv('dbPass'), $opt);
     }
 
-    public function __call($method, $args)
+    public function __call($method, $args = null)
     {
         if (is_callable(array($this->pdo, $method))) {
             return call_user_func_array(array($this->pdo, $method), $args);
