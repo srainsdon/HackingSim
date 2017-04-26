@@ -1,38 +1,38 @@
 <html>
 <head>
     <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript">
-
-        function loaddata() {
-            var name = document.getElementById("username");
-
-            if (name) {
-                $.ajax({
-                    type: 'post',
-                    url: 'LogAjax.php',
-                    data: {
-                        timestamp: name,
-                    },
-                    success: function (response) {
-                        // We get the element having id of display_info and put the response inside it
-                        $('#display_info').html(response);
-                    }
-                });
-            }
-
-            else {
-                $('#display_info').html("Please Enter Some Words");
-            }
-        }
-
-    </script>
 
 </head>
 <body>
+<div class="excontainer">
+    <button id="loadbasic">basic load</button>
+    <div id="result"></div>
 
-<input type="text" name="username" id="username" onkeyup="loaddata();">
-<div id="display_info">
 </div>
+<script>
+    // learn jquery ajax
+    // http://net.tutsplus.com/tutorials/javascript-ajax/5-ways-to-make-ajax-calls-with-jquery/
 
+    // no need to specify document ready
+
+    $(function worker() {
+        // don't cache ajax or content won't be fresh
+        $.ajaxSetup({
+            cache: false,
+            complete: function () {
+                // Schedule the next request when the current one's complete
+                setTimeout(worker, 2000);
+            }
+        });
+        var ajax_load = "<img src='http://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
+
+        // load() functions
+        var loadUrl = "http://fiddle.jshell.net/dvb0wpLs/show/";
+
+        $("#result").html(ajax_load).load(loadUrl);
+
+// end
+    });
+</script>
 </body>
 </html>
