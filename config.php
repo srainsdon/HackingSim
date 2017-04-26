@@ -14,7 +14,7 @@
  * 3 = smarty logging on entire site
  */
 
-define("DEBUG", 3);
+define("DEBUG", 2);
 
 if (DEBUG == 2) {
     error_reporting(E_ALL);
