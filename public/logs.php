@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
                 setTimeout(worker, 2000);
             }
         });
-        var ajax_load = "<img src='http://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
+        var ajax_load = "<img src='https://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
 
         // load() functions
         var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
