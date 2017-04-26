@@ -8,7 +8,6 @@
                     <th>timestamp</th>
                     <th>logger</th>
                     <th>level</th>
-                    <th>thread</th>
                     <th>file</th>
                     <th>line</th>
                     <th>message</th>
@@ -19,7 +18,6 @@
                     <th>timestamp</th>
                     <th>logger</th>
                     <th>level</th>
-                    <th>thread</th>
                     <th>file</th>
                     <th>line</th>
                     <th>message</th>
