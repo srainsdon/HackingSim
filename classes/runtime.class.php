@@ -22,7 +22,7 @@ class Runtime
         if(is_null($e)) {
             $logger->debug('Script ended normally');
         } else {
-            $logger->error($e['message']);
+            $logger->error($e);
         }
     }
 

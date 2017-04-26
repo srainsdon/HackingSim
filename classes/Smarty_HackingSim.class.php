@@ -13,6 +13,7 @@ class Smarty_HackingSim extends Smarty
         $this->setCompileDir("/app/smarty/templates_c/");
         $this->setConfigDir("/app/smarty/configs/");
         $this->setCacheDir("/app/smarty/cache/");
+        $this->setDebugTemplate('/app/smarty/templates/debug.tpl');
         if ($debug) {
             $this->setDebugging(true);
         }
