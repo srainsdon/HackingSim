@@ -28,10 +28,8 @@
 
 {block name=bottomScripts}
     <script>
-        $(document).ready(function () {
-            var table = $('#appLog').DataTable({
-                ajax: "https://working-namespaces.herokuapp.com/LogAjax.php"
-            });
+        $('#appLog').DataTable({
+            ajax: "https://working-namespaces.herokuapp.com/LogAjax.php"
         });
     </script>
 {/block}
