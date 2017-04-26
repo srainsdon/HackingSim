@@ -13,4 +13,5 @@ ini_set("display_errors", 1);
 require_once('../vendor/autoload.php');
 Logger::configure($_SERVER["DOCUMENT_ROOT"] . '/../log4php.xml');
 $dev = new \HackSim\Core\Development();
-json_encode($dev->getLogTail($rows));
+$data = $dev->getLogTail($rows);
+json_encode($data);
