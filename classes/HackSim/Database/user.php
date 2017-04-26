@@ -12,18 +12,18 @@ namespace HackSim\Database;
 class User
 {
     private $log;
-    private $corePDO;
+    private $DBCore;
 
     public function __construct()
     {
         $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
-        $this->corePDO = core::getInstance();
+        $this->DBCore = DBCore::getInstance();
     }
 
     public function getUserData($userEmail)
     {
         $sql = "SELECT * from users WHERE email = '$userEmail'";
         $this->log->debug("getUserData sql query: $sql");
-        return $this->corePDO->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->DBCore->query($sql)->fetchAll();
     }
 }
