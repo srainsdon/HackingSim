@@ -14,8 +14,8 @@ use HackSim\Database\DBCore;
 class Development
 {
 
-    protected $DBCore;
-    protected $log;
+    private $log;
+    private $DBCore;
 
     public function __construct()
     {
