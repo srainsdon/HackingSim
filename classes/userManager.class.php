@@ -23,8 +23,8 @@ class userManager
         $userData = $this->sql->getUserData($username);
         $bytes = uniqid() . $username;
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
-        var_dump($userData, $bytes, $hashed);
-        if (password_verify($password, $userData['password'])) {
+        var_dump($userData);
+        if (password_verify($password, $userData[0]['password'])) {
             echo "all Good!";
         }
         exit();
