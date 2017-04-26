@@ -1,30 +1,26 @@
 <html>
 <head>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript">
-
-        function loaddata() {
-                $.ajax({
-                    type: 'post',
-                    url: 'LogAjax.php',
-                    data: {
-                        user_name: name,
-                    },
-                    success: function (response) {
-                        // We get the element having id of display_info and put the response inside it
-                        $('#display_info').html(response);
-                    }
-                });
-            }
-
-    </script>
 
 </head>
 <body>
-
-<input type="text" name="username" id="username" onkeyup="loaddata();">
+<button id="loadbasic">basic load</button>
 <div id="display_info">
 </div>
+$(function(){
+// don't cache ajax or content won't be fresh
+$.ajaxSetup ({
+cache: false
+});
+var ajax_load = "<img src='http://i.imgur.com/pKopwXp.gif' alt='loading...'/>";
 
+// load() functions
+var loadUrl = "view-source:/LogAjax.php";
+$("#loadbasic").click(function(){
+$("#display_info").html(ajax_load).load(loadUrl);
+});
+
+// end
+});
 </body>
 </html>
