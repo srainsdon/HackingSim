@@ -152,7 +152,7 @@ class sqlManager
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     public function setSession($uid, $hash, $exp, $ip, $agent, $cookie_crc){
-        $sql = "INSERT INTO `HackingSim`.`sessions` (`uid`, `hash`, `expiredate`, `ip`, `agent`,`cookie_crc`) VALUES ($uid, $hash, $exp, $ip, $agent, $cookie_crc);";
+        $sql = "INSERT INTO `HackingSim`.`sessions` (`uid`, `hash`, `expiredate`, `ip`, `agent`,`cookie_crc`) VALUES ('$uid', '$hash', '$exp', '$ip', '$agent', '$cookie_crc');";
         $this->logger->debug("setSession sql query: $sql");
         if ($this->pdo->query($sql) != TRUE) {
             $ec = $this->pdo->errorCode();
