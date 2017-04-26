@@ -4,10 +4,12 @@
 
 </head>
 <body>
-<table id="LogTable">
-    <tbody>
-    </tbody>
-</table>
+<div id="LogDiv">
+    <table id="LogTable">
+        <tbody>
+        </tbody>
+    </table>
+</div>
 <script>
     // learn jquery ajax
     // http://net.tutsplus.com/tutorials/javascript-ajax/5-ways-to-make-ajax-calls-with-jquery/
@@ -28,7 +30,7 @@
         // load() functions
         var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
 
-        this.find('tbody').empty().append(loadUrl);
+        $("LogDiv").html(loadUrl)
 
 // end
     });
