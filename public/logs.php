@@ -28,7 +28,7 @@
         // load() functions
         var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
 
-        this.find('tbody').empty().append(content);
+        this.find('tbody').empty().append(loadUrl);
 
 // end
     });
