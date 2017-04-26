@@ -7,20 +7,22 @@
 
 </head>
 <body>
-<table id="LogTable" class="table table-condensed">
-    <thead>
-    <tr>
-        <th>Time Stamp</th>
-        <th>Class</th>
-        <th>Level</th>
-        <th>Message</th>
-        <th>File</th>
-        <th>Line</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+<div>
+    <table id="LogTable" class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Time Stamp</th>
+            <th>Class</th>
+            <th>Level</th>
+            <th>Message</th>
+            <th>File</th>
+            <th>Line</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
 <script>
     // learn jquery ajax
     // http://net.tutsplus.com/tutorials/javascript-ajax/5-ways-to-make-ajax-calls-with-jquery/
