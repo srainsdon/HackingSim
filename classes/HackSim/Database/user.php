@@ -16,7 +16,7 @@ class User
 
     public function __construct($host, $db, $user, $pass, $charset = 'utf8')
     {
-        $this->log = Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
+        $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
 
     }
 

@@ -19,8 +19,8 @@ class core extends Singleton
 
     function __construct()
     {
-        //$this->log = Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
-        //$this->log->debug("Core: Loading...");
+        $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
+        $this->log->debug("Core: Loading...");
         $this->dsn = "mysql:host=". getenv('dbHost') .";dbname=". getenv('dbDatabase') .";charset=utf8";
         $opt = [
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
