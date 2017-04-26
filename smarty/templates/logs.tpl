@@ -1,30 +1,32 @@
 {extends file="main.tpl"}
 {block name=body}
     {if isset()}
-        <table id="appLog" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>timestamp</th>
-                <th>logger</th>
-                <th>level</th>
-                <th>thread</th>
-                <th>file</th>
-                <th>line</th>
-                <th>message</th>
-            </tr>
-            </thead>
-            <tfoot>
-            <tr>
-                <th>timestamp</th>
-                <th>logger</th>
-                <th>level</th>
-                <th>thread</th>
-                <th>file</th>
-                <th>line</th>
-                <th>message</th>
-            </tr>
-            </tfoot>
-        </table>
+        <div id="main">
+            <table id="appLog" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>timestamp</th>
+                    <th>logger</th>
+                    <th>level</th>
+                    <th>thread</th>
+                    <th>file</th>
+                    <th>line</th>
+                    <th>message</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>timestamp</th>
+                    <th>logger</th>
+                    <th>level</th>
+                    <th>thread</th>
+                    <th>file</th>
+                    <th>line</th>
+                    <th>message</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
     {/if}
 {/block}
 
