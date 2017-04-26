@@ -24,10 +24,10 @@ class userManager
         $bytes = uniqid() . $username;
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         var_dump($userData, $bytes, $hashed);
-        exit();
         if (password_verify($password, $userData['password'])) {
             echo "all Good!";
         }
+        exit();
     }
 
     public function isLogged()
