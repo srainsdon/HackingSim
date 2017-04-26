@@ -4,11 +4,10 @@
 
 </head>
 <body>
-<div class="excontainer">
-    <button id="loadbasic">basic load</button>
-    <pre id="result"></pre>
-
-</div>
+<table id="LogTable">
+    <tbody>
+    </tbody>
+</table>
 <script>
     // learn jquery ajax
     // http://net.tutsplus.com/tutorials/javascript-ajax/5-ways-to-make-ajax-calls-with-jquery/
@@ -29,7 +28,7 @@
         // load() functions
         var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
 
-        $("#result").html(ajax_load).load(loadUrl);
+        this.find('tbody').empty().append(content);
 
 // end
     });

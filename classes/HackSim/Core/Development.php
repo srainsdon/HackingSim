@@ -28,9 +28,9 @@ class Development
         $sql = "SELECT * from tailLog LIMIT $rows";
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
-        $message = null;
+        $message = array();
         while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
-            $message .= implode(" ", $row) . PHP_EOL;
+            $message[] = $row;
         }
         return $message;
     }
