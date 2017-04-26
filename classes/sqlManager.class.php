@@ -149,7 +149,7 @@ class sqlManager
     public function getUserData($userEmail){
         $sql = "SELECT * from users WHERE email = '$userEmail'";
         $this->logger->debug("getUserData sql query: $sql");
-        return $this->pdo->query($sql)->fetchAll();
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**
