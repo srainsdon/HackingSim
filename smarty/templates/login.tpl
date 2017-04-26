@@ -4,7 +4,7 @@
     {if ($LoggedIn)}
         You Are Signed in as someone.
     {else}
-        <form class="form-signin" method="post" action="/login/signin/">
+        <form class="form-signin" method="post" action="{$location}">
             <h2 class="form-signin-heading">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required
