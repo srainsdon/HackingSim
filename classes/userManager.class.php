@@ -25,7 +25,8 @@ class userManager
 
     private function checkSession($crc)
     {
-
+        $userData = $this->sql->getSessionData($crc);
+        var_dump($userData);
     }
 
     public function login($username, $password, $remember = 0)
