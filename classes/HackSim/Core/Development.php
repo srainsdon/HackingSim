@@ -20,7 +20,7 @@ class Development
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->DBCore = DBCore::getInstance();
+        $this->DBCore = \HackSim\Database\DBCore::getInstance();
     }
 
     public function getLogTail($rows = 25)
@@ -29,7 +29,7 @@ class Development
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
         $message = null;
-        while ($row = $sth->fetch_assoc()) {
+        while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
             $message .= implode(" ", $row) . PHP_EOL;
         }
         return $message;
