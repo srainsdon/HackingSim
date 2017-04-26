@@ -6,8 +6,21 @@
  * Time: 5:40 AM
  */
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+/*
+ * DEBUG Set to get different levels of logging.
+ * 0 = No debuging
+ * 1 = logging only
+ * 2 = errors displayed on site.
+ * 3 = smarty logging on entire site
+ */
+
+define("DEBUG", 2);
+
+if (DEBUG == 2) {
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+}
+
 $base = $_SERVER["DOCUMENT_ROOT"];
 session_start();
 
@@ -17,7 +30,12 @@ $runtime = new Runtime();
 $log = Logger::getLogger('Main');
 
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
-$smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
+if (DEBUG > 2) {
+    $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on
+} else {
+    $smarty = new Smarty_HackingSim(false); // set this to true to set smarty debug on
+}
+
 $config = new PHPAuth\Config($sql->getPdo());
 $auth = new userManager($sql->getPdo(), $config);
 $commands = new commands($sql);
