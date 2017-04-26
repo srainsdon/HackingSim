@@ -14,7 +14,7 @@ use HackSim\Database\DBCore;
 class Development
 {
     protected $DBCore;
-
+    protected $log;
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
@@ -24,7 +24,7 @@ class Development
     public function getLogTail($rows = 25)
     {
         $sql = "SELECT * from tailLog LIMIT $rows";
-        $logs = $this->DBCore->query($sql)->fetchAll();
-        return implode("<br />\n", $logs);
+        $this->log->debug("getLogTial SQL: $sql");
+        return $this->DBCore->query($sql)->fetchAll();
     }
 }
