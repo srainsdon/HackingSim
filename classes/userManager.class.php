@@ -23,9 +23,11 @@ class userManager
         $userData = $this->sql->getUserData($username);
         $bytes = uniqid() . $username;
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
-        var_dump($userData);
         if (password_verify($password, $userData[0]['password'])) {
             setcookie('authToken', $hashed, time() + 3600, '/');
+            return true;
+        } else {
+            return false;
         }
     }
 
