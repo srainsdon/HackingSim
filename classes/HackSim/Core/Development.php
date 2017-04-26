@@ -27,9 +27,9 @@ class Development
     {
         $sql = "SELECT * from tailLog LIMIT $rows";
         $this->log->debug("getLogTial SQL: $sql");
-        $result = $this->DBCore->query($sql);
+        $sth = $this->DBCore->query($sql);
         $message = null;
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $sth->fetch_assoc()) {
             $message .= implode(" ", $row) . PHP_EOL;
         }
         return $message;
