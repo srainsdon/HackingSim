@@ -27,7 +27,7 @@
         var ajax_load = "<img src='http://automobiles.honda.com/images/current-offers/small-loading.gif' alt='loading...' />";
 
         // load() functions
-        var loadUrl = "http://fiddle.jshell.net/dvb0wpLs/show/";
+        var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
 
         $("#result").html(ajax_load).load(loadUrl);
 
