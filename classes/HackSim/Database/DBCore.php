@@ -20,8 +20,8 @@ class DBCore extends Singleton
     function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->log->debug("Core: Loading...");
         $this->dsn = "mysql:host=" . getenv('dbHost') . ";dbname=" . getenv('dbDatabase') . ";charset=utf8";
+        $this->log->debug("DSN: $this->dsn");
         $opt = [
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
@@ -35,7 +35,6 @@ class DBCore extends Singleton
         if (is_callable(array($this->pdo, $method))) {
             return call_user_func_array(array($this->pdo, $method), $args);
         } else {
-            //throw new \BadMethodCallException('Undefined method Core::' . $method);
             header("HTTP/1.0 500 Server Error");
             echo 'Undefined method Core::' . $method;
         }
