@@ -5,9 +5,10 @@ $router->map('GET|POST', '/', 'home.php','home');
 $router->map('GET', '/user/', 'user', 'profile');
 $router->map('GET|POST', '/user/logout/', 'login.php', 'logout');
 $router->map('GET|POST', '/user/login/', 'login.php', 'login');
-$router->map('GET', '/user/register/', 'login.php', 'register');
+$router->map('GET|POST', '/user/register/', 'login.php', 'register');
 // match current request
 $match = $router->match();
+$log->debug($match);
 if ($match) {
     $log->debug($match);
 }
