@@ -30,7 +30,7 @@
     <script>
         $(document).ready(function () {
             var table = $('#appLog').DataTable({
-                ajax: "/LogAjax.php"
+                ajax: "https://working-namespaces.herokuapp.com/LogAjax.php"
             });
         });
     </script>
