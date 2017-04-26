@@ -3,16 +3,15 @@
  * Created by PhpStorm.
  * User: srainsdon
  * Date: 4/26/2017
- * Time: 5:00 AM
+ * Time: 9:54 AM
  */
 
-namespace HackSim\Database;
+namespace HackSim\Core;
 
 
-class User
+class Development
 {
-    private $log;
-    private $DBCore;
+    protected $DBCore;
 
     public function __construct()
     {
@@ -20,10 +19,9 @@ class User
         $this->DBCore = DBCore::getInstance();
     }
 
-    public function getUserData($userEmail)
+    public function getLogTail($rows = 25)
     {
-        $sql = "SELECT * from users WHERE email = '$userEmail'";
-        $this->log->debug("getUserData sql query: $sql");
+        $sql = "SELECT * from tailLog LIMIT $rows";
         return $this->DBCore->query($sql)->fetchAll();
     }
 }

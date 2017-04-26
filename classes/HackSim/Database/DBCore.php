@@ -19,7 +19,7 @@ class DBCore extends Singleton
 
     function __construct()
     {
-        $this->log = \Logger::getLogger(__NAMESPACE__ . "-" . __CLASS__);
+        $this->log = \Logger::getLogger(__CLASS__);
         $this->log->debug("Core: Loading...");
         $this->dsn = "mysql:host=" . getenv('dbHost') . ";dbname=" . getenv('dbDatabase') . ";charset=utf8";
         $opt = [
