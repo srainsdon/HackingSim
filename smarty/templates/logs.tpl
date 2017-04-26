@@ -1,6 +1,5 @@
 {extends file="main.tpl"}
 {block name=body}
-    {if isset()}
         <div id="main">
             <table id="appLog" class="display" cellspacing="0" width="100%">
                 <thead>
@@ -25,7 +24,6 @@
                 </tfoot>
             </table>
         </div>
-    {/if}
 {/block}
 
 {block name=bottomScripts}
