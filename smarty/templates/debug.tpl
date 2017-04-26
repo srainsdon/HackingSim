@@ -1,6 +1,5 @@
-{* Smarty *}
-{* debug.tpl, firebug version by Hipska, tweaked by GarrickCheung *}
-{* assign_debug_info *}
+{* Smarty debug.tpl, firebug version by Hipska, tweaked by GarrickCheung *}
+{assign_debug_info}
 {if isset($_smarty_debug_output) and $_smarty_debug_output eq "html"}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
