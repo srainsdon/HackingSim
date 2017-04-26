@@ -21,13 +21,13 @@ class userManager
     public function login($username, $password, $remember = 0)
     {
         $userData = $this->sql->getUserData($username);
-        $bytes = uniqid() . $username;
+        $bytes = bin2hex(random_bytes(40));
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         if (password_verify($password, $userData[0]['password'])) {
             setcookie('authToken', $hashed, time() + 3600, '/');
-            return true;
+            return array(0, "Logged In");
         } else {
-            return false;
+            return array(1, "Incorrect User or Pass");
         }
     }
 
