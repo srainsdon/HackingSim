@@ -30,13 +30,8 @@
     <script>
         $(document).ready(function () {
             var table = $('#appLog').DataTable({
-                ajax: "/LogAjax.php",
-                "pageLength": 20
+                ajax: "/LogAjax.php"
             });
-
-            setInterval(function () {
-                table.ajax.reload();
-            }, 30000);
         });
     </script>
 {/block}
