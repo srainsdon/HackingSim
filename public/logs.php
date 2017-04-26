@@ -28,7 +28,7 @@
         // load() functions
         var loadUrl = "https://working-namespaces.herokuapp.com/LogAjax.php";
 
-        $('#LogTable tbody').replaceWith(loadUrl);
+        $('#LogTable tbody').html(ajax_load).load(loadUrl);
 
 // end
     });
