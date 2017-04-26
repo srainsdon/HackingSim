@@ -28,12 +28,12 @@ class Development
         $sql = "SELECT * from tailLog LIMIT $rows";
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
-        $message = '<table><tbody>';
+        $message = null;
         while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
             $message .= "<tr><td>";
             $message .= implode("</td><td>", $row);
             $message .= "</td></tr>";
         }
-        return $message . "</tbody></table>";
+        return $message;
     }
 }
