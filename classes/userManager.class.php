@@ -18,6 +18,9 @@ class userManager {
     public function login($username, $password, $remember = 0) {
 
     }
+    public function isLogged(){
+        return false;
+    }
     public function createUser($username, $password){
         echo password_hash($password, PASSWORD_BCRYPT)."\n";
     }
