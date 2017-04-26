@@ -156,7 +156,7 @@ class sqlManager
 
     public function getSessionData($cookie_crc)
     {
-        $sql = "SELECT * from sessions WHERE cookie_crc = '$cookie_crc'";
+        $sql = "SELECT * from sessions join users on uid = users.id WHERE cookie_crc = '$cookie_crc'";
         $this->logger->debug("getSessionData sql query: $sql");
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -26,7 +26,11 @@ class userManager
     private function checkSession($crc)
     {
         $userData = $this->sql->getSessionData($crc);
-        var_dump($userData);
+        if (isset ($userData[0])) {
+            $this->loggedin = true;
+            $this->uid = $userData[0]['id'];
+            $this->userName = $userData[0]['email'];
+        }
     }
 
     public function login($username, $password, $remember = 0)
@@ -50,7 +54,7 @@ class userManager
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         setcookie('authToken', $hashed, time() + 3600, '/');
         //$string = $this->uid . (time() + 3600) . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'];
-        $this->sql->setSession($this->uid, $bytes, date ("Y-m-d H:i:s", time() + 3600), $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'],$hashed);
+        $this->sql->setSession($this->uid, $bytes, date("Y-m-d H:i:s", time() + 3600), $_SERVER['REMOTE_ADDR'], $_SERVER['HTTP_USER_AGENT'], $hashed);
     }
 
     public function isLogged()
