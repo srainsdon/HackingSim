@@ -9,6 +9,8 @@
 namespace HackSim\Core;
 
 
+use HackSim\Database\DBCore;
+
 class Development
 {
     protected $DBCore;
@@ -16,7 +18,7 @@ class Development
     public function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
-        $this->DBCore = DBCore::getInstance();
+        $this->DBCore = \HackSim\Database\DBCore::getInstance();
     }
 
     public function getLogTail($rows = 25)
