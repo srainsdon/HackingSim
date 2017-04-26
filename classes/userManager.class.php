@@ -21,7 +21,7 @@ class userManager
     public function login($username, $password, $remember = 0)
     {
         $userData = $this->sql->getUserData($username);
-        $bytes = uniqid();
+        $bytes = uniqid() . $username;
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         var_dump($userData, $bytes, $hashed);
         exit();
