@@ -59,7 +59,7 @@ class userManager
 
     public function isLogged()
     {
-        return false;
+        return $this->loggedin;
     }
 
     public function createUser($username, $password)
