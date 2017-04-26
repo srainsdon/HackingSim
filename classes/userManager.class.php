@@ -25,7 +25,7 @@ class userManager
         $hashed = password_hash($bytes, PASSWORD_BCRYPT);
         var_dump($userData);
         if (password_verify($password, $userData[0]['password'])) {
-            echo "all Good!";
+            setcookie('authToken', $hashed, time() + 3600, '/');
         }
         exit();
     }
