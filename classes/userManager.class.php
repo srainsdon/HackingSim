@@ -6,22 +6,37 @@
  * Date: 4/5/2017
  * Time: 9:11 AM
  */
-class userManager {
+class userManager
+{
     private $loggedin;
     private $sql;
     private $log;
-    function __construct()
+
+    function __construct(sqlManager &$sql)
     {
+        $this->sql = $sql;
         $this->log = new Logger(__CLASS__);
     }
 
-    public function login($username, $password, $remember = 0) {
+    public function login($username, $password, $remember = 0)
+    {
+        $userData = $this->sql->getUserData($username);
+        $bytes = random_bytes(40);
+        $hashed = password_hash($bytes, PASSWORD_BCRYPT);
+        var_dump($userData, $bytes, $hashed);
+        exit();
+        if (password_verify($password, $hash)) {
 
+        }
     }
-    public function isLogged(){
+
+    public function isLogged()
+    {
         return false;
     }
-    public function createUser($username, $password){
-        echo password_hash($password, PASSWORD_BCRYPT)."\n";
+
+    public function createUser($username, $password)
+    {
+        echo password_hash($password, PASSWORD_BCRYPT) . "\n";
     }
 }

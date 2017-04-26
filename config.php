@@ -37,7 +37,7 @@ if (DEBUG > 2) {
 }
 
 $config = new PHPAuth\Config($sql->getPdo());
-$auth = new userManager($sql->getPdo(), $config);
+$auth = new userManager($sql);
 $commands = new commands($sql);
 if(! isset($_SESSION['CommandHistory'])) {
     $_SESSION['CommandHistory'] = '';

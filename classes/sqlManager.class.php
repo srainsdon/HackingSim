@@ -146,6 +146,11 @@ class sqlManager
         return $this->pdo->exec($sql);
     }
 
+    public function getUserData($userEmail){
+        $sql = "SELECT * from users WHERE email = $userEmail";
+        return $this->pdo->query($sql)->fetchAll();
+    }
+
     /**
      * getLogLines
      * Gives you the logs that have been collected
