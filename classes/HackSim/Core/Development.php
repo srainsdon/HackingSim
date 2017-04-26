@@ -29,15 +29,7 @@ class Development
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
         $message = array();
-        while ($row = $sth->fetch(\PDO::FETCH_ASSOC)) {
-            if (false) {
-                $message .= "<tr><td>";
-                $message .= implode("</td><td>", $row);
-                $message .= "</td></tr>";
-            } else {
-                $message[] = $row;
-            }
-        }
+        $message = $sth->fetch(\PDO::FETCH_NUM);
         return $message;
     }
 }
