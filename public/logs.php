@@ -7,7 +7,17 @@
 
 </head>
 <body>
-<table id="LogTable" class="table">
+<table id="LogTable" class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Time Stamp</th>
+        <th>Class</th>
+        <th>Level</th>
+        <th>Message</th>
+        <th>File</th>
+        <th>Line</th>
+    </tr>
+    </thead>
     <tbody>
     </tbody>
 </table>
