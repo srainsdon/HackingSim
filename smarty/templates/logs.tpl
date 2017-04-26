@@ -31,7 +31,7 @@
         $(document).ready(function () {
             var table = $('#appLog').DataTable({
                 ajax: "/LogAjax.php",
-                "pageLength": 50
+                "pageLength": 20
             });
 
             setInterval(function () {
