@@ -33,7 +33,7 @@ class Development
         return $message;
     }
 
-    public function get_client_ip_server()
+    public function get_client_ip()
     {
         $ipaddress = '';
         if ($_SERVER['HTTP_CLIENT_IP'])
