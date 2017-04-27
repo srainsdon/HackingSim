@@ -26,11 +26,11 @@ session_start();
 
 require 'vendor/autoload.php';
 Logger::configure($base . '/../log4php.xml');
+$dev = new \HackSim\Core\Development();
+$_SESSION['userIP'] = $dev->get_client_ip();
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
-$dev = new \HackSim\Core\Development();
 
-$_SESSION['userIP'] = $dev->get_client_ip();
 
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 if (DEBUG > 2) {
