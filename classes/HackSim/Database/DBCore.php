@@ -21,7 +21,6 @@ class DBCore extends Singleton
     {
         $this->log = \Logger::getLogger(__CLASS__);
         $dev = new \HackSim\Core\Development();
-        LoggerMDC::put("ipAddress", $dev->get_client_ip());
         $this->dsn = "mysql:host=" . getenv('dbHost') . ";dbname=" . getenv('dbDatabase') . ";charset=utf8";
         $this->log->debug("DSN: $this->dsn");
         $opt = [

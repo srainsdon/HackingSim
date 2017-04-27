@@ -1,14 +1,18 @@
 <?php
 require '../config.php';
 $router = new AltoRouter();
-$router->map('GET|POST', '/', 'home.php','home');
+$router->map('GET|POST', '/', 'home.php', 'home');
+
+// User Management
+$router->map('GET|POST', '/user/login/', 'login.php', 'login');
+$router->map('GET|POST', '/user/register/', 'login.php', 'register');
 $router->map('GET', '/user/', 'user', 'profile');
-$router->map('GET|POST', '/user/logout/', function (){
+$router->map('GET', '/user/logout/', function () {
     setcookie($_COOKIE['authToken'], "", time() - 3600, '/');
     header('Location: /user/login/');
 }, 'logout');
-$router->map('GET|POST', '/user/login/', 'login.php', 'login');
-$router->map('GET|POST', '/user/register/', 'login.php', 'register');
+
+
 $router->map('GET', '/logs/', 'logs.php', 'logs');
 
 // match current request
