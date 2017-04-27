@@ -29,7 +29,9 @@ Logger::configure($base . '/../log4php.xml');
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
 $dev = new \HackSim\Core\Development();
-LoggerMDC::put("ipAddress", $dev->get_client_ip());
+
+$_SESSION['userIP'] = $dev->get_client_ip();
+
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 if (DEBUG > 2) {
     $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on
