@@ -9,7 +9,7 @@ $router->map('GET|POST', '/user/logout/', function (){
 }, 'logout');
 $router->map('GET|POST', '/user/login/', 'login.php', 'login');
 $router->map('GET|POST', '/user/register/', 'login.php', 'register');
-$router->map('GET|POST', '/logs/', 'logs.php', 'logs');
+$router->map('GET', '/logs/', 'logs.php', 'logs');
 
 // match current request
 

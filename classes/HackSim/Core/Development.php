@@ -21,16 +21,7 @@ class Development
     {
         $this->log = \Logger::getLogger(__CLASS__);
         $this->DBCore = \HackSim\Database\DBCore::getInstance();
-    }
-
-    public function getLogTail($rows = 25, $table = false)
-    {
-        $sql = "SELECT * from tailLog LIMIT $rows";
-        $this->log->debug("getLogTial SQL: $sql");
-        $sth = $this->DBCore->query($sql);
-        $message = array();
-        $message = $sth->fetchAll();
-        return $message;
+        LoggerMDC::put("ipAddress", $this->get_client_ip());
     }
 
     public function get_client_ip()
@@ -52,5 +43,15 @@ class Development
             $ipaddress = 'UNKNOWN';
 
         return $ipaddress;
+    }
+
+    public function getLogTail($rows = 25, $table = false)
+    {
+        $sql = "SELECT * from tailLog LIMIT $rows";
+        $this->log->debug("getLogTial SQL: $sql");
+        $sth = $this->DBCore->query($sql);
+        $message = array();
+        $message = $sth->fetchAll();
+        return $message;
     }
 }
