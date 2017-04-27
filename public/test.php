@@ -4,3 +4,5 @@ ini_set("display_errors", 1);
 require_once('../vendor/autoload.php');
 $configurator = new LoggerConfiguratorDefault();
 $config = $configurator->parse($_SERVER["DOCUMENT_ROOT"] . '/../log4php.xml');
+
+echo "<pre>" . print_r($config, true) . "</pre>";
