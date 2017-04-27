@@ -29,7 +29,7 @@ class Development
         $this->log->debug("getLogTial SQL: $sql");
         $sth = $this->DBCore->query($sql);
         $message = array();
-        $message = $sth->fetch(\PDO::FETCH_NUM);
+        $message = $sth->fetchAll();
         return $message;
     }
 }
