@@ -14,12 +14,14 @@
             </thead>
             <tbody>
             {foreach $logs as $log}
-                <tr>{$log.timestamp}</tr>
-                <tr>{$log.logger}</tr>
-                <tr>{$log.level}</tr>
-                <tr>{$log.file}</tr>
-                <tr>{$log.line}</tr>
-                <tr>{$log.message}</tr>
+                <tr>
+                    <td>{$log.timestamp}</td>
+                    <td>{$log.logger}</td>
+                    <td>{$log.level}</td>
+                    <td>{$log.file}</td>
+                    <td>{$log.line}</td>
+                    <td>{$log.message}</td>
+                </tr>
             {/foreach}
             </tbody>
             <tfoot>
