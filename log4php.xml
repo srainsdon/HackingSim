@@ -6,7 +6,7 @@
         <param name="password" value="puCutagiy1hopojeM74Ej8coj745Va" />
         <param name="table" value="log4php_log" />
         <param name="insertSql"
-               value="INSERT INTO __TABLE__ (timestamp, ipAddress, logger, level, message, thread, file, line) VALUES (?, ?, ?, ?, ?, ?, ?)"/>
+               value="INSERT INTO __TABLE__ (timestamp, ipAddress, logger, level, message, thread, file, line) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"/>
         <param name="insertPattern"
                value="%date{Y-m-d H:i:s},%server{REMOTE_ADDR},%logger,%level,%message,%pid,%file,%line"/>
     </appender>
