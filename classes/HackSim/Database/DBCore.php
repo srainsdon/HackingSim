@@ -20,6 +20,7 @@ class DBCore extends Singleton
     function __construct()
     {
         $this->log = \Logger::getLogger(__CLASS__);
+        \LoggerMDC::put("ipAddress", $this->get_client_ip());
         $this->dsn = "mysql:host=" . getenv('dbHost') . ";dbname=" . getenv('dbDatabase') . ";charset=utf8";
         $this->log->debug("DSN: $this->dsn");
         $opt = [

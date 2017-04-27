@@ -21,7 +21,6 @@ class Development
     {
         $this->log = \Logger::getLogger(__CLASS__);
         $this->DBCore = \HackSim\Database\DBCore::getInstance();
-        \LoggerMDC::put("ipAddress", $this->get_client_ip());
     }
 
     public function get_client_ip()
