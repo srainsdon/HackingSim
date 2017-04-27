@@ -28,6 +28,7 @@ require 'vendor/autoload.php';
 Logger::configure($base . '/../log4php.xml');
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
+$dev = new \HackSim\Core\Development();
 LoggerMDC::put("ipAddress", $dev->get_client_ip_server());
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 if (DEBUG > 2) {

@@ -10,6 +10,8 @@ $router->map('GET|POST', '/user/logout/', function (){
 $router->map('GET|POST', '/user/login/', 'login.php', 'login');
 $router->map('GET|POST', '/user/register/', 'login.php', 'register');
 // match current request
+
+
 $match = $router->match();
 $log->debug($match);
 if ($match) {
