@@ -16,7 +16,7 @@ class Runtime
 
     function shutdown()
     {
-        $logger = Logger::getLogger('root');
+        $logger = Logger::getLogger(__CLASS__);
 
         $e = error_get_last();
         if(is_null($e)) {
