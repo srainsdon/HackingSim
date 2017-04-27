@@ -42,11 +42,8 @@
     <script>
         $(document).ready(function () {
             $('#appLog').DataTable(
-                "order"
-            :
-            [[0, "desc"]]
-            )
-            ;
+                "order":[[0, "desc"]]
+            );
         });
     </script>
 {/block}
