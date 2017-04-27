@@ -28,8 +28,7 @@ require 'vendor/autoload.php';
 Logger::configure($base . '/../log4php.xml');
 $runtime = new Runtime();
 $log = Logger::getLogger('Main');
-$dev =
-    LoggerMDC::put("ipAddress", $dev->get_client_ip_server());
+LoggerMDC::put("ipAddress", $dev->get_client_ip_server());
 $sql = new sqlManager(getenv('dbHost'), getenv('dbDatabase'), getenv('dbUser'), getenv('dbPass'));
 if (DEBUG > 2) {
     $smarty = new Smarty_HackingSim(true); // set this to true to set smarty debug on
