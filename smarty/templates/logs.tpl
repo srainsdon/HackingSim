@@ -5,6 +5,7 @@
             <thead>
             <tr>
                 <th>timestamp</th>
+                <th>Ip Address</th>
                 <th>logger</th>
                 <th>level</th>
                 <th>file</th>
@@ -16,6 +17,7 @@
             {foreach $logs as $log}
                 <tr>
                     <td>{$log.timestamp}</td>
+                    <td>{$log.ipAddress}</td>
                     <td>{$log.logger}</td>
                     <td>{$log.level}</td>
                     <td>{$log.file}</td>
@@ -27,6 +29,7 @@
             <tfoot>
             <tr>
                 <th>timestamp</th>
+                <th>Ip Address</th>
                 <th>logger</th>
                 <th>level</th>
                 <th>file</th>
