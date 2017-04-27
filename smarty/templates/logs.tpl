@@ -12,6 +12,16 @@
                 <th>message</th>
             </tr>
             </thead>
+            <tbody>
+            {foreach $logs as $log}
+                <tr>{$log.timestamp}</tr>
+                <tr>{$log.logger}</tr>
+                <tr>{$log.level}</tr>
+                <tr>{$log.file}</tr>
+                <tr>{$log.line}</tr>
+                <tr>{$log.message}</tr>
+            {/foreach}
+            </tbody>
             <tfoot>
             <tr>
                 <th>timestamp</th>
@@ -29,9 +39,7 @@
 {block name=bottomScripts}
     <script>
         $(document).ready(function () {
-            $('#appLog').DataTable({
-                "ajax": 'https://working-namespaces.herokuapp.com/LogAjax.php'
-            });
+            $('#appLog').DataTable();
         });
     </script>
 {/block}
