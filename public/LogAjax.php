@@ -15,4 +15,4 @@ Logger::configure($_SERVER["DOCUMENT_ROOT"] . '/../log4php.xml');
 $dev = new \HackSim\Core\Development();
 $data = $dev->getLogTail($rows);
 header("Content-Type: application/json");
-print_r($data);
+echo json_encode(array('data' => $data));
