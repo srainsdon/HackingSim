@@ -41,9 +41,9 @@
 {block name=bottomScripts}
     <script>
         $(document).ready(function () {
-            $('#appLog').DataTable(
-                "order":[[0, "desc"]]
-            );
+            $('#appLog').DataTable({
+                "order": [[0, "desc"]]
+            });
         });
     </script>
 {/block}
